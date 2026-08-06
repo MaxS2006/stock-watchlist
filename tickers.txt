@@ -1,0 +1,17 @@
+# Stock watchlist — one ticker per symbol per line.
+# Lines starting with # are ignored. Edit this file any time (even directly
+# on GitHub in your browser) — no code changes needed.
+#
+# Starting mix: a spread of large, liquid, well-known names across sectors,
+# plus SPY as a broad market benchmark.
+
+AAPL
+MSFT
+GOOGL
+AMZN
+NVDA
+TSLA
+META
+JPM
+JNJ
+SPY
