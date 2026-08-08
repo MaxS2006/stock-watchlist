@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watchlist Terminal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #06070a;
+    background-image: radial-gradient(circle at 20% 10%, #0d1420 0%, #06070a 45%);
+    color: #d8dae0;
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 4px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #39ff9c;
+    box-shadow: 0 0 10px #39ff9c, 0 0 20px #39ff9c66;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+  h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #eef; }
+  .live-tag {
+    font-size: 10px; color: #39ff9c; border: 1px solid #39ff9c44;
+    padding: 3px 8px; border-radius: 4px; margin-left: 10px;
+    background: #39ff9c0d;
+  }
+  .clock { font-size: 12px; color: #6b7280; }
+
+  .top-grid {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 800px) {
+    .top-grid { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: linear-gradient(180deg, #0d0f16, #0a0b11);
+    border: 1px solid #1c2030;
+    border-radius: 10px;
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .panel::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, #39ff9c55, transparent);
+  }
+  .panel-label {
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #5b6070; margin-bottom: 10px; display: flex; justify-content: space-between;
+  }
+
+  .hero-price { font-size: 34px; font-weight: 700; color: #fff; }
+  .hero-sub { font-size: 12px; margin-top: 2px; }
+  .hero-sub.g { color: #39ff9c; } .hero-sub.r { color: #ff5577; }
+  .candles { display: flex; align-items: flex-end; gap: 3px; height: 130px; margin-top: 16px; }
+  .candle { width: 100%; border-radius: 2px 2px 0 0; min-height: 3px; }
+  .candle.up { background: linear-gradient(180deg, #39ff9c, #14a866); box-shadow: 0 0 6px #39ff9c55; }
+  .candle.down { background: linear-gradient(180deg, #ff5577, #b8203f); box-shadow: 0 0 6px #ff557755; }
+
+  .alerts-panel .alert-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid #161925; font-size: 12px;
+  }
+  .alert-row:last-child { border-bottom: none; }
+  .alert-ticker { font-weight: 700; color: #fff; }
+  .alert-badge {
+    font-size: 9px; padding: 2px 6px; border-radius: 3px;
+    background: #ff557722; color: #ff8fa8; letter-spacing: 0.04em;
+  }
+  .empty-note { font-size: 11px; color: #5b6070; padding: 6px 0; }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 700px) {
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+  .stat-box {
+    background: #0a0b11;
+    border: 1px solid #1c2030;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .stat-box .label { font-size: 9px; color: #5b6070; letter-spacing: .05em; text-transform: uppercase; }
+  .stat-box .value { font-size: 18px; font-weight: 700; margin-top: 4px; color: #fff; }
+  .stat-box .value.g { color: #39ff9c; }
+  .stat-box .value.r { color: #ff5577; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+  }
+  .card {
+    background: #0a0b11;
+    border: 1px solid #1c2030;
+    border-radius: 10px;
+    padding: 13px 14px;
+    transition: border-color .2s, transform .2s;
+  }
+  .card:hover { border-color: #39ff9c55; transform: translateY(-2px); }
+  .card.flagged { border-color: #ff557755; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .ticker { font-size: 13px; font-weight: 700; letter-spacing: .03em; color: #eef; }
+  .price { font-size: 17px; font-weight: 700; margin-top: 3px; color: #fff; }
+  .pct { font-size: 11px; margin-top: 6px; display: flex; gap: 10px; }
+  .g { color: #39ff9c; } .r { color: #ff5577; }
+  .mini-spark { margin-top: 10px; height: 26px; width: 100%; display: block; }
+  .dot-flag {
+    width: 6px; height: 6px; border-radius: 50%; background: #ff5577;
+    box-shadow: 0 0 6px #ff5577; margin-top: 3px;
+  }
+
+  .rsi-row { display: flex; align-items: center; gap: 6px; margin-top: 10px; }
+  .rsi-badge {
+    font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+    letter-spacing: .02em;
+  }
+  .rsi-badge.oversold { background: #39ff9c1a; color: #39ff9c; border: 1px solid #39ff9c44; }
+  .rsi-badge.overbought { background: #ff55771a; color: #ff8fa8; border: 1px solid #ff557744; }
+  .rsi-badge.neutral { background: #ffffff0d; color: #8a8d99; border: 1px solid #ffffff1a; }
+  .rsi-num { font-size: 10px; color: #6b7280; }
+
+  .read-line {
+    margin-top: 9px; font-size: 10.5px; line-height: 1.45; color: #9aa0ad;
+    border-top: 1px solid #161925; padding-top: 9px;
+  }
+
+  .signal-bar {
+    margin-top: 10px; padding: 8px 10px; border-radius: 6px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 8px;
+  }
+  .signal-bar.bullish { background: #39ff9c14; border: 1px solid #39ff9c33; }
+  .signal-bar.bearish { background: #ff557714; border: 1px solid #ff557733; }
+  .signal-bar.mixed { background: #ffffff0a; border: 1px solid #ffffff1a; }
+  .signal-label { font-size: 10px; font-weight: 700; letter-spacing: .03em; }
+  .signal-bar.bullish .signal-label { color: #39ff9c; }
+  .signal-bar.bearish .signal-label { color: #ff8fa8; }
+  .signal-bar.mixed .signal-label { color: #8a8d99; }
+  .signal-score { font-size: 9px; color: #6b7280; font-family: 'JetBrains Mono', monospace; }
+
+  .factor-row { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
+  .factor {
+    font-size: 8.5px; padding: 2px 6px; border-radius: 3px;
+    background: #ffffff08; color: #767b88; border: 1px solid #ffffff14;
+  }
+  .factor.on-g { color: #39ff9c; border-color: #39ff9c33; background: #39ff9c0d; }
+  .factor.on-r { color: #ff8fa8; border-color: #ff557733; background: #ff55770d; }
+
+  footer { margin-top: 16px; text-align: center; font-size: 10px; color: #3f4350; }
+  .loading-note { font-size: 12px; color: #5b6070; padding: 40px 0; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <h1>Watchlist Terminal</h1>
+      <span class="live-tag mono">&#9679; LIVE</span>
+    </div>
+    <div class="clock mono" id="clock">Loading…</div>
+  </header>
+
+  <div id="app">
+    <div class="loading-note mono">Loading latest data&hellip;</div>
+  </div>
+
+  <footer class="mono">stock-watchlist &middot; auto-generated from monitor.py &middot; github pages</footer>
+</div>
+
+<script>
+const DATA_URL = 'data.json';
+const REFRESH_MS = 5 * 60 * 1000; // re-poll every 5 min in case the tab is left open
+
+function esc(str) {
+  const d = document.createElement('div');
+  d.textContent = str === null || str === undefined ? '' : String(str);
+  return d.innerHTML;
+}
+
+function fmtPct(v) {
+  if (v === null || v === undefined) return '&mdash;';
+  const sign = v >= 0 ? '+' : '';
+  return `${sign}${v.toFixed(1)}%`;
+}
+
+function pctClass(v) {
+  return v >= 0 ? 'g' : 'r';
+}
+
+function fmtTime(iso) {
+  if (!iso) return '&mdash;';
+  const d = new Date(iso);
+  return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' }) + ' UTC';
+}
+
+function sparklinePoints(series, width, height, padY) {
+  if (!series || series.length < 2) return '';
+  const min = Math.min(...series);
+  const max = Math.max(...series);
+  const range = max - min || 1;
+  const stepX = width / (series.length - 1);
+  return series.map((v, i) => {
+    const x = (i * stepX).toFixed(1);
+    const y = (height - padY - ((v - min) / range) * (height - padY * 2)).toFixed(1);
+    return `${x},${y}`;
+  }).join(' ');
+}
+
+function renderSpark(series, positive) {
+  const points = sparklinePoints(series, 200, 26, 3);
+  const color = positive ? '#39ff9c' : '#ff5577';
+  return `<svg class="mini-spark" viewBox="0 0 200 26" preserveAspectRatio="none">
+    <polyline fill="none" stroke="${color}" stroke-width="2" points="${points}"/>
+  </svg>`;
+}
+
+function renderCandles(series) {
+  if (!series || series.length < 2) return '';
+  const recent = series.slice(-10);
+  const min = Math.min(...recent);
+  const max = Math.max(...recent);
+  const range = max - min || 1;
+  return recent.map((v, i) => {
+    const prev = i === 0 ? v : recent[i - 1];
+    const up = v >= prev;
+    const heightPct = Math.max(6, ((v - min) / range) * 100);
+    return `<div class="candle ${up ? 'up' : 'down'}" style="height:${heightPct.toFixed(0)}%"></div>`;
+  }).join('');
+}
+
+function rsiBadge(stock) {
+  if (stock.rsi === null || stock.rsi === undefined) return '';
+  return `<div class="rsi-row">
+    <span class="rsi-badge ${stock.rsi_label} mono">${esc(stock.rsi_label.toUpperCase())}</span>
+    <span class="rsi-num mono">RSI ${stock.rsi.toFixed(0)}</span>
+  </div>`;
+}
+
+function factorChips(factors) {
+  if (!factors || !factors.length) return '';
+  return `<div class="factor-row">${factors.map(f => {
+    const cls = f.lean === 'pos' ? 'on-g' : f.lean === 'neg' ? 'on-r' : '';
+    return `<span class="factor ${cls}">${esc(f.label)}</span>`;
+  }).join('')}</div>`;
+}
+
+function signalBar(signal) {
+  if (!signal) return '';
+  return `<div class="signal-bar ${signal.class}">
+    <span class="signal-label mono">${signal.icon} ${esc(signal.label)}</span>
+    <span class="signal-score mono">${signal.up} up &middot; ${signal.down} down &middot; ${signal.neutral} neutral</span>
+  </div>`;
+}
+
+function renderCard(stock) {
+  const dayPositive = (stock.daily_pct || 0) >= 0;
+  const weekPositive = (stock.weekly_pct || 0) >= 0;
+  return `<div class="card ${stock.flagged ? 'flagged' : ''}">
+    <div class="card-top">
+      <div class="ticker">${esc(stock.symbol)}</div>
+      ${stock.flagged ? '<div class="dot-flag"></div>' : ''}
+    </div>
+    <div class="price mono">${stock.price !== null ? '$' + stock.price.toFixed(2) : '&mdash;'}</div>
+    <div class="pct mono">
+      <span class="${pctClass(stock.daily_pct || 0)}">${fmtPct(stock.daily_pct)}</span>
+      <span class="${pctClass(stock.weekly_pct || 0)}">${fmtPct(stock.weekly_pct)}</span>
+    </div>
+    ${renderSpark(stock.sparkline, weekPositive)}
+    ${rsiBadge(stock)}
+    ${stock.read_line ? `<div class="read-line">${esc(stock.read_line)}</div>` : ''}
+    ${factorChips(stock.factors)}
+    ${signalBar(stock.signal)}
+  </div>`;
+}
+
+function renderFeatured(mover) {
+  if (!mover) return '<div class="panel"><div class="panel-label"><span>FEATURED MOVER</span></div><div class="empty-note">No data yet.</div></div>';
+  const weekPositive = (mover.weekly_pct || 0) >= 0;
+  return `<div class="panel">
+    <div class="panel-label"><span>${esc(mover.symbol)} &mdash; FEATURED MOVER</span><span class="mono">1W</span></div>
+    <div class="hero-price mono">$${mover.price.toFixed(2)}</div>
+    <div class="hero-sub ${pctClass(mover.weekly_pct || 0)} mono">${weekPositive ? '&#9650;' : '&#9660;'} ${fmtPct(mover.weekly_pct)} this week &middot; ${fmtPct(mover.daily_pct)} today</div>
+    <div class="candles">${renderCandles(mover.sparkline)}</div>
+  </div>`;
+}
+
+function renderAlertsPanel(data) {
+  const flagged = data.flagged || [];
+  const rows = flagged.length
+    ? flagged.map(f => `<div class="alert-row">
+        <span class="alert-ticker mono">${esc(f.symbol)}</span>
+        <span class="alert-badge mono">${esc(f.badge)}</span>
+      </div>`).join('')
+    : '<div class="empty-note">Nothing currently flagged.</div>';
+
+  const health = data.watchlist_health || {};
+  const healthText = health.total
+    ? `${health.green_count} of ${health.total} tickers green this week<br/>Avg weekly move: <span class="${pctClass(health.avg_weekly_pct || 0)} mono">${fmtPct(health.avg_weekly_pct)}</span>`
+    : 'No data yet.';
+
+  return `<div class="panel alerts-panel">
+    <div class="panel-label"><span>FLAGGED</span><span class="mono">${flagged.length}</span></div>
+    ${rows}
+    <div class="panel-label" style="margin-top:16px;"><span>WATCHLIST HEALTH</span></div>
+    <div style="font-size:11px; color:#8a8d99; line-height:1.6;">${healthText}</div>
+  </div>`;
+}
+
+function renderStatStrip(data) {
+  const flaggedCount = (data.flagged || []).length;
+  return `<div class="stat-strip">
+    <div class="stat-box"><div class="label">Tickers Tracked</div><div class="value mono">${data.tickers_tracked ?? '&mdash;'}</div></div>
+    <div class="stat-box"><div class="label">Flagged Now</div><div class="value ${flaggedCount ? 'r' : ''} mono">${flaggedCount}</div></div>
+    <div class="stat-box"><div class="label">Checks / Day</div><div class="value mono">~${data.checks_per_day ?? '&mdash;'}</div></div>
+    <div class="stat-box"><div class="label">Best Performer</div><div class="value g mono">${esc(data.best_performer || '&mdash;')}</div></div>
+  </div>`;
+}
+
+function render(data) {
+  document.getElementById('clock').innerHTML = `Last sync ${fmtTime(data.generated_at)} &middot; next ${fmtTime(data.next_sync_at)}`;
+
+  const stocks = data.stocks || [];
+  const cards = stocks.length
+    ? stocks.map(renderCard).join('')
+    : '<div class="loading-note mono">No ticker data yet &mdash; waiting for the first monitor.py run.</div>';
+
+  document.getElementById('app').innerHTML = `
+    <div class="top-grid">
+      ${renderFeatured(data.featured_mover)}
+      ${renderAlertsPanel(data)}
+    </div>
+    ${renderStatStrip(data)}
+    <div class="grid">${cards}</div>
+  `;
+}
+
+async function load() {
+  try {
+    const resp = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    render(data);
+  } catch (err) {
+    document.getElementById('app').innerHTML =
+      `<div class="loading-note mono">No data yet &mdash; the dashboard will populate after the first scheduled run.<br/>(${esc(err.message)})</div>`;
+  }
+}
+
+load();
+setInterval(load, REFRESH_MS);
+</script>
+</body>
+</html>

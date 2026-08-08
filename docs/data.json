@@ -1,0 +1,741 @@
+{
+  "best_performer": "NVDA",
+  "checks_per_day": 36,
+  "featured_mover": {
+    "breadth": "sector",
+    "daily_pct": 2.269510523784277,
+    "earnings_text": "No earnings soon",
+    "factors": [
+      {
+        "label": "RSI 64",
+        "lean": "neutral"
+      },
+      {
+        "label": "Vol: avg",
+        "lean": "neutral"
+      },
+      {
+        "label": "Above 50d avg",
+        "lean": "pos"
+      },
+      {
+        "label": "Sector-wide rally",
+        "lean": "neutral"
+      },
+      {
+        "label": "No earnings soon",
+        "lean": "neutral"
+      }
+    ],
+    "flagged": false,
+    "ma50_pct": 8.692762768682929,
+    "price": 223.9600067138672,
+    "read_line": "NVDA: RSI 64 (neutral), 8.7% above its 50-day average, part of a broader sector move.",
+    "rsi": 64.42012154488845,
+    "rsi_label": "neutral",
+    "signal": {
+      "class": "mixed",
+      "down": 0,
+      "icon": "\u25c6",
+      "label": "NOTHING COMPELLING",
+      "neutral": 4,
+      "up": 1
+    },
+    "sparkline": [
+      203.53,
+      211.8,
+      212.5,
+      207.4,
+      202.81,
+      203.28,
+      207.29,
+      212.06,
+      208.76,
+      206.84,
+      196.51,
+      197.01,
+      190.01,
+      195.04,
+      200.75,
+      206.64,
+      211.94,
+      219.22,
+      218.99,
+      223.96
+    ],
+    "symbol": "NVDA",
+    "volume_ratio": 0.8095976543834074,
+    "weekly_pct": 11.561647180008562
+  },
+  "flagged": [],
+  "generated_at": "2026-08-08T00:04:19.269521+00:00",
+  "next_sync_at": "2026-08-08T00:19:19.269521+00:00",
+  "stocks": [
+    {
+      "breadth": "sector",
+      "daily_pct": 0.2944793378483706,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 48",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Above 50d avg",
+          "lean": "pos"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": 1.1442069823726575,
+      "price": 313.3299865722656,
+      "read_line": "AAPL: RSI 48 (neutral), 1.1% above its 50-day average, part of a broader sector move.",
+      "rsi": 47.58460066238476,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 0,
+        "icon": "\u25c6",
+        "label": "NOTHING COMPELLING",
+        "neutral": 4,
+        "up": 1
+      },
+      "sparkline": [
+        317.31,
+        314.86,
+        327.5,
+        333.26,
+        333.74,
+        326.59,
+        327.74,
+        325.89,
+        321.66,
+        333.02,
+        336.91,
+        340.08,
+        338.19,
+        333.43,
+        308.91,
+        303.42,
+        309.38,
+        311.0,
+        312.41,
+        313.33
+      ],
+      "symbol": "AAPL",
+      "volume_ratio": 0.609546309243419,
+      "weekly_pct": 1.4308319114815384
+    },
+    {
+      "breadth": "sector",
+      "daily_pct": 0.026008259637159133,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 78",
+          "lean": "neg"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Above 50d avg",
+          "lean": "pos"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": 22.84404239514353,
+      "price": 499.989990234375,
+      "read_line": "MSFT: RSI 78 (overbought), 22.8% above its 50-day average, part of a broader sector move.",
+      "rsi": 78.14928847573924,
+      "rsi_label": "overbought",
+      "signal": {
+        "class": "mixed",
+        "down": 1,
+        "icon": "\u26a0",
+        "label": "MIXED SIGNALS",
+        "neutral": 3,
+        "up": 1
+      },
+      "sparkline": [
+        390.99,
+        384.93,
+        395.63,
+        401.1,
+        393.82,
+        402.29,
+        397.75,
+        390.34,
+        381.58,
+        381.7,
+        389.1,
+        393.35,
+        390.54,
+        451.1,
+        464.72,
+        487.65,
+        492.81,
+        487.46,
+        499.86,
+        499.99
+      ],
+      "symbol": "MSFT",
+      "volume_ratio": 0.6099583831254174,
+      "weekly_pct": 7.589513883849724
+    },
+    {
+      "breadth": "specific",
+      "daily_pct": -0.9643639991701607,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 51",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Below 50d avg",
+          "lean": "neg"
+        },
+        {
+          "label": "Stock-specific move",
+          "lean": "neg"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": -0.6099932732897422,
+      "price": 354.29998779296875,
+      "read_line": "GOOGL: RSI 51 (neutral), 0.6% below its 50-day average, a stock-specific move.",
+      "rsi": 50.750071281020304,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "bearish",
+        "down": 2,
+        "icon": "\u25bc",
+        "label": "LEANS NEGATIVE",
+        "neutral": 3,
+        "up": 0
+      },
+      "sparkline": [
+        352.51,
+        359.51,
+        370.92,
+        354.46,
+        346.77,
+        351.99,
+        347.15,
+        342.09,
+        317.69,
+        319.74,
+        326.56,
+        333.71,
+        336.71,
+        333.66,
+        356.13,
+        373.51,
+        377.65,
+        362.43,
+        357.75,
+        354.3
+      ],
+      "symbol": "GOOGL",
+      "volume_ratio": 0.607671187373963,
+      "weekly_pct": -0.5138620910209271
+    },
+    {
+      "breadth": "sector",
+      "daily_pct": 0.8153974660524742,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 64",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Above 50d avg",
+          "lean": "pos"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": 10.897877979594412,
+      "price": 274.4800109863281,
+      "read_line": "AMZN: RSI 64 (neutral), 10.9% above its 50-day average, part of a broader sector move.",
+      "rsi": 64.21615394176759,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 0,
+        "icon": "\u25c6",
+        "label": "NOTHING COMPELLING",
+        "neutral": 4,
+        "up": 1
+      },
+      "sparkline": [
+        247.31,
+        247.49,
+        254.96,
+        249.89,
+        247.23,
+        249.99,
+        247.55,
+        244.85,
+        233.66,
+        232.11,
+        231.39,
+        230.86,
+        226.65,
+        235.5,
+        271.58,
+        284.02,
+        277.42,
+        272.65,
+        272.26,
+        274.48
+      ],
+      "symbol": "AMZN",
+      "volume_ratio": 0.6281135830234253,
+      "weekly_pct": 1.067834360942802
+    },
+    {
+      "breadth": "sector",
+      "daily_pct": 2.269510523784277,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 64",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Above 50d avg",
+          "lean": "pos"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": 8.692762768682929,
+      "price": 223.9600067138672,
+      "read_line": "NVDA: RSI 64 (neutral), 8.7% above its 50-day average, part of a broader sector move.",
+      "rsi": 64.42012154488845,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 0,
+        "icon": "\u25c6",
+        "label": "NOTHING COMPELLING",
+        "neutral": 4,
+        "up": 1
+      },
+      "sparkline": [
+        203.53,
+        211.8,
+        212.5,
+        207.4,
+        202.81,
+        203.28,
+        207.29,
+        212.06,
+        208.76,
+        206.84,
+        196.51,
+        197.01,
+        190.01,
+        195.04,
+        200.75,
+        206.64,
+        211.94,
+        219.22,
+        218.99,
+        223.96
+      ],
+      "symbol": "NVDA",
+      "volume_ratio": 0.8095976543834074,
+      "weekly_pct": 11.561647180008562
+    },
+    {
+      "breadth": "specific",
+      "daily_pct": 2.8322811089858524,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 41",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Below 50d avg",
+          "lean": "neg"
+        },
+        {
+          "label": "Stock-specific move",
+          "lean": "pos"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": -13.631814699933873,
+      "price": 328.5799865722656,
+      "read_line": "TSLA: RSI 41 (neutral), 13.6% below its 50-day average, a stock-specific move.",
+      "rsi": 41.40716581868868,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 1,
+        "icon": "\u26a0",
+        "label": "MIXED SIGNALS",
+        "neutral": 3,
+        "up": 1
+      },
+      "sparkline": [
+        394.76,
+        396.18,
+        394.46,
+        391.06,
+        380.84,
+        369.57,
+        378.93,
+        374.01,
+        319.69,
+        313.03,
+        309.22,
+        307.44,
+        298.32,
+        308.85,
+        311.21,
+        322.08,
+        327.35,
+        321.55,
+        319.53,
+        328.58
+      ],
+      "symbol": "TSLA",
+      "volume_ratio": 0.993703619704893,
+      "weekly_pct": 5.581438769357374
+    },
+    {
+      "breadth": "sector",
+      "daily_pct": 0.3729362740847779,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 48",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Below 50d avg",
+          "lean": "neg"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": -1.254809742798721,
+      "price": 592.0999755859375,
+      "read_line": "META: RSI 48 (neutral), 1.3% below its 50-day average, part of a broader sector move.",
+      "rsi": 47.67874565732648,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 1,
+        "icon": "\u25c6",
+        "label": "NOTHING COMPELLING",
+        "neutral": 4,
+        "up": 0
+      },
+      "sparkline": [
+        656.73,
+        661.04,
+        681.31,
+        664.54,
+        646.01,
+        645.85,
+        643.81,
+        627.17,
+        606.1,
+        595.19,
+        593.87,
+        593.41,
+        585.61,
+        539.03,
+        556.71,
+        590.24,
+        587.94,
+        588.77,
+        589.9,
+        592.1
+      ],
+      "symbol": "META",
+      "volume_ratio": 0.5897349615394273,
+      "weekly_pct": 6.35698159122048
+    },
+    {
+      "breadth": "sector",
+      "daily_pct": 0.3424084374125821,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 63",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Above 50d avg",
+          "lean": "pos"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": 7.593730626997647,
+      "price": 357.5199890136719,
+      "read_line": "JPM: RSI 63 (neutral), 7.6% above its 50-day average, part of a broader sector move.",
+      "rsi": 63.16144378976476,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 0,
+        "icon": "\u25c6",
+        "label": "NOTHING COMPELLING",
+        "neutral": 4,
+        "up": 1
+      },
+      "sparkline": [
+        334.53,
+        342.89,
+        346.91,
+        343.15,
+        341.1,
+        338.87,
+        345.23,
+        348.21,
+        349.9,
+        353.21,
+        356.2,
+        357.31,
+        344.71,
+        350.85,
+        351.79,
+        352.64,
+        357.52,
+        359.24,
+        356.3,
+        357.52
+      ],
+      "symbol": "JPM",
+      "volume_ratio": 0.544812856726956,
+      "weekly_pct": 1.6288070523805993
+    },
+    {
+      "breadth": "sector",
+      "daily_pct": 0.8794377583582212,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 55",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Above 50d avg",
+          "lean": "pos"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": 4.6473659666293505,
+      "price": 259.239990234375,
+      "read_line": "JNJ: RSI 55 (neutral), 4.6% above its 50-day average, part of a broader sector move.",
+      "rsi": 55.48633456990644,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 0,
+        "icon": "\u25c6",
+        "label": "NOTHING COMPELLING",
+        "neutral": 4,
+        "up": 1
+      },
+      "sparkline": [
+        257.77,
+        253.85,
+        247.02,
+        249.97,
+        253.04,
+        248.82,
+        250.61,
+        255.63,
+        259.27,
+        263.4,
+        265.95,
+        266.73,
+        265.53,
+        255.82,
+        256.35,
+        254.41,
+        254.93,
+        257.59,
+        256.98,
+        259.24
+      ],
+      "symbol": "JNJ",
+      "volume_ratio": 0.792405133632256,
+      "weekly_pct": 1.1273587134975072
+    },
+    {
+      "breadth": "sector",
+      "daily_pct": 0.6115348472417639,
+      "earnings_text": "No earnings soon",
+      "factors": [
+        {
+          "label": "RSI 66",
+          "lean": "neutral"
+        },
+        {
+          "label": "Vol: avg",
+          "lean": "neutral"
+        },
+        {
+          "label": "Above 50d avg",
+          "lean": "pos"
+        },
+        {
+          "label": "Sector-wide rally",
+          "lean": "neutral"
+        },
+        {
+          "label": "No earnings soon",
+          "lean": "neutral"
+        }
+      ],
+      "flagged": false,
+      "ma50_pct": 3.56903412058318,
+      "price": 773.260009765625,
+      "read_line": "SPY: RSI 66 (neutral), 3.6% above its 50-day average, part of a broader sector move.",
+      "rsi": 66.03539172905315,
+      "rsi_label": "neutral",
+      "signal": {
+        "class": "mixed",
+        "down": 0,
+        "icon": "\u25c6",
+        "label": "NOTHING COMPELLING",
+        "neutral": 4,
+        "up": 1
+      },
+      "sparkline": [
+        749.17,
+        751.83,
+        754.81,
+        750.72,
+        743.29,
+        742.09,
+        748.28,
+        747.41,
+        738.18,
+        738.93,
+        739.09,
+        740.86,
+        729.46,
+        741.69,
+        747.03,
+        757.67,
+        771.33,
+        769.79,
+        768.56,
+        773.26
+      ],
+      "symbol": "SPY",
+      "volume_ratio": 0.8593243702956086,
+      "weekly_pct": 3.5112350829374783
+    }
+  ],
+  "tickers_tracked": 10,
+  "watchlist_health": {
+    "avg_weekly_pct": 3.9341786454655137,
+    "green_count": 9,
+    "total": 10
+  }
+}

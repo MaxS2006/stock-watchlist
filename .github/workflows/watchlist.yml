@@ -34,6 +34,7 @@ jobs:
       - name: Run monitor
         env:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
@@ -41,10 +42,10 @@ jobs:
           WEEKLY_DROP_PCT: "8"
         run: python monitor.py
 
-      - name: Commit updated state
+      - name: Commit updated state and dashboard data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add state.json
-          git diff --cached --quiet || git commit -m "Update watchlist state [skip ci]"
+          git add state.json docs/data.json
+          git diff --cached --quiet || git commit -m "Update watchlist state and dashboard data [skip ci]"
           git push
