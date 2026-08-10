@@ -2,10 +2,14 @@ name: Stock Watchlist Monitor
 
 on:
   schedule:
-    # Every 15 minutes, 13:00-21:45 UTC, Mon-Fri.
+    # Every 15 minutes, 13:00-21:45 UTC, Mon-Fri, offset 7 minutes off the
+    # hour/half-hour. GitHub explicitly documents that scheduled runs are
+    # most likely to be delayed or dropped right at the top of the hour
+    # (peak scheduler load across all of GitHub Actions) — landing exactly
+    # on :00/:15/:30/:45 was the likely reason no scheduled run ever fired.
     # That window covers US market hours (9:30am-4:00pm ET) with margin on
     # both sides for EST/EDT, so it doesn't need adjusting for daylight saving.
-    - cron: "*/15 13-21 * * 1-5"
+    - cron: "7,22,37,52 13-21 * * 1-5"
   workflow_dispatch: {} # lets you trigger a run manually from the Actions tab
 
 permissions:
