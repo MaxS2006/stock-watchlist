@@ -112,7 +112,8 @@ included for context.
 
 ## The dashboard
 
-Each ticker card shows price, day/week % change, a sparkline, RSI(14) with
+Each ticker card shows price, day/week % change, a real interactive
+candlestick chart (hover for exact date/open/high/low/close), RSI(14) with
 an Oversold/Overbought/Neutral label, volume vs. its own 20-day average,
 position vs. its 50-day moving average, whether the move looks stock-specific
 or sector-wide (compared against the rest of your watchlist), earnings-date
@@ -123,6 +124,17 @@ or neutral and labels the mix — **LEANS POSITIVE**, **LEANS NEGATIVE**,
 **MIXED SIGNALS**, or **NOTHING COMPELLING** — deliberately never using
 buy/sell language. It's a mechanical tally of technical factors, not
 investment advice.
+
+Price and % change numbers count up/down smoothly on load and on each data
+refresh, and cards fade/slide in. The header has a light/dark toggle and 3
+accent color options (Emerald/Cyan/Violet) — these only affect decorative
+chrome (glows, borders, the brand dot); the green/red up/down colors used
+everywhere else are fixed regardless of theme or accent, on purpose. Theme
+choice is session-only (no localStorage on a static site) — it always
+starts on dark + Emerald on a fresh load.
+
+Charts are rendered with [lightweight-charts](https://github.com/tradingview/lightweight-charts)
+(TradingView's open-source library), loaded from a version-pinned CDN.
 
 `monitor.py` writes [`docs/data.json`](docs/data.json) fresh every run;
 [`docs/index.html`](docs/index.html) is a static page that fetches it

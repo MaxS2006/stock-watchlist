@@ -71,7 +71,7 @@ MAX_NEWS_PER_TICKER = 3
 
 # Dashboard / technical-metrics tuning.
 HISTORY_PERIOD = "6mo"  # comfortably covers 50-day MA + 14-day RSI + volume avg
-SPARKLINE_POINTS = 20
+CANDLE_POINTS = 20  # trading days of OHLC history sent to the dashboard's charts
 RSI_PERIOD = 14
 VOLUME_AVG_DAYS = 20
 MA_PERIOD = 50
@@ -167,6 +167,22 @@ def compute_volume_ratio(volumes):
     if avg_vol == 0:
         return None
     return today_vol / avg_vol
+
+
+def build_candles(hist, points=CANDLE_POINTS):
+    """OHLC bars (date + open/high/low/close) for the dashboard's candlestick charts."""
+    ohlc = hist[["Open", "High", "Low", "Close"]].dropna()
+    tail = ohlc.tail(points)
+    return [
+        {
+            "t": idx.strftime("%Y-%m-%d"),
+            "o": round(float(row["Open"]), 2),
+            "h": round(float(row["High"]), 2),
+            "l": round(float(row["Low"]), 2),
+            "c": round(float(row["Close"]), 2),
+        }
+        for idx, row in tail.iterrows()
+    ]
 
 
 def compute_ma50_pct(closes):
@@ -386,7 +402,7 @@ def gather_ticker_data(symbol):
         "current_price": None,
         "daily_pct": None,
         "weekly_pct": None,
-        "sparkline": [],
+        "candles": [],
         "rsi": None,
         "rsi_label": None,
         "volume_ratio": None,
@@ -413,7 +429,7 @@ def gather_ticker_data(symbol):
             data["current_price"] = current_price
             data["daily_pct"] = daily_pct
             data["weekly_pct"] = weekly_pct
-            data["sparkline"] = [round(v, 2) for v in closes.tail(SPARKLINE_POINTS).tolist()]
+            data["candles"] = build_candles(hist)
             rsi = compute_rsi(closes)
             data["rsi"] = rsi
             data["rsi_label"] = rsi_label(rsi)
@@ -529,7 +545,7 @@ def process_ticker(raw, state, today_str, avg_daily_pct):
             "daily_pct": raw["daily_pct"],
             "weekly_pct": raw["weekly_pct"],
             "flagged": current_price_flag,
-            "sparkline": raw["sparkline"],
+            "candles": raw["candles"],
             "rsi": raw["rsi"],
             "rsi_label": raw["rsi_label"],
             "volume_ratio": raw["volume_ratio"],
