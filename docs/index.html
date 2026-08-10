@@ -110,6 +110,33 @@
   .accent-swatch:hover { transform: scale(1.18); }
   .accent-swatch.active { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--sw); }
 
+  /* ---- Market Overview: a slim status-bar strip, market context rather
+     than stock-specific data — visually lighter than both the watchlist
+     cards and the Notable Movers panel (no border-per-item, no chart,
+     no price, just label + today's % change). ---- */
+  .market-strip {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .market-item {
+    flex: 1 1 110px;
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 9px 14px;
+    border-right: 1px solid var(--border-soft);
+  }
+  .market-item:last-child { border-right: none; }
+  .market-label {
+    font-size: 8.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted);
+    display: flex; align-items: baseline; gap: 5px;
+  }
+  .market-symbol { color: var(--text-dim); font-size: 8.5px; }
+  .market-pct { font-size: 14px; font-weight: 700; }
+
   .top-grid {
     display: grid;
     grid-template-columns: 2.2fr 1fr;
@@ -608,6 +635,18 @@ function renderFeatured(mover) {
   </div>`;
 }
 
+function renderMarketOverview(overview) {
+  if (!overview || !overview.length) return '';
+  const items = overview.map(m => {
+    const pctAttrs = animAttrs(`market:${m.symbol}:pct`, m.daily_pct, { decimals: 1, suffix: '%', signed: true });
+    return `<div class="market-item">
+      <span class="market-label">${esc(m.label)} <span class="market-symbol mono">${esc(m.symbol)}</span></span>
+      <span class="market-pct mono ${pctClass(m.daily_pct || 0)}" ${pctAttrs}>&mdash;</span>
+    </div>`;
+  }).join('');
+  return `<div class="market-strip anim-panel">${items}</div>`;
+}
+
 function renderNotableMovers(movers) {
   if (!movers || !movers.length) return '';
   const chips = movers.map(m => {
@@ -672,6 +711,7 @@ function render(data) {
 
   const app = document.getElementById('app');
   app.innerHTML = `
+    ${renderMarketOverview(data.market_overview)}
     <div class="top-grid">
       ${renderFeatured(data.featured_mover)}
       ${renderAlertsPanel(data)}

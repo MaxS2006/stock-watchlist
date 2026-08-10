@@ -109,6 +109,17 @@ your actual signals. Purely informational; edit the pool file the same way
 as `tickers.txt`. Tickers already in your core watchlist are automatically
 skipped here to avoid duplicate listings.
 
+## Market Overview strip
+
+At the very top of the dashboard, a compact strip shows today's % change for
+the S&P 500 (SPY), Nasdaq (QQQ), Dow (DIA), and four sector ETFs (Tech,
+Financials, Healthcare, Energy) — broad market context, not stock-specific
+data. It's the lightest-weight panel on the page (label + % change only, no
+price, no chart), styled as a slim status bar so it reads distinctly from
+both the watchlist cards and the Notable Movers panel. The ticker list is
+`MARKET_OVERVIEW_TICKERS` near the top of [`monitor.py`](monitor.py) if you
+want to swap in different indices/sectors.
+
 ## Adjusting thresholds
 
 Open [`.github/workflows/watchlist.yml`](.github/workflows/watchlist.yml)

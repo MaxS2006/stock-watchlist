@@ -91,6 +91,18 @@ MOVERS_COUNT = 8
 # run time / API usage — trims to this many tickers regardless of file size.
 MOVERS_POOL_LIMIT = 100
 
+# "Market Overview" — major indices + sector ETFs, shown in this fixed order
+# as broad market context (not stock-specific data).
+MARKET_OVERVIEW_TICKERS = [
+    ("SPY", "S&P 500"),
+    ("QQQ", "Nasdaq"),
+    ("DIA", "Dow"),
+    ("XLK", "Tech"),
+    ("XLF", "Financials"),
+    ("XLV", "Healthcare"),
+    ("XLE", "Energy"),
+]
+
 
 def load_tickers(path):
     tickers = []
@@ -228,26 +240,26 @@ def classify_breadth(daily_pct, avg_daily_pct):
     return "sector" if (diff <= BREADTH_DIFF_THRESHOLD_PCT and same_direction) else "specific"
 
 
-def fetch_notable_movers(pool_symbols):
-    """Lightweight daily % change for a wider ticker pool — price/pct only,
+def fetch_daily_quotes(symbols):
+    """Batched {symbol: {"price", "daily_pct"}} lookup — price/%-change only,
     no RSI/volume/MA/earnings/news/synthesis. One batched call, not one per
-    ticker, to stay rate-limit friendly."""
-    pool_symbols = pool_symbols[:MOVERS_POOL_LIMIT]
-    if not pool_symbols:
-        return []
+    ticker, to stay rate-limit friendly. Shared by Notable Movers and Market
+    Overview, both of which only need today's move."""
+    if not symbols:
+        return {}
 
     try:
         data = yf.download(
-            pool_symbols, period="5d", interval="1d",
+            symbols, period="5d", interval="1d",
             group_by="ticker", threads=True, progress=False, auto_adjust=True,
         )
     except Exception as exc:  # noqa: BLE001
-        print(f"[warn] notable movers batch download failed: {exc}", file=sys.stderr)
-        return []
+        print(f"[warn] batch quote download failed: {exc}", file=sys.stderr)
+        return {}
 
-    single = len(pool_symbols) == 1
-    movers = []
-    for symbol in pool_symbols:
+    single = len(symbols) == 1
+    quotes = {}
+    for symbol in symbols:
         try:
             closes = (data["Close"] if single else data[symbol]["Close"]).dropna()
             if len(closes) < 2:
@@ -256,16 +268,36 @@ def fetch_notable_movers(pool_symbols):
             prev = float(closes.iloc[-2])
             if prev == 0:
                 continue
-            movers.append({
-                "symbol": symbol,
+            quotes[symbol] = {
                 "price": round(current, 2),
                 "daily_pct": (current - prev) / prev * 100,
-            })
+            }
         except Exception:  # noqa: BLE001 - one bad ticker shouldn't drop the rest
             continue
+    return quotes
 
+
+def fetch_notable_movers(pool_symbols):
+    pool_symbols = pool_symbols[:MOVERS_POOL_LIMIT]
+    quotes = fetch_daily_quotes(pool_symbols)
+    movers = [{"symbol": symbol, **quote} for symbol, quote in quotes.items()]
     movers.sort(key=lambda m: abs(m["daily_pct"]), reverse=True)
     return movers[:MOVERS_COUNT]
+
+
+def fetch_market_overview():
+    """Fixed-order snapshot of major indices + sector ETFs — market context,
+    not stock-specific data. Label + % change only (no price shown on the
+    dashboard), kept in canonical order rather than ranked by move size."""
+    symbols = [symbol for symbol, _ in MARKET_OVERVIEW_TICKERS]
+    quotes = fetch_daily_quotes(symbols)
+    overview = []
+    for symbol, label in MARKET_OVERVIEW_TICKERS:
+        quote = quotes.get(symbol)
+        if quote is None:
+            continue
+        overview.append({"symbol": symbol, "label": label, **quote})
+    return overview
 
 
 # --- Factors / signal scoring ----------------------------------------------
@@ -661,7 +693,7 @@ def send_email(subject, body):
 # --- Dashboard JSON ------------------------------------------------------------
 
 
-def build_dashboard(entries, generated_at, notable_movers=None):
+def build_dashboard(entries, generated_at, notable_movers=None, market_overview=None):
     valid = [e for e in entries if e is not None]
 
     flagged = []
@@ -703,6 +735,7 @@ def build_dashboard(entries, generated_at, notable_movers=None):
         },
         "stocks": valid,
         "notable_movers": notable_movers or [],
+        "market_overview": market_overview or [],
     }
 
 
@@ -738,9 +771,13 @@ def main():
     watchlist_set = {t.upper() for t in tickers}
     movers_pool = [t for t in load_tickers(MOVERS_POOL_FILE) if t not in watchlist_set]
     notable_movers = fetch_notable_movers(movers_pool)
+    market_overview = fetch_market_overview()
 
     save_state(STATE_FILE, state)
-    save_dashboard(DASHBOARD_DATA_FILE, build_dashboard(dashboard_entries, generated_at, notable_movers))
+    save_dashboard(
+        DASHBOARD_DATA_FILE,
+        build_dashboard(dashboard_entries, generated_at, notable_movers, market_overview),
+    )
 
     if email_alerts:
         subject = f"Stock Watchlist Alert — {len(email_alerts)} flagged — {today_str}"
