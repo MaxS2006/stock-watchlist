@@ -103,6 +103,10 @@ MARKET_OVERVIEW_TICKERS = [
     ("XLE", "Energy"),
 ]
 
+# Signal accuracy tracking — see the "Signal accuracy tracking" section below.
+ACCURACY_RESOLUTION_DAYS = 7
+MAX_SIGNAL_HISTORY = 50
+
 
 def load_tickers(path):
     tickers = []
@@ -152,20 +156,28 @@ def compute_price_moves(closes):
 
 
 def compute_rsi(closes, period=RSI_PERIOD):
+    """Classic Wilder RSI: seed with a simple average of the first `period`
+    gains/losses, then apply Wilder's recursive smoothing. This is the
+    standard definition used by most charting platforms — notably NOT the
+    same as pandas' default `.ewm(...).mean()` (a differently-weighted
+    average), which diverges by a meaningful margin on real price data."""
     if len(closes) < period + 1:
         return None
-    delta = closes.diff()
-    gain = delta.clip(lower=0)
-    loss = -delta.clip(upper=0)
-    avg_gain = gain.ewm(alpha=1 / period, min_periods=period).mean()
-    avg_loss = loss.ewm(alpha=1 / period, min_periods=period).mean()
-    last_avg_loss = avg_loss.iloc[-1]
-    last_avg_gain = avg_gain.iloc[-1]
-    if pd.isna(last_avg_gain) or pd.isna(last_avg_loss):
+    deltas = closes.diff().dropna().tolist()
+    if len(deltas) < period:
         return None
-    if last_avg_loss == 0:
+    gains = [d if d > 0 else 0.0 for d in deltas]
+    losses = [-d if d < 0 else 0.0 for d in deltas]
+
+    avg_gain = sum(gains[:period]) / period
+    avg_loss = sum(losses[:period]) / period
+    for i in range(period, len(deltas)):
+        avg_gain = (avg_gain * (period - 1) + gains[i]) / period
+        avg_loss = (avg_loss * (period - 1) + losses[i]) / period
+
+    if avg_loss == 0:
         return 100.0
-    rs = last_avg_gain / last_avg_loss
+    rs = avg_gain / avg_loss
     return 100 - (100 / (1 + rs))
 
 
@@ -230,6 +242,14 @@ def get_earnings_info(ticker_obj):
         if 0 <= days <= EARNINGS_LOOKAHEAD_DAYS:
             return {"flag": True, "text": f"Earnings in {days}d"}
     return {"flag": False, "text": "No earnings soon"}
+
+
+def compute_price_flags(daily_pct, weekly_pct):
+    """Whether today's move crosses the configured daily/weekly drop
+    thresholds. None values (missing price data) never flag."""
+    daily_flag = daily_pct is not None and daily_pct <= -DAILY_DROP_PCT
+    weekly_flag = weekly_pct is not None and weekly_pct <= -WEEKLY_DROP_PCT
+    return daily_flag, weekly_flag
 
 
 def classify_breadth(daily_pct, avg_daily_pct):
@@ -360,6 +380,84 @@ def compute_signal(factors):
         label, cls, icon = "LEANS NEGATIVE", "bearish", "▼"
 
     return {"label": label, "class": cls, "icon": icon, "up": up, "down": down, "neutral": neutral}
+
+
+# --- Signal accuracy tracking -------------------------------------------------
+#
+# Only "LEANS POSITIVE" (bullish) and "LEANS NEGATIVE" (bearish) signals make
+# a directional claim worth checking later — MIXED SIGNALS and NOTHING
+# COMPELLING don't predict a direction, so there's nothing to resolve them
+# against. Each tracked signal is checked ~ACCURACY_RESOLUTION_DAYS calendar
+# days later against the ticker's price at that point (a simple calendar
+# window, not a trading-day calendar — deliberately minimal).
+
+
+def resolve_signal_outcome(direction, price_at_signal, price_now):
+    """True if price moved the way the signal implied, False if the
+    opposite, None if the move was exactly flat or a required value is
+    missing (nothing to judge either way)."""
+    if direction not in ("bullish", "bearish"):
+        return None
+    if price_at_signal in (None, 0) or price_now is None:
+        return None
+    pct_change = (price_now - price_at_signal) / price_at_signal * 100
+    if pct_change == 0:
+        return None
+    moved_up = pct_change > 0
+    return moved_up if direction == "bullish" else not moved_up
+
+
+def resolve_due_entries(entries, current_price, today_str):
+    """Resolve any pending tracked signals whose resolve_on date has
+    arrived, using current_price. Returns a new list — does not mutate the
+    entries passed in."""
+    resolved = []
+    for entry in entries:
+        entry = dict(entry)
+        if not entry["resolved"] and entry["resolve_on"] <= today_str:
+            entry["correct"] = resolve_signal_outcome(entry["direction"], entry["price_at_signal"], current_price)
+            entry["resolved"] = True
+            entry["price_at_resolution"] = current_price
+        resolved.append(entry)
+    return resolved
+
+
+def build_tracking_entry(signal, price, today_str):
+    """A new signal-history entry to record, or None if this signal makes
+    no directional claim (mixed / nothing compelling) or price is missing."""
+    if signal is None or signal.get("class") not in ("bullish", "bearish") or price is None:
+        return None
+    resolve_on = (date.fromisoformat(today_str) + timedelta(days=ACCURACY_RESOLUTION_DAYS)).isoformat()
+    return {
+        "date": today_str,
+        "direction": signal["class"],
+        "price_at_signal": price,
+        "resolve_on": resolve_on,
+        "resolved": False,
+        "correct": None,
+    }
+
+
+def update_signal_history(history, signal, price, today_str):
+    """Resolve any due entries, then record today's signal at most once
+    per day. Returns the updated (length-capped) history list."""
+    history = resolve_due_entries(history, price, today_str)
+    already_tracked_today = any(e["date"] == today_str for e in history)
+    if not already_tracked_today:
+        new_entry = build_tracking_entry(signal, price, today_str)
+        if new_entry is not None:
+            history.append(new_entry)
+    return history[-MAX_SIGNAL_HISTORY:]
+
+
+def summarize_accuracy(history):
+    """{'resolved', 'correct', 'accuracy_pct'} across judged (non-flat,
+    non-missing) resolved entries. accuracy_pct is None with 0 resolved."""
+    judged = [e for e in history if e.get("resolved") and e.get("correct") is not None]
+    resolved = len(judged)
+    correct = sum(1 for e in judged if e["correct"])
+    accuracy_pct = (correct / resolved * 100) if resolved else None
+    return {"resolved": resolved, "correct": correct, "accuracy_pct": accuracy_pct}
 
 
 # --- Claude synthesis --------------------------------------------------------
@@ -535,8 +633,7 @@ def process_ticker(raw, state, today_str, avg_daily_pct):
     ticker_state = state["tickers"].setdefault(symbol, {})
     seen_ids_before = set(state["seen_news_ids"].get(symbol, []))
 
-    daily_flag = raw["daily_pct"] is not None and raw["daily_pct"] <= -DAILY_DROP_PCT
-    weekly_flag = raw["weekly_pct"] is not None and raw["weekly_pct"] <= -WEEKLY_DROP_PCT
+    daily_flag, weekly_flag = compute_price_flags(raw["daily_pct"], raw["weekly_pct"])
 
     articles = raw["articles"]
     if daily_flag or weekly_flag:
@@ -619,6 +716,11 @@ def process_ticker(raw, state, today_str, avg_daily_pct):
         ticker_state["last_rsi_label"] = raw["rsi_label"]
         ticker_state["last_price_flag"] = current_price_flag
 
+        ticker_state["signal_history"] = update_signal_history(
+            ticker_state.get("signal_history", []), signal, raw["current_price"], today_str
+        )
+        accuracy = summarize_accuracy(ticker_state["signal_history"])
+
         dashboard_entry = {
             "symbol": symbol,
             "price": raw["current_price"],
@@ -635,6 +737,7 @@ def process_ticker(raw, state, today_str, avg_daily_pct):
             "factors": factors,
             "signal": signal,
             "read_line": read_line,
+            "accuracy": accuracy,
         }
 
     return email_result, should_email, dashboard_entry

@@ -162,6 +162,37 @@ Charts are rendered with [lightweight-charts](https://github.com/tradingview/lig
 [`docs/index.html`](docs/index.html) is a static page that fetches it
 client-side, so the dashboard updates automatically — no rebuild step.
 
+## Tests
+
+Core logic in `monitor.py` — RSI(14), daily/weekly drop-threshold flagging,
+signal-strength scoring, and signal accuracy-tracking (resolving a past
+bullish/bearish signal against what price actually did) — is covered by a
+`pytest` suite in [`tests/`](tests/). Tests use fixture/mock data only, no
+network calls or API keys, so they're fast and safe to run anywhere:
+
+```bash
+pip install -r requirements-test.txt
+pytest -v
+```
+
+[`.github/workflows/tests.yml`](.github/workflows/tests.yml) runs this suite
+on every push, independent of the scheduled monitor workflow — so a logic
+regression shows up as a failed check before it ever reaches the live
+dashboard, rather than silently producing wrong RSI/signal values.
+
+Notably, writing the RSI test caught a real bug: `compute_rsi` was using
+pandas' default `.ewm(...).mean()` weighting, which diverges from the
+standard Wilder-smoothed RSI (the definition used by TradingView,
+StockCharts, etc.) by a meaningful margin — now fixed and pinned down by
+`tests/test_rsi.py`.
+
+Accuracy-tracking is intentionally minimal for now: each bullish/bearish
+signal gets recorded once per ticker per day and resolved ~7 calendar days
+later against the ticker's price at that point (`resolved`/`correct` fields
+in `state.json`, summarized per ticker as `accuracy` in `docs/data.json`).
+It isn't surfaced on the dashboard yet — that'd be a natural follow-up once
+some history has accumulated.
+
 ## Notes / limits
 
 - Runs on GitHub's free Actions minutes. At ~35 runs/day, 5 days/week, each
