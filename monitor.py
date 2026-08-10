@@ -34,6 +34,7 @@ except ImportError:  # pragma: no cover - only missing if requirements.txt not i
 # --- Configuration (env vars, set in the workflow file / repo settings) ---
 
 TICKERS_FILE = os.environ.get("TICKERS_FILE", "tickers.txt")
+MOVERS_POOL_FILE = os.environ.get("MOVERS_POOL_FILE", "movers_pool.txt")
 STATE_FILE = os.environ.get("STATE_FILE", "state.json")
 DASHBOARD_DATA_FILE = os.environ.get("DASHBOARD_DATA_FILE", "docs/data.json")
 
@@ -82,6 +83,13 @@ EARNINGS_LOOKAHEAD_DAYS = 14
 BREADTH_DIFF_THRESHOLD_PCT = 2.0
 # Must match the workflow's cron window (13-21 UTC, every 15 min, Mon-Fri).
 CHECKS_PER_DAY = 36
+
+# "Notable Movers" — a wider, informational-only scan (price + daily % change
+# only, no RSI/signal/synthesis) separate from the core watchlist above.
+MOVERS_COUNT = 8
+# Defensive cap so an edited movers_pool.txt can't accidentally blow up
+# run time / API usage — trims to this many tickers regardless of file size.
+MOVERS_POOL_LIMIT = 100
 
 
 def load_tickers(path):
@@ -218,6 +226,46 @@ def classify_breadth(daily_pct, avg_daily_pct):
     same_direction = (daily_pct >= 0) == (avg_daily_pct >= 0) or abs(avg_daily_pct) < 0.3
     diff = abs(daily_pct - avg_daily_pct)
     return "sector" if (diff <= BREADTH_DIFF_THRESHOLD_PCT and same_direction) else "specific"
+
+
+def fetch_notable_movers(pool_symbols):
+    """Lightweight daily % change for a wider ticker pool — price/pct only,
+    no RSI/volume/MA/earnings/news/synthesis. One batched call, not one per
+    ticker, to stay rate-limit friendly."""
+    pool_symbols = pool_symbols[:MOVERS_POOL_LIMIT]
+    if not pool_symbols:
+        return []
+
+    try:
+        data = yf.download(
+            pool_symbols, period="5d", interval="1d",
+            group_by="ticker", threads=True, progress=False, auto_adjust=True,
+        )
+    except Exception as exc:  # noqa: BLE001
+        print(f"[warn] notable movers batch download failed: {exc}", file=sys.stderr)
+        return []
+
+    single = len(pool_symbols) == 1
+    movers = []
+    for symbol in pool_symbols:
+        try:
+            closes = (data["Close"] if single else data[symbol]["Close"]).dropna()
+            if len(closes) < 2:
+                continue
+            current = float(closes.iloc[-1])
+            prev = float(closes.iloc[-2])
+            if prev == 0:
+                continue
+            movers.append({
+                "symbol": symbol,
+                "price": round(current, 2),
+                "daily_pct": (current - prev) / prev * 100,
+            })
+        except Exception:  # noqa: BLE001 - one bad ticker shouldn't drop the rest
+            continue
+
+    movers.sort(key=lambda m: abs(m["daily_pct"]), reverse=True)
+    return movers[:MOVERS_COUNT]
 
 
 # --- Factors / signal scoring ----------------------------------------------
@@ -613,7 +661,7 @@ def send_email(subject, body):
 # --- Dashboard JSON ------------------------------------------------------------
 
 
-def build_dashboard(entries, generated_at):
+def build_dashboard(entries, generated_at, notable_movers=None):
     valid = [e for e in entries if e is not None]
 
     flagged = []
@@ -654,6 +702,7 @@ def build_dashboard(entries, generated_at):
             "avg_weekly_pct": avg_weekly_pct,
         },
         "stocks": valid,
+        "notable_movers": notable_movers or [],
     }
 
 
@@ -686,8 +735,12 @@ def main():
             email_alerts.append(email_result)
         dashboard_entries.append(dashboard_entry)
 
+    watchlist_set = {t.upper() for t in tickers}
+    movers_pool = [t for t in load_tickers(MOVERS_POOL_FILE) if t not in watchlist_set]
+    notable_movers = fetch_notable_movers(movers_pool)
+
     save_state(STATE_FILE, state)
-    save_dashboard(DASHBOARD_DATA_FILE, build_dashboard(dashboard_entries, generated_at))
+    save_dashboard(DASHBOARD_DATA_FILE, build_dashboard(dashboard_entries, generated_at, notable_movers))
 
     if email_alerts:
         subject = f"Stock Watchlist Alert — {len(email_alerts)} flagged — {today_str}"

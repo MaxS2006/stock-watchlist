@@ -1,0 +1,116 @@
+# Wider pool of large-cap tickers scanned each run to surface "Notable
+# Movers" on the dashboard — purely informational, separate from your core
+# watchlist above (tickers.txt). Edit freely; one ticker per line, # for
+# comments. Tickers already in tickers.txt are automatically skipped here
+# to avoid duplicate listings.
+#
+# ~80 liquid large caps spanning sectors, a reasonable proxy for "the
+# market" without scanning the full S&P 500 every 15 minutes.
+
+# Technology
+AVGO
+ORCL
+CRM
+ADBE
+CSCO
+ACN
+INTC
+AMD
+QCOM
+TXN
+IBM
+NOW
+INTU
+AMAT
+MU
+ADI
+LRCX
+KLAC
+PANW
+SNPS
+CDNS
+ANET
+WDAY
+PLTR
+NFLX
+PYPL
+UBER
+ABNB
+
+# Financials
+BRK-B
+V
+MA
+BAC
+WFC
+GS
+MS
+C
+AXP
+SPGI
+BLK
+SCHW
+PGR
+CB
+USB
+PNC
+
+# Healthcare
+UNH
+LLY
+PFE
+ABBV
+MRK
+TMO
+ABT
+DHR
+BMY
+AMGN
+GILD
+CVS
+MDT
+ISRG
+VRTX
+CI
+
+# Consumer
+WMT
+PG
+KO
+PEP
+COST
+HD
+MCD
+NKE
+DIS
+CMCSA
+LOW
+TGT
+SBUX
+BKNG
+TJX
+
+# Industrials
+BA
+CAT
+HON
+UPS
+RTX
+LMT
+GE
+DE
+MMM
+UNP
+
+# Energy & materials
+XOM
+CVX
+COP
+SLB
+LIN
+SHW
+
+# Telecom
+VZ
+T
+TMUS

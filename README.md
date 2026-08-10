@@ -98,6 +98,17 @@ Edit [`tickers.txt`](tickers.txt) — one ticker per line, `#` for comments.
 You can edit it directly on GitHub.com from your phone; no code changes
 needed. Commit the change and the next scheduled run picks it up.
 
+## Notable Movers pool
+
+Below your tracked watchlist, the dashboard shows a **Notable Movers** panel
+— the 5-8 biggest movers today from a wider pool of ~80 large-cap tickers in
+[`movers_pool.txt`](movers_pool.txt), fetched in one batched call each run.
+It's price and % change only — no RSI/signal/synthesis — and deliberately
+styled flatter/quieter than your tracked cards so it never reads as part of
+your actual signals. Purely informational; edit the pool file the same way
+as `tickers.txt`. Tickers already in your core watchlist are automatically
+skipped here to avoid duplicate listings.
+
 ## Adjusting thresholds
 
 Open [`.github/workflows/watchlist.yml`](.github/workflows/watchlist.yml)

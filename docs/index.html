@@ -252,6 +252,39 @@
   footer { margin-top: 16px; text-align: center; font-size: 10px; color: var(--text-faint); }
   .loading-note { font-size: 12px; color: var(--text-muted); padding: 40px 0; text-align: center; }
 
+  /* ---- Notable Movers (deliberately flatter/quieter than the tracked-signal
+     cards above — informational only, not part of the core watchlist) ---- */
+  .movers-panel {
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .movers-header {
+    display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .movers-title {
+    font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--text-muted); font-weight: 700;
+  }
+  .movers-disclaimer {
+    font-size: 10.5px; color: var(--text-muted); font-style: italic;
+  }
+  .movers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+  }
+  .mover-chip {
+    display: flex; flex-direction: column; gap: 3px;
+    border: 1px solid var(--border-soft); border-radius: 6px;
+    padding: 8px 10px;
+  }
+  .mover-ticker { font-size: 11px; font-weight: 700; color: var(--text-secondary); letter-spacing: .02em; }
+  .mover-price { font-size: 13px; font-weight: 700; color: var(--text-price); }
+  .mover-pct { font-size: 11px; }
+
   /* ---- Entrance animations ---- */
   @keyframes riseIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -575,6 +608,26 @@ function renderFeatured(mover) {
   </div>`;
 }
 
+function renderNotableMovers(movers) {
+  if (!movers || !movers.length) return '';
+  const chips = movers.map(m => {
+    const priceAttrs = animAttrs(`movers:${m.symbol}:price`, m.price, { prefix: '$', decimals: 2 });
+    const pctAttrs = animAttrs(`movers:${m.symbol}:pct`, m.daily_pct, { decimals: 1, suffix: '%', signed: true });
+    return `<div class="mover-chip">
+      <span class="mover-ticker mono">${esc(m.symbol)}</span>
+      <span class="mover-price mono" ${priceAttrs}>&mdash;</span>
+      <span class="mover-pct mono ${pctClass(m.daily_pct || 0)}" ${pctAttrs}>&mdash;</span>
+    </div>`;
+  }).join('');
+  return `<div class="movers-panel anim-panel">
+    <div class="movers-header">
+      <span class="movers-title mono">Notable Movers</span>
+      <span class="movers-disclaimer">for awareness, not a recommendation &mdash; a wider market scan, not part of your tracked watchlist</span>
+    </div>
+    <div class="movers-grid">${chips}</div>
+  </div>`;
+}
+
 function renderAlertsPanel(data) {
   const flagged = data.flagged || [];
   const rows = flagged.length
@@ -625,6 +678,7 @@ function render(data) {
     </div>
     ${renderStatStrip(data)}
     <div class="grid">${cards}</div>
+    ${renderNotableMovers(data.notable_movers)}
   `;
 
   runAnimations(app);

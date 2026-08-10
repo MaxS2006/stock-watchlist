@@ -172,7 +172,7 @@
     "flagged": false,
     "ma50_pct": 5.5454828781552745,
     "price": 217.5500030517578,
-    "read_line": "Nvidia is consolidating gains from a strong week amid today's broader tech selloff, with neutral technicals suggesting a pause rather than a reversal.",
+    "read_line": "NVDA: RSI 58 (neutral), 5.5% above its 50-day average, a stock-specific move.",
     "rsi": 58.067288391727466,
     "rsi_label": "neutral",
     "signal": {
@@ -188,8 +188,50 @@
     "weekly_pct": 5.279715299232579
   },
   "flagged": [],
-  "generated_at": "2026-08-10T21:52:18.180636+00:00",
-  "next_sync_at": "2026-08-10T22:07:18.180636+00:00",
+  "generated_at": "2026-08-10T22:00:43.977132+00:00",
+  "next_sync_at": "2026-08-10T22:15:43.977132+00:00",
+  "notable_movers": [
+    {
+      "daily_pct": 5.8209267427126345,
+      "price": 385.04,
+      "symbol": "PANW"
+    },
+    {
+      "daily_pct": 5.612104221031248,
+      "price": 523.91,
+      "symbol": "VRTX"
+    },
+    {
+      "daily_pct": 5.283993762407392,
+      "price": 53.2,
+      "symbol": "SLB"
+    },
+    {
+      "daily_pct": 4.608450081470593,
+      "price": 123.03,
+      "symbol": "COP"
+    },
+    {
+      "daily_pct": 4.475775199821762,
+      "price": 194.91,
+      "symbol": "CVX"
+    },
+    {
+      "daily_pct": 4.410611798302808,
+      "price": 159.79,
+      "symbol": "XOM"
+    },
+    {
+      "daily_pct": -4.062965883734934,
+      "price": 97.52,
+      "symbol": "INTC"
+    },
+    {
+      "daily_pct": 4.01226642351318,
+      "price": 78.03,
+      "symbol": "UBER"
+    }
+  ],
   "stocks": [
     {
       "breadth": "sector",
@@ -362,7 +404,7 @@
       "flagged": false,
       "ma50_pct": -0.46509162506191665,
       "price": 308.260009765625,
-      "read_line": "Apple is down moderately on memory cost pressures affecting iPhone margins, though the decline appears sector-wide rather than company-specific.",
+      "read_line": "AAPL: RSI 44 (neutral), 0.5% below its 50-day average, part of a broader sector move.",
       "rsi": 44.10236804081278,
       "rsi_label": "neutral",
       "signal": {
@@ -548,8 +590,8 @@
       "flagged": false,
       "ma50_pct": 23.854178996945897,
       "price": 506.05999755859375,
-      "read_line": "MSFT has rallied strongly on AI optimism with overbought technicals and low volume, while sector headwinds suggest caution about sustainability.",
-      "rsi": 79.15314884428334,
+      "read_line": "MSFT: RSI 79 (overbought), 23.9% above its 50-day average, part of a broader sector move.",
+      "rsi": 79.15314883992058,
       "rsi_label": "overbought",
       "signal": {
         "class": "mixed",
@@ -734,8 +776,8 @@
       "flagged": false,
       "ma50_pct": 0.47581384593159526,
       "price": 357.5199890136719,
-      "read_line": "Google is trading flat on the day amid sector-wide tech weakness, with neutral momentum and below-average volume suggesting consolidation rather than conviction.",
-      "rsi": 52.24588638328866,
+      "read_line": "GOOGL: RSI 52 (neutral), 0.5% above its 50-day average, part of a broader sector move.",
+      "rsi": 52.24588638303088,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -920,7 +962,7 @@
       "flagged": false,
       "ma50_pct": 12.319295655961508,
       "price": 278.0899963378906,
-      "read_line": "AMZN is rallying with the AI sector despite below-average volume, trading 12% above its 50-day average while broader tech momentum benefits mega-caps.",
+      "read_line": "AMZN: RSI 66 (neutral), 12.3% above its 50-day average, part of a broader sector move.",
       "rsi": 65.8705360011741,
       "rsi_label": "neutral",
       "signal": {
@@ -1106,7 +1148,7 @@
       "flagged": false,
       "ma50_pct": 5.5454828781552745,
       "price": 217.5500030517578,
-      "read_line": "Nvidia is consolidating gains from a strong week amid today's broader tech selloff, with neutral technicals suggesting a pause rather than a reversal.",
+      "read_line": "NVDA: RSI 58 (neutral), 5.5% above its 50-day average, a stock-specific move.",
       "rsi": 58.067288391727466,
       "rsi_label": "neutral",
       "signal": {
@@ -1292,7 +1334,7 @@
       "flagged": false,
       "ma50_pct": -12.515736700695124,
       "price": 330.8800048828125,
-      "read_line": "Tesla is trading below its 50-day average on light volume amid sector-wide weakness, while investors debate its chip manufacturing strategy and autopilot safety implications.",
+      "read_line": "TSLA: RSI 43 (neutral), 12.5% below its 50-day average, part of a broader sector move.",
       "rsi": 42.521260132574184,
       "rsi_label": "neutral",
       "signal": {
@@ -1478,7 +1520,7 @@
       "flagged": false,
       "ma50_pct": -0.6526910240572549,
       "price": 594.9199829101562,
-      "read_line": "Meta is flat on modest volume amid sector-wide tech weakness, supported by AI investment optimism but lacking momentum confirmation.",
+      "read_line": "META: RSI 49 (neutral), 0.7% below its 50-day average, part of a broader sector move.",
       "rsi": 48.56890985712289,
       "rsi_label": "neutral",
       "signal": {
@@ -1664,8 +1706,8 @@
       "flagged": false,
       "ma50_pct": 7.858861964744333,
       "price": 359.7900085449219,
-      "read_line": "JPM is rallying with the broader sector amid optimism about AI monetization, though volume remains light and momentum indicators suggest caution.",
-      "rsi": 64.93284552599624,
+      "read_line": "JPM: RSI 65 (neutral), 7.9% above its 50-day average, part of a broader sector move.",
+      "rsi": 64.93284550439992,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1850,7 +1892,7 @@
       "flagged": false,
       "ma50_pct": 5.420872945763021,
       "price": 261.80999755859375,
-      "read_line": "JNJ is rising moderately on sector momentum and positive pharma narrative, though vaccine policy uncertainty and below-average trading volume suggest investors remain cautious.",
+      "read_line": "JNJ: RSI 58 (neutral), 5.4% above its 50-day average, part of a broader sector move.",
       "rsi": 58.29245058336308,
       "rsi_label": "neutral",
       "signal": {
@@ -2036,8 +2078,8 @@
       "flagged": false,
       "ma50_pct": 3.481767220087819,
       "price": 773.030029296875,
-      "read_line": "SPY is trading near resistance with neutral momentum and below-average volume, while sector-wide moves and fee comparison headlines suggest investor attention on fund structure rather than index fundamentals.",
-      "rsi": 65.81937547816302,
+      "read_line": "SPY: RSI 66 (neutral), 3.5% above its 50-day average, part of a broader sector move.",
+      "rsi": 65.81937546766645,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2054,7 +2096,7 @@
   ],
   "tickers_tracked": 10,
   "watchlist_health": {
-    "avg_weekly_pct": 1.4769884889410483,
+    "avg_weekly_pct": 1.476988488941048,
     "green_count": 8,
     "total": 10
   }
