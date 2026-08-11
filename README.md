@@ -101,13 +101,28 @@ pytest -v
 
 44 tests, fixture data only, no network calls or API keys — they run in under a second and pass identically on a laptop or in CI. Covers RSI calculation, the daily/weekly drop-threshold flagging, the signal-scoring tally, and the accuracy-tracking resolution logic. `.github/workflows/tests.yml` runs this on every push, independent of the scheduled monitor workflow, so a logic regression fails a check before it ever reaches the live dashboard.
 
+## Backtesting
+
+```bash
+python backtest.py
+```
+
+Replays the exact same signal logic monitor.py uses live (`build_factors`/`compute_signal` — literally imported and called, not a re-derived copy) against 5 years of daily history for ~100 tickers (`tickers.txt` + `movers_pool.txt`, one batched `yfinance` call), day by day, using only data that would have been available on that historical day. Each directional signal is checked against what price actually did over the following 7 days (same window and resolution function the live accuracy tracker uses), and the results are broken down by factor, by exact factor combination, and by calendar year — so a strategy that only worked during one bull run shows up as such rather than blending into an overall average.
+
+Two views are reported throughout: every day a ticker showed a signal ("daily"), and only the first day of each consecutive same-direction streak ("episodes") — a stricter, de-autocorrelated view, since ten straight days of one sustained trend aren't ten independent trials. Any bucket with fewer than 30 resolved signals is flagged as too small to draw conclusions from, not silently included.
+
+Known limitation: the earnings-proximity factor is always treated as neutral here. yfinance's earnings-dates endpoint only reflects earnings as currently known, not a point-in-time historical view, so there's no safe way to reconstruct "what earnings were upcoming as of some past date" without risking the exact lookahead bias this exists to avoid — so this tests 4 of the 5 live factors faithfully, and excludes the fifth rather than faking it.
+
+Results go to `backtest_results/report.md` (human-readable summary) and `backtest_results/results.json` (every signal, factor, and outcome — tens of MB, gitignored rather than committed). Tune via env vars: `BACKTEST_YEARS` (default `5`), `BACKTEST_OUTPUT_DIR`.
+
 ## Repo structure
 
 ```
 .
 ├── monitor.py                 # the scheduled script: fetch, analyze, synthesize, alert
+├── backtest.py                # replays the signal logic against historical data
 ├── tickers.txt                # core watchlist (edit freely, one ticker per line)
-├── movers_pool.txt            # wider large-cap pool for the Notable Movers panel
+├── movers_pool.txt            # wider large-cap pool for Notable Movers + backtest universe
 ├── state.json                 # dedup + signal-history state, committed back each run
 ├── docs/
 │   ├── index.html             # the dashboard — static, no build step
@@ -121,6 +136,7 @@ pytest -v
 ├── requirements-test.txt
 └── .github/workflows/
     ├── watchlist.yml          # the scheduled monitor run
+    ├── watchlist-edit.yml     # dashboard-triggered watchlist add/remove
     └── tests.yml              # pytest on every push
 ```
 
