@@ -279,6 +279,53 @@
   footer { margin-top: 16px; text-align: center; font-size: 10px; color: var(--text-faint); }
   .loading-note { font-size: 12px; color: var(--text-muted); padding: 40px 0; text-align: center; }
 
+  /* ---- Watchlist manager: add/remove tickers, committed straight to
+     tickers.txt via the GitHub API. Sits outside #app (which the 5-min
+     data poll wholesale-replaces) since its own state changes on user
+     interaction, independent of the data refresh cycle. ---- */
+  .watchlist-manager { margin-bottom: 12px; }
+  .manager-hint { font-size: 10.5px; color: var(--text-muted); }
+  .ticker-chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .ticker-chip {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--chip-bg); border: 1px solid var(--border); border-radius: 5px;
+    padding: 4px 4px 4px 10px; font-size: 11px; font-weight: 700; color: var(--text-heading);
+  }
+  .ticker-chip-remove {
+    background: none; border: none; color: var(--text-muted); cursor: pointer;
+    font-size: 14px; line-height: 1; padding: 2px 6px; border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+  }
+  .ticker-chip-remove:hover:not(:disabled) { color: var(--neg); background: var(--neg-bg-soft); }
+  .ticker-chip-remove:disabled { opacity: .4; cursor: not-allowed; }
+  .manager-add-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .manager-input {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text-price); padding: 7px 10px; font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; width: 130px;
+  }
+  .manager-input:focus { outline: none; border-color: var(--accent); }
+  .manager-btn {
+    background: var(--accent-bg); border: 1px solid var(--accent-dim); color: var(--accent);
+    border-radius: 6px; padding: 7px 14px; font-size: 11px; font-weight: 700; letter-spacing: .03em;
+    cursor: pointer; font-family: 'Inter', sans-serif; transition: border-color .15s, background .15s;
+  }
+  .manager-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-hover); }
+  .manager-btn:disabled { opacity: .5; cursor: not-allowed; }
+  .manager-btn.subtle { background: transparent; border-color: var(--border); color: var(--text-muted); }
+  .manager-status { font-size: 10.5px; margin-top: 8px; }
+  .manager-status.error { color: var(--neg); }
+  .manager-status.success { color: var(--pos); }
+  .manager-status.info { color: var(--text-secondary); }
+  .token-form {
+    margin-top: 10px; padding: 10px 12px; border: 1px dashed var(--border);
+    border-radius: 6px; font-size: 10.5px; line-height: 1.5; color: var(--text-secondary);
+  }
+  .token-form a { color: var(--accent); }
+  .token-form input { margin-top: 8px; width: 100%; max-width: 320px; text-transform: none; }
+  .token-form-actions { margin-top: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .token-remember-label { font-size: 10px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
+
   /* ---- Notable Movers (deliberately flatter/quieter than the tracked-signal
      cards above — informational only, not part of the core watchlist) ---- */
   .movers-panel {
@@ -369,6 +416,10 @@
       </div>
     </div>
   </header>
+
+  <div id="watchlistManager" class="panel watchlist-manager anim-panel">
+    <div class="loading-note mono" style="padding:16px 0;">Loading watchlist manager&hellip;</div>
+  </div>
 
   <div id="app">
     <div class="loading-note mono">Loading latest data&hellip;</div>
@@ -497,6 +548,274 @@ function fmtTime(iso) {
   const d = new Date(iso);
   return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' }) + ' UTC';
 }
+
+/* ---------------------------------------------------------------------- */
+/* Watchlist manager — add/remove tickers, committed to tickers.txt via   */
+/* the GitHub Contents API. Reads are unauthenticated (public repo);      */
+/* writes need a token, prompted once per browser tab and kept only in    */
+/* sessionStorage — never embedded in this page's shipped code, so a      */
+/* random visitor to the live dashboard has nothing to extract. GitHub's  */
+/* own permission check on the token is what actually gates writes.       */
+/* ---------------------------------------------------------------------- */
+
+const GH_OWNER = 'MaxS2006';
+const GH_REPO = 'stock-watchlist';
+const GH_BRANCH = 'main';
+const TICKERS_PATH = 'tickers.txt';
+const TOKEN_SESSION_KEY = 'watchlist_gh_token';
+const TICKER_PATTERN = /^[A-Z0-9]{1,6}([.\-][A-Z0-9]{1,4})?$/;
+// Polling for the workflow-applied change to actually land, after dispatch.
+const WATCH_POLL_ATTEMPTS = 10;
+const WATCH_POLL_INTERVAL_MS = 4000;
+
+function parseTickerList(text) {
+  return text.split('\n')
+    .map(l => l.trim())
+    .filter(l => l && !l.startsWith('#'))
+    .map(l => l.toUpperCase());
+}
+
+// Reads go through raw.githubusercontent.com rather than the GitHub REST
+// API's Contents endpoint — testing found the Contents endpoint doesn't
+// reliably send CORS headers for browser fetches (confirmed: /rate_limit,
+// /repos/{o}/{r}, and /repos/{o}/{r}/actions/... all support CORS fine;
+// /repos/{o}/{r}/contents consistently does not, both for this repo and a
+// second unrelated one — a real GitHub API limitation, not a fluke). The
+// raw content CDN is a different service and is CORS-reliable.
+async function fetchRawTickers() {
+  const resp = await fetch(
+    `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${TICKERS_PATH}?_=${Date.now()}`,
+    { cache: 'no-store' }
+  );
+  if (!resp.ok) throw new Error(`couldn't read tickers.txt (HTTP ${resp.status})`);
+  return parseTickerList(await resp.text());
+}
+
+// Writes go through repository_dispatch (confirmed CORS-reliable, unlike
+// the Contents API) rather than a direct commit from the browser. This
+// workflow's own step actually edits tickers.txt server-side — see
+// .github/workflows/watchlist-edit.yml — using the same GITHUB_TOKEN
+// pattern the scheduled monitor workflow already uses to commit.
+async function githubDispatchWatchlistChange(kind, ticker, token) {
+  const eventType = kind === 'add' ? 'watchlist_add' : 'watchlist_remove';
+  const resp = await fetch(
+    `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/dispatches`,
+    {
+      method: 'POST',
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ event_type: eventType, client_payload: { ticker } }),
+    }
+  );
+  if (resp.status === 204) return;
+  let detail = `HTTP ${resp.status}`;
+  try {
+    const errBody = await resp.json();
+    if (errBody.message) detail = errBody.message;
+  } catch (e) { /* ignore unparsable error body */ }
+  throw new Error(detail);
+}
+
+async function waitForWatchlistChange(kind, ticker) {
+  for (let i = 0; i < WATCH_POLL_ATTEMPTS; i++) {
+    await new Promise(res => setTimeout(res, WATCH_POLL_INTERVAL_MS));
+    try {
+      const list = await fetchRawTickers();
+      const has = list.includes(ticker);
+      if ((kind === 'add' && has) || (kind === 'remove' && !has)) {
+        wlTickers = list;
+        return true;
+      }
+    } catch (e) { /* transient — keep polling */ }
+  }
+  return false;
+}
+
+function getSessionToken() { return sessionStorage.getItem(TOKEN_SESSION_KEY) || ''; }
+function setSessionToken(t) { sessionStorage.setItem(TOKEN_SESSION_KEY, t); }
+function clearSessionToken() { sessionStorage.removeItem(TOKEN_SESSION_KEY); }
+
+let wlTickers = [];
+let wlLoaded = false;
+let wlBusy = false;
+let wlShowTokenForm = false;
+let wlStatus = null; // { type: 'error'|'success'|'info', text }
+let wlPendingAction = null; // { kind: 'add'|'remove', ticker }
+
+async function loadWatchlistFile() {
+  try {
+    wlTickers = await fetchRawTickers();
+    wlLoaded = true;
+  } catch (err) {
+    wlStatus = { type: 'error', text: `Couldn't load the current watchlist: ${err.message}` };
+  }
+  renderWatchlistManager();
+}
+
+async function performWatchlistChange(kind, ticker, tokenOverride) {
+  const token = tokenOverride || getSessionToken();
+  if (!token) {
+    wlPendingAction = { kind, ticker };
+    wlShowTokenForm = true;
+    wlStatus = null;
+    renderWatchlistManager();
+    return;
+  }
+
+  wlBusy = true;
+  wlStatus = { type: 'info', text: kind === 'add' ? `Adding ${ticker}…` : `Removing ${ticker}…` };
+  renderWatchlistManager();
+
+  try {
+    await githubDispatchWatchlistChange(kind, ticker, token);
+    wlStatus = { type: 'info', text: 'Request accepted — applying via GitHub Actions…' };
+    renderWatchlistManager();
+
+    const confirmed = await waitForWatchlistChange(kind, ticker);
+    const inputEl = document.getElementById('wlNewTicker');
+    if (inputEl) inputEl.value = '';
+
+    wlStatus = confirmed
+      ? {
+          type: 'success',
+          text: kind === 'add'
+            ? `${ticker} added — full analysis appears after the next scheduled run (~15 min).`
+            : `${ticker} removed.`,
+        }
+      : {
+          type: 'info',
+          text: `Request sent — it can take a minute to land. Check the "Edit Watchlist" run in the Actions tab, or reload shortly.`,
+        };
+  } catch (err) {
+    const msg = /401|403|Bad credentials/i.test(err.message)
+      ? "that token was rejected — check it has permission to trigger workflows on this repo, then try again."
+      : err.message;
+    wlStatus = { type: 'error', text: `Couldn't update the watchlist: ${msg}` };
+  } finally {
+    wlBusy = false;
+    renderWatchlistManager();
+  }
+}
+
+function renderTickerChips() {
+  if (!wlLoaded) return '<div class="manager-hint">Loading current watchlist&hellip;</div>';
+  if (!wlTickers.length) return '<div class="manager-hint">No tickers yet — add one below.</div>';
+  return `<div class="ticker-chip-row">${wlTickers.map(t => `
+    <span class="ticker-chip mono">
+      ${esc(t)}
+      <button class="ticker-chip-remove" data-remove-ticker="${esc(t)}" ${wlBusy ? 'disabled' : ''} aria-label="Remove ${esc(t)}" title="Remove ${esc(t)}">&times;</button>
+    </span>
+  `).join('')}</div>`;
+}
+
+function renderTokenForm() {
+  if (!wlShowTokenForm) return '';
+  return `
+    <div class="token-form">
+      This needs a GitHub personal access token with permission to trigger a workflow on this repo, which then commits the change to <code>tickers.txt</code> for you.
+      It's sent only for this request and kept, at most, in this browser tab's session storage — it's never part of this page's code.
+      <a href="https://github.com/settings/tokens/new?description=stock-watchlist%20dashboard&scopes=repo" target="_blank" rel="noopener">Create one on GitHub &rarr;</a>
+      <input type="password" id="wlTokenInput" class="manager-input mono" placeholder="ghp_&hellip;" autocomplete="off" />
+      <div class="token-form-actions">
+        <button class="manager-btn mono" id="wlTokenContinue" type="button">Continue</button>
+        <button class="manager-btn subtle mono" id="wlTokenCancel" type="button">Cancel</button>
+        <label class="token-remember-label"><input type="checkbox" id="wlTokenRememberCheckbox" checked /> remember for this tab</label>
+      </div>
+    </div>
+  `;
+}
+
+function renderWatchlistManager() {
+  const container = document.getElementById('watchlistManager');
+  if (!container) return;
+  const hasToken = !!getSessionToken();
+  container.innerHTML = `
+    <div class="panel-label">
+      <span>MANAGE WATCHLIST</span>
+      <span class="mono">${wlTickers.length}</span>
+    </div>
+    ${renderTickerChips()}
+    <div class="manager-add-row">
+      <input type="text" id="wlNewTicker" class="manager-input mono" placeholder="TICKER" maxlength="10" ${wlBusy ? 'disabled' : ''} />
+      <button class="manager-btn mono" id="wlAddBtn" type="button" ${wlBusy ? 'disabled' : ''}>${wlBusy ? 'Working&hellip;' : 'Add'}</button>
+      ${hasToken ? `<button class="manager-btn subtle mono" id="wlForgetToken" type="button">Forget token</button>` : ''}
+    </div>
+    ${wlStatus ? `<div class="manager-status ${wlStatus.type}">${esc(wlStatus.text)}</div>` : ''}
+    ${renderTokenForm()}
+    <div class="manager-hint" style="margin-top:8px;">Edits run via a GitHub Actions workflow that updates <code>tickers.txt</code> (usually within a few seconds); full price/RSI/signal analysis appears after the next scheduled run.</div>
+  `;
+}
+
+document.addEventListener('click', async (e) => {
+  const addBtn = e.target.closest('#wlAddBtn');
+  const removeBtn = e.target.closest('[data-remove-ticker]');
+  const forgetBtn = e.target.closest('#wlForgetToken');
+  const tokenContinueBtn = e.target.closest('#wlTokenContinue');
+  const tokenCancelBtn = e.target.closest('#wlTokenCancel');
+
+  if (addBtn) {
+    const input = document.getElementById('wlNewTicker');
+    const raw = (input && input.value || '').trim().toUpperCase();
+    if (!raw) return;
+    if (!TICKER_PATTERN.test(raw)) {
+      wlStatus = { type: 'error', text: `"${raw}" doesn't look like a valid ticker symbol.` };
+      renderWatchlistManager();
+      return;
+    }
+    if (wlTickers.includes(raw)) {
+      wlStatus = { type: 'error', text: `${raw} is already in your watchlist.` };
+      renderWatchlistManager();
+      return;
+    }
+    await performWatchlistChange('add', raw);
+    return;
+  }
+
+  if (removeBtn) {
+    await performWatchlistChange('remove', removeBtn.getAttribute('data-remove-ticker'));
+    return;
+  }
+
+  if (forgetBtn) {
+    clearSessionToken();
+    wlStatus = { type: 'info', text: 'Token forgotten for this browser tab.' };
+    renderWatchlistManager();
+    return;
+  }
+
+  if (tokenContinueBtn) {
+    const tokenInput = document.getElementById('wlTokenInput');
+    const rememberCheckbox = document.getElementById('wlTokenRememberCheckbox');
+    const token = (tokenInput && tokenInput.value || '').trim();
+    if (!token) return;
+    if (rememberCheckbox && rememberCheckbox.checked) setSessionToken(token);
+    wlShowTokenForm = false;
+    const action = wlPendingAction;
+    wlPendingAction = null;
+    if (action) await performWatchlistChange(action.kind, action.ticker, token);
+    return;
+  }
+
+  if (tokenCancelBtn) {
+    wlShowTokenForm = false;
+    wlPendingAction = null;
+    renderWatchlistManager();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.target && e.target.id === 'wlNewTicker' && e.key === 'Enter') {
+    const btn = document.getElementById('wlAddBtn');
+    if (btn) btn.click();
+  }
+  if (e.target && e.target.id === 'wlTokenInput' && e.key === 'Enter') {
+    const btn = document.getElementById('wlTokenContinue');
+    if (btn) btn.click();
+  }
+});
 
 /* ---------------------------------------------------------------------- */
 /* Count-up number animation                                              */
@@ -879,6 +1198,7 @@ async function load() {
 applyTheme();
 load();
 setInterval(load, REFRESH_MS);
+loadWatchlistFile();
 </script>
 </body>
 </html>

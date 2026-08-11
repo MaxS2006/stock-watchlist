@@ -1,0 +1,85 @@
+name: Edit Watchlist
+
+# Triggered by the dashboard's "Manage Watchlist" panel via a
+# repository_dispatch POST — NOT by a direct commit from the browser.
+#
+# The dashboard originally called the GitHub Contents API (GET+PUT) directly
+# from client-side JS, but that endpoint doesn't reliably send CORS headers
+# for browser fetches (confirmed by testing: /rate_limit, /repos/{o}/{r},
+# and /repos/{o}/{r}/actions/... all support CORS fine; /repos/{o}/{r}/contents
+# consistently does not). repository_dispatch does support CORS, so the
+# dashboard dispatches an event instead, and this workflow does the actual
+# file edit server-side — same GITHUB_TOKEN pattern the scheduled workflow
+# already uses to commit.
+
+on:
+  repository_dispatch:
+    types: [watchlist_add, watchlist_remove]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stock-watchlist
+  cancel-in-progress: false
+
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Apply watchlist change
+        env:
+          TICKER: ${{ github.event.client_payload.ticker }}
+          ACTION_TYPE: ${{ github.event.action }}
+        run: |
+          python3 - <<'EOF'
+          import os
+          import re
+          import sys
+
+          ticker = os.environ.get("TICKER", "").strip().upper()
+          action = os.environ.get("ACTION_TYPE", "")
+
+          if not re.match(r"^[A-Z0-9]{1,6}([.\-][A-Z0-9]{1,4})?$", ticker):
+              print(f"Refusing to apply: '{ticker}' is not a valid ticker symbol.")
+              sys.exit(1)
+
+          path = "tickers.txt"
+          with open(path) as f:
+              lines = f.read().splitlines()
+
+          existing = {l.strip().upper() for l in lines if l.strip() and not l.strip().startswith("#")}
+
+          if action == "watchlist_add":
+              if ticker in existing:
+                  print(f"{ticker} is already in the watchlist — nothing to do.")
+                  sys.exit(0)
+              while lines and lines[-1].strip() == "":
+                  lines.pop()
+              lines.append(ticker)
+          elif action == "watchlist_remove":
+              lines = [l for l in lines if l.strip().upper() != ticker]
+          else:
+              print(f"Unknown action '{action}'")
+              sys.exit(1)
+
+          with open(path, "w") as f:
+              f.write("\n".join(lines) + "\n")
+
+          print(f"{action}: {ticker}")
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tickers.txt
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "${{ github.event.action }}: ${{ github.event.client_payload.ticker }} (via dashboard)"
+            git push
+          fi
