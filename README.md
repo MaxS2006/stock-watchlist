@@ -1,208 +1,152 @@
 # Stock Watchlist Monitor
 
-Checks your watchlist every 15 minutes during US market hours, emails you a
-summary **only** when a stock drops sharply or has notable news, and
-publishes a live dashboard on GitHub Pages. It never places trades — it
-just alerts you.
+A self-updating stock watchlist that runs entirely on free infrastructure — no server, no database, no hosting bill. A scheduled script checks your stocks every ~15 minutes during market hours, runs some real technical analysis on them, asks Claude to synthesize a plain-English read, and publishes the result to a live dashboard. It emails you only when something actually crosses a threshold — never a constant stream of noise. It never places a trade.
 
-- **Prices:** [Yahoo Finance](https://finance.yahoo.com) via the `yfinance`
-  library — free, no signup.
-- **News:** [Finnhub](https://finnhub.io) free tier — needs a free API key.
-- **Email:** sent via iCloud SMTP using an app-specific password.
-- **Dashboard synthesis:** [Claude Haiku](https://www.anthropic.com) writes
-  a one-line read per stock combining the technicals and news — the only
-  paid piece of this stack (pay-per-token, but cheap; see below on cost).
-- **Dedup:** `state.json` tracks what's already been alerted/synthesized so
-  you don't get repeat emails or repeat API calls for the same drop, RSI
-  state, or article every 15 minutes.
+[![Tests](https://github.com/MaxS2006/stock-watchlist/actions/workflows/tests.yml/badge.svg)](https://github.com/MaxS2006/stock-watchlist/actions/workflows/tests.yml)
+[![Stock Watchlist Monitor](https://github.com/MaxS2006/stock-watchlist/actions/workflows/watchlist.yml/badge.svg)](https://github.com/MaxS2006/stock-watchlist/actions/workflows/watchlist.yml)
 
-## 1. Create the GitHub repo
+**[→ View the live dashboard](https://maxs2006.github.io/stock-watchlist/)**
 
-From this folder:
+> **Not financial advice.** This is a personal informational project. It never executes a trade, and nothing it displays is a recommendation to buy or sell anything — see [Disclaimer](#disclaimer).
 
-```bash
-git init
-git add .
-git commit -m "Initial watchlist monitor"
+---
+
+## What it does
+
+Point it at a list of tickers and it will, on its own, every ~15 minutes during US market hours:
+
+- Pull current price history from Yahoo Finance and recent company news from Finnhub
+- Compute real technical indicators — RSI(14), volume vs. its own average, position relative to the 50-day moving average, and whether a move looks stock-specific or sector-wide
+- Tally those into a plain signal (`LEANS POSITIVE`, `LEANS NEGATIVE`, `MIXED SIGNALS`, `NOTHING COMPELLING`) — deliberately never buy/sell language
+- Ask Claude to write a one-line synthesis combining the technicals with the news, but *only* when something actually changed since the last check (keeps API cost negligible)
+- Track its own track record: every directional call gets checked against what the price actually did about a week later
+- Update a live dashboard, and send an email **only** if a stock crosses a drop threshold or has notable news — not on every run
+
+It also scans a wider pool of ~80 large-cap tickers for notable movers, and shows a compact market-context strip (S&P 500, Nasdaq, Dow, and four sector ETFs) — both clearly separated from the core watchlist so they never get confused with an actual tracked signal.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    A["GitHub Actions cron<br/>~every 15 min, market hours"] --> B["monitor.py"]
+
+    B --> C["Yahoo Finance<br/>(yfinance)"]
+    B --> D["Finnhub<br/>(company news)"]
+
+    C --> E["Technical analysis<br/>RSI · volume · 50-day MA · sector breadth"]
+    E --> F["Signal scoring<br/>bullish / bearish / mixed tally"]
+    D --> F
+
+    F --> G["Claude API (Haiku)<br/>1-line plain-English synthesis"]
+    D --> G
+
+    F --> H["Accuracy tracker<br/>resolves past signals vs. real price, ~7 days later"]
+
+    E --> I["docs/data.json"]
+    F --> I
+    G --> I
+    H --> I
+
+    E --> J["Email alert<br/>iCloud SMTP — only if flagged"]
+    D --> J
+
+    I --> K["GitHub Pages<br/>static dashboard"]
+    K --> L["Live in your browser"]
 ```
 
-Then create a new (private is fine) repo on GitHub and push:
+Everything runs inside a single scheduled GitHub Actions job — there's no backend to host or pay for. `monitor.py` does the work and writes `docs/data.json`; `docs/index.html` is a static page with no build step that fetches that JSON client-side and renders it (candlestick charts, signal bars, tooltips, the works). A second, independent GitHub Actions workflow runs the test suite on every push, regardless of the schedule.
 
-```bash
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git branch -M main
-git push -u origin main
-```
+## Tech stack
 
-## 2. Get a free Finnhub API key
-
-1. Sign up at [finnhub.io/register](https://finnhub.io/register) (free, no
-   card required).
-2. Copy your API key from the dashboard.
-
-## 3. Create an iCloud app-specific password
-
-1. Go to [appleid.apple.com](https://appleid.apple.com) → sign in →
-   **Sign-In and Security** → **App-Specific Passwords** → generate one.
-2. Save the generated password — you won't be able to view it again.
-
-## 4. Get an Anthropic API key (for the dashboard synthesis)
-
-1. Go to [console.anthropic.com](https://console.anthropic.com), sign in
-   (or create an account), and make sure billing is set up.
-2. Create an API key and copy it.
-3. This is the one piece of the stack that costs money, but it's cheap: the
-   script only calls Claude Haiku for a ticker when something actually
-   changed since the last run (new news, an RSI-category flip, or a
-   flag state change), not on every 15-minute tick — typically well under a
-   dollar a month for a 10-stock watchlist.
-
-## 5. Add repo secrets
-
-In your GitHub repo: **Settings → Secrets and variables → Actions → New
-repository secret**. Add:
-
-| Secret | Value |
+| Layer | Choice |
 |---|---|
-| `FINNHUB_API_KEY` | your Finnhub API key |
-| `ANTHROPIC_API_KEY` | your Anthropic API key |
-| `EMAIL_ADDRESS` | `maxjsharman@icloud.com` |
-| `EMAIL_APP_PASSWORD` | the app-specific password from step 3 |
-| `ALERT_EMAIL_TO` | `maxjsharman@icloud.com` (where alerts get sent — can differ from `EMAIL_ADDRESS`) |
+| Language | Python 3.12 |
+| Price data | [Yahoo Finance](https://finance.yahoo.com) via `yfinance` (free, no key) |
+| News data | [Finnhub](https://finnhub.io) API (free tier) |
+| AI synthesis | [Claude API](https://www.anthropic.com) (Haiku) |
+| Technical analysis | `pandas` (Wilder-smoothed RSI, moving averages, breadth classification) |
+| Testing | `pytest` — fixture-based, zero network calls |
+| Automation | GitHub Actions (scheduled monitor run + CI on push) |
+| Hosting | GitHub Pages (static, free) |
+| Dashboard | Vanilla HTML/CSS/JS, no framework, no build step |
+| Charts | [lightweight-charts](https://github.com/tradingview/lightweight-charts) (TradingView's open-source library) |
+| Alerts | Email via iCloud SMTP |
 
-## 6. Enable GitHub Pages
+## Engineering notes
 
-1. In your repo, go to **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-3. Set branch to **main** and folder to **/docs**, then **Save**.
-4. GitHub will give you a live URL like
-   `https://<your-username>.github.io/<repo-name>/` — that's your shareable
-   dashboard link. It can take a minute or two to go live the first time.
+A few things about how this was actually built, not just what it does:
 
-## 7. Enable Actions and test it
+**The test suite caught a real bug.** Writing a "known dataset" test for the RSI calculation — cross-validating it against an independently-written reference implementation of the classic Wilder-smoothed formula — surfaced that the production code was actually using pandas' default `.ewm(...).mean()` weighting instead. That's a different, non-standard formula that diverged from the values TradingView or StockCharts would show by a meaningful margin on real price data. Fixed, and verified: I reverted the fix, watched the test fail against the buggy version, then restored it — confirming the test suite actually has teeth, not just passing vacuously.
 
-1. Go to the **Actions** tab in your repo, and enable workflows if prompted.
-2. Click **Stock Watchlist Monitor** → **Run workflow** to trigger it
-   manually and confirm it works (check the run logs for errors, and check
-   your inbox if anything was flagged that day).
-3. Refresh your Pages URL from step 6 — it should now show live data instead
-   of the "waiting for the first run" placeholder.
-4. After that, it runs automatically every 15 minutes, 13:00–21:45 UTC,
-   Monday–Friday (covers 9:30am–4:00pm ET with margin either side of
-   daylight saving, so no seasonal adjustment needed), and the dashboard
-   updates itself each run.
+**GitHub Actions' cron scheduler needed a workaround.** The scheduled workflow ran fine manually but never fired on its own schedule — every run in the history was `workflow_dispatch`, none `schedule`, across multiple full trading days. After ruling out the usual culprits (invalid YAML, a fork, a disabled workflow, a platform incident), the fix was GitHub's own documented behavior: scheduled runs are most likely to be delayed or dropped right at the top of the hour, which is exactly where the original cron (`*/15 13-21 * * 1-5`) landed every time. Offsetting it by a few minutes (`7,22,37,52 13-21 * * 1-5`) fixed it — confirmed by watching real scheduled runs start appearing in the Actions history afterward.
 
-## Editing your watchlist
+**Signals are checked against reality, not just displayed and forgotten.** Every `LEANS POSITIVE` / `LEANS NEGATIVE` call gets recorded with the price at signal time, then automatically resolved about a week later against what the price actually did — `correct: true/false`, or `null` if the move was flat. It's intentionally scoped down to just this: no dashboard UI for it yet, just the tracked data in `state.json`/`docs/data.json`, ready for a future accuracy view once enough history accumulates.
 
-Edit [`tickers.txt`](tickers.txt) — one ticker per line, `#` for comments.
-You can edit it directly on GitHub.com from your phone; no code changes
-needed. Commit the change and the next scheduled run picks it up.
-
-## Notable Movers pool
-
-Below your tracked watchlist, the dashboard shows a **Notable Movers** panel
-— the 5-8 biggest movers today from a wider pool of ~80 large-cap tickers in
-[`movers_pool.txt`](movers_pool.txt), fetched in one batched call each run.
-It's price and % change only — no RSI/signal/synthesis — and deliberately
-styled flatter/quieter than your tracked cards so it never reads as part of
-your actual signals. Purely informational; edit the pool file the same way
-as `tickers.txt`. Tickers already in your core watchlist are automatically
-skipped here to avoid duplicate listings.
-
-## Market Overview strip
-
-At the very top of the dashboard, a compact strip shows today's % change for
-the S&P 500 (SPY), Nasdaq (QQQ), Dow (DIA), and four sector ETFs (Tech,
-Financials, Healthcare, Energy) — broad market context, not stock-specific
-data. It's the lightest-weight panel on the page (label + % change only, no
-price, no chart), styled as a slim status bar so it reads distinctly from
-both the watchlist cards and the Notable Movers panel. The ticker list is
-`MARKET_OVERVIEW_TICKERS` near the top of [`monitor.py`](monitor.py) if you
-want to swap in different indices/sectors.
-
-## Adjusting thresholds
-
-Open [`.github/workflows/watchlist.yml`](.github/workflows/watchlist.yml)
-and edit the `DAILY_DROP_PCT` (default `5`) and `WEEKLY_DROP_PCT` (default
-`8`) values under `env:`. These are the % drops (day-over-day and
-week-over-week) that trigger an alert.
-
-You can also tune `NEWS_KEYWORDS` there (comma-separated) — headlines only
-count as "notable" if they match one of these keywords, unless the ticker's
-price already crossed a threshold, in which case any recent headline is
-included for context.
+**API usage is deliberately cheap.** The only paid dependency (Claude) is called per-ticker only when something changed since the last check — new news, an RSI category flip, or a threshold crossed — not on every 15-minute tick. The wider market scans (Notable Movers, Market Overview) use a single batched Yahoo Finance call rather than one request per ticker, so scanning ~90 extra tickers alongside the core watchlist adds a few seconds to the run, not minutes.
 
 ## The dashboard
 
-Each ticker card shows price, day/week % change, a real interactive
-candlestick chart (hover for exact date/open/high/low/close), RSI(14) with
-an Oversold/Overbought/Neutral label, volume vs. its own 20-day average,
-position vs. its 50-day moving average, whether the move looks stock-specific
-or sector-wide (compared against the rest of your watchlist), earnings-date
-proximity, a Claude-written one-line synthesis, and a signal bar.
-
-The signal bar counts how many of those five factors lean positive, negative,
-or neutral and labels the mix — **LEANS POSITIVE**, **LEANS NEGATIVE**,
-**MIXED SIGNALS**, or **NOTHING COMPELLING** — deliberately never using
-buy/sell language. It's a mechanical tally of technical factors, not
-investment advice.
-
-Price and % change numbers count up/down smoothly on load and on each data
-refresh, and cards fade/slide in. The header has a light/dark toggle and 3
-accent color options (Emerald/Cyan/Violet) — these only affect decorative
-chrome (glows, borders, the brand dot); the green/red up/down colors used
-everywhere else are fixed regardless of theme or accent, on purpose. Theme
-choice is session-only (no localStorage on a static site) — it always
-starts on dark + Emerald on a fresh load.
-
-Charts are rendered with [lightweight-charts](https://github.com/tradingview/lightweight-charts)
-(TradingView's open-source library), loaded from a version-pinned CDN.
-
-`monitor.py` writes [`docs/data.json`](docs/data.json) fresh every run;
-[`docs/index.html`](docs/index.html) is a static page that fetches it
-client-side, so the dashboard updates automatically — no rebuild step.
+Each watchlist card shows price, day/week % change, a real interactive candlestick chart, RSI with an Oversold/Overbought/Neutral read, volume vs. its 20-day average, position vs. the 50-day moving average, sector-wide vs. stock-specific classification, earnings-date proximity, the Claude-written synthesis, and the signal bar — every technical term has a hover/tap tooltip explaining it in plain English, aimed at someone with no trading background. A light/dark theme toggle and three accent colors are available, but the green/red up-down colors never change — the one thing that has to stay unambiguous, always does.
 
 ## Tests
-
-Core logic in `monitor.py` — RSI(14), daily/weekly drop-threshold flagging,
-signal-strength scoring, and signal accuracy-tracking (resolving a past
-bullish/bearish signal against what price actually did) — is covered by a
-`pytest` suite in [`tests/`](tests/). Tests use fixture/mock data only, no
-network calls or API keys, so they're fast and safe to run anywhere:
 
 ```bash
 pip install -r requirements-test.txt
 pytest -v
 ```
 
-[`.github/workflows/tests.yml`](.github/workflows/tests.yml) runs this suite
-on every push, independent of the scheduled monitor workflow — so a logic
-regression shows up as a failed check before it ever reaches the live
-dashboard, rather than silently producing wrong RSI/signal values.
+44 tests, fixture data only, no network calls or API keys — they run in under a second and pass identically on a laptop or in CI. Covers RSI calculation, the daily/weekly drop-threshold flagging, the signal-scoring tally, and the accuracy-tracking resolution logic. `.github/workflows/tests.yml` runs this on every push, independent of the scheduled monitor workflow, so a logic regression fails a check before it ever reaches the live dashboard.
 
-Notably, writing the RSI test caught a real bug: `compute_rsi` was using
-pandas' default `.ewm(...).mean()` weighting, which diverges from the
-standard Wilder-smoothed RSI (the definition used by TradingView,
-StockCharts, etc.) by a meaningful margin — now fixed and pinned down by
-`tests/test_rsi.py`.
+## Repo structure
 
-Accuracy-tracking is intentionally minimal for now: each bullish/bearish
-signal gets recorded once per ticker per day and resolved ~7 calendar days
-later against the ticker's price at that point (`resolved`/`correct` fields
-in `state.json`, summarized per ticker as `accuracy` in `docs/data.json`).
-It isn't surfaced on the dashboard yet — that'd be a natural follow-up once
-some history has accumulated.
+```
+.
+├── monitor.py                 # the scheduled script: fetch, analyze, synthesize, alert
+├── tickers.txt                # core watchlist (edit freely, one ticker per line)
+├── movers_pool.txt            # wider large-cap pool for the Notable Movers panel
+├── state.json                 # dedup + signal-history state, committed back each run
+├── docs/
+│   ├── index.html             # the dashboard — static, no build step
+│   └── data.json              # regenerated fresh every run, fetched client-side
+├── tests/
+│   ├── test_rsi.py
+│   ├── test_flags.py
+│   ├── test_signal.py
+│   └── test_accuracy.py
+├── requirements.txt
+├── requirements-test.txt
+└── .github/workflows/
+    ├── watchlist.yml          # the scheduled monitor run
+    └── tests.yml              # pytest on every push
+```
+
+## Running your own copy
+
+<details>
+<summary>Full setup steps</summary>
+
+1. **Fork or clone this repo**, then push it to your own GitHub repo (public — GitHub Pages on the free plan only serves from public repos).
+2. **Get a free [Finnhub](https://finnhub.io/register) API key** (no card required).
+3. **Get an [Anthropic API key](https://console.anthropic.com)** for the synthesis step — the one piece of this stack that costs money, but usage is capped to only re-synthesize when something changed, so it's typically well under a dollar a month for a 10-stock watchlist.
+4. **Create an iCloud app-specific password** at [appleid.apple.com](https://appleid.apple.com) → Sign-In and Security → App-Specific Passwords (or adapt `monitor.py`'s SMTP settings for a different provider).
+5. **Add repo secrets** (Settings → Secrets and variables → Actions): `FINNHUB_API_KEY`, `ANTHROPIC_API_KEY`, `EMAIL_ADDRESS`, `EMAIL_APP_PASSWORD`, `ALERT_EMAIL_TO`.
+6. **Enable GitHub Pages** (Settings → Pages → Deploy from a branch → `main` / `/docs`).
+7. **Enable Actions** and run the `Stock Watchlist Monitor` workflow manually once to confirm it works, then let the schedule take over.
+
+Edit [`tickers.txt`](tickers.txt) to change your watchlist, [`movers_pool.txt`](movers_pool.txt) to change the wider scan pool, and the `DAILY_DROP_PCT` / `WEEKLY_DROP_PCT` / `NEWS_KEYWORDS` env values in [`.github/workflows/watchlist.yml`](.github/workflows/watchlist.yml) to tune alert thresholds — all without touching Python.
+
+</details>
 
 ## Notes / limits
 
-- Runs on GitHub's free Actions minutes. At ~35 runs/day, 5 days/week, each
-  taking under a minute, this comfortably fits within the free tier even on
-  a private repo.
-- GitHub Pages on the free plan only serves from **public** repos, so this
-  repo needs to stay public for the dashboard link to work (no secrets live
-  in the code — only in Actions secrets — so nothing sensitive is exposed).
-- Yahoo Finance's data via `yfinance` is unofficial and can occasionally
-  hiccup for a given ticker — the script skips a failed ticker rather than
-  failing the whole run, and logs a warning in the Action's run output.
-- This is informational only, not investment advice, and it never executes
-  any trade.
+- Runs entirely on GitHub's free Actions minutes — comfortably within the free tier even on a private-turned-public repo, at ~35 runs/day.
+- Yahoo Finance's data via `yfinance` is unofficial and can occasionally hiccup for a given ticker; the script skips a failed ticker rather than failing the whole run.
+- Accuracy tracking uses a simple calendar-day window (not a trading-day calendar) — a deliberate simplification, not an oversight.
+
+## Disclaimer
+
+This is a personal, informational side project — not a product, not investment advice, and not built or reviewed by a licensed financial advisor. It never places a trade or connects to a brokerage; it only reads public price/news data and displays what it found. Every number and signal on the dashboard is mechanically generated from technical indicators and should be independently verified before you make any decision with real money.
+
+---
+
+Built by [@MaxS2006](https://github.com/MaxS2006).
