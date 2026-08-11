@@ -146,7 +146,7 @@
         "c": 343.8,
         "h": 356.81,
         "l": 343.39,
-        "o": 355.89,
+        "o": 355.9,
         "t": "2026-08-11"
       }
     ],
@@ -177,7 +177,7 @@
     "flagged": true,
     "ma50_pct": -3.1823845267381725,
     "price": 343.79998779296875,
-    "read_line": "Google is down sharply this week amid broad market uncertainty, with neutral momentum and below-average volume suggesting consolidation rather than capitulation.",
+    "read_line": "Google is down sharply this week with neutral momentum, trading below its 50-day average amid broader market rotation concerns rather than company-specific news.",
     "rsi": 45.8579597154195,
     "rsi_label": "neutral",
     "signal": {
@@ -198,7 +198,7 @@
       "symbol": "GOOGL"
     }
   ],
-  "generated_at": "2026-08-11T21:08:06.451802+00:00",
+  "generated_at": "2026-08-11T22:06:51.010882+00:00",
   "market_overview": [
     {
       "daily_pct": -0.31952597501650964,
@@ -243,7 +243,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-11T21:23:06.451802+00:00",
+  "next_sync_at": "2026-08-11T22:21:51.010882+00:00",
   "notable_movers": [
     {
       "daily_pct": -5.273123099167999,
@@ -623,7 +623,7 @@
           "c": 503.81,
           "h": 505.33,
           "l": 499.55,
-          "o": 504.33,
+          "o": 504.01,
           "t": "2026-08-11"
         }
       ],
@@ -654,7 +654,7 @@
       "flagged": false,
       "ma50_pct": 22.981032493213398,
       "price": 503.80999755859375,
-      "read_line": "MSFT is up 23% from its 50-day average amid broad tech strength, though overbought RSI and weak volume suggest near-term consolidation risk.",
+      "read_line": "Microsoft is overbought after a strong 23% run versus its 50-day average, facing a downgrade amid sector-wide strength and low volume confirmation.",
       "rsi": 77.72696767389506,
       "rsi_label": "overbought",
       "signal": {
@@ -814,7 +814,7 @@
           "c": 343.8,
           "h": 356.81,
           "l": 343.39,
-          "o": 355.89,
+          "o": 355.9,
           "t": "2026-08-11"
         }
       ],
@@ -845,7 +845,7 @@
       "flagged": true,
       "ma50_pct": -3.1823845267381725,
       "price": 343.79998779296875,
-      "read_line": "Google is down sharply this week amid broad market uncertainty, with neutral momentum and below-average volume suggesting consolidation rather than capitulation.",
+      "read_line": "Google is down sharply this week with neutral momentum, trading below its 50-day average amid broader market rotation concerns rather than company-specific news.",
       "rsi": 45.8579597154195,
       "rsi_label": "neutral",
       "signal": {
@@ -1036,7 +1036,7 @@
       "flagged": false,
       "ma50_pct": 9.95414351252076,
       "price": 272.2699890136719,
-      "read_line": "AMZN is down modestly on sector-wide weakness despite remaining 10% above its 50-day average, with neutral momentum and light volume suggesting consolidation rather than conviction selling.",
+      "read_line": "Amazon is down modestly in a sector-wide pullback while trading above its 50-day average on below-average volume with neutral momentum.",
       "rsi": 60.97801675361629,
       "rsi_label": "neutral",
       "signal": {
@@ -1227,7 +1227,7 @@
       "flagged": false,
       "ma50_pct": 5.45363141072916,
       "price": 217.5,
-      "read_line": "Nvidia is trading flat today within a modest uptrend, supported by a recent rating upgrade and broad AI sector momentum despite below-average trading volume.",
+      "read_line": "Nvidia is tracking sector-wide strength with modest positive momentum while headlines highlight continued AI infrastructure investment and a rating upgrade.",
       "rsi": 58.01870512378962,
       "rsi_label": "neutral",
       "signal": {
@@ -1418,7 +1418,7 @@
       "flagged": false,
       "ma50_pct": -11.5236459588308,
       "price": 332.80999755859375,
-      "read_line": "Tesla trades below its 50-day average on light volume with neutral momentum, while headlines highlight capital allocation concerns between its automotive and chip manufacturing ventures.",
+      "read_line": "Tesla is consolidating near its 50-day average with muted volume and neutral technicals while market attention shifts toward Musk's other ventures.",
       "rsi": 43.4926992499971,
       "rsi_label": "neutral",
       "signal": {
@@ -1578,7 +1578,7 @@
           "c": 599.12,
           "h": 612.42,
           "l": 593.4,
-          "o": 598.0,
+          "o": 597.73,
           "t": "2026-08-11"
         }
       ],
@@ -1609,8 +1609,8 @@
       "flagged": false,
       "ma50_pct": 0.15841568131683073,
       "price": 599.1199951171875,
-      "read_line": "Meta is flat with neutral momentum while markets debate whether its heavy AI spending justifies valuations amid broader tech sector rotation concerns.",
-      "rsi": 49.93542683616032,
+      "read_line": "Meta is consolidating near flat technical levels while investors weigh strong growth against escalating AI spending concerns.",
+      "rsi": 49.935426837465855,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1800,7 +1800,7 @@
       "flagged": false,
       "ma50_pct": 8.118031772803615,
       "price": 362.0400085449219,
-      "read_line": "JPM is trading moderately above its 50-day average on light volume, supported by positive banking sector sentiment and company-specific developments around Olympics investment and market outlook.",
+      "read_line": "JPM is up modestly on stock-specific strength with above-average gains versus its 50-day average, though volume remains light and RSI suggests limited momentum.",
       "rsi": 66.64275710514309,
       "rsi_label": "neutral",
       "signal": {
@@ -1992,7 +1992,7 @@
       "ma50_pct": 4.32192653897382,
       "price": 259.79998779296875,
       "read_line": "JNJ is consolidating near recent highs on light volume following positive regulatory and legal developments, with technicals showing neutral momentum amid broader sector movement.",
-      "rsi": 55.352792831387426,
+      "rsi": 55.35279283669124,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2182,7 +2182,7 @@
       "flagged": false,
       "ma50_pct": 3.10688248346097,
       "price": 770.5599975585938,
-      "read_line": "SPY is consolidating near highs with mixed signals: slight weakness today despite uptrend, neutral momentum, and sector-wide moves amid capital rotation debates.",
+      "read_line": "SPY is consolidating near recent highs with mixed momentum as markets debate AI spending sustainability amid broader sector rotation.",
       "rsi": 63.41848398307356,
       "rsi_label": "neutral",
       "signal": {
