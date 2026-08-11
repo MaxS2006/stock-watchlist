@@ -312,6 +312,34 @@
   .mover-price { font-size: 13px; font-weight: 700; color: var(--text-price); }
   .mover-pct { font-size: 11px; }
 
+  /* ---- Explainer tooltips: hover on desktop, tap-toggle on touch devices.
+     Beginner-friendly copy for RSI/factor/signal terms. A single shared,
+     JS-positioned bubble (see explainer-tip.js below) rather than a CSS
+     ::after on each trigger — pseudo-elements can't be clamped to the
+     viewport, and a centered tooltip on a chip near a narrow phone's edge
+     would otherwise get clipped off-screen. ---- */
+  [data-tip] { cursor: help; }
+  .explainer-tip {
+    position: fixed;
+    max-width: 200px;
+    background: var(--panel-1);
+    color: var(--text-body);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 9px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    font-weight: 400;
+    line-height: 1.45;
+    text-align: left;
+    box-shadow: 0 8px 20px #00000055;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .12s ease;
+    z-index: 100;
+  }
+  .explainer-tip.visible { opacity: 1; }
+
   /* ---- Entrance animations ---- */
   @keyframes riseIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -393,6 +421,66 @@ function esc(str) {
   d.textContent = str === null || str === undefined ? '' : String(str);
   return d.innerHTML;
 }
+
+// Explainer tooltip attribute — hover on desktop, tap-toggle on touch
+// devices, via the shared positioned bubble wired up below.
+function tip(text) {
+  return text ? `data-tip="${esc(text)}" tabindex="0"` : '';
+}
+
+let explainerTipEl = null;
+let explainerTipTrigger = null;
+
+function showExplainerTip(trigger) {
+  const text = trigger.getAttribute('data-tip');
+  if (!text) return;
+  if (!explainerTipEl) {
+    explainerTipEl = document.createElement('div');
+    explainerTipEl.className = 'explainer-tip';
+    document.body.appendChild(explainerTipEl);
+  }
+  explainerTipTrigger = trigger;
+  explainerTipEl.textContent = text;
+  explainerTipEl.classList.add('visible');
+
+  const margin = 8;
+  const rect = trigger.getBoundingClientRect();
+  const bubbleRect = explainerTipEl.getBoundingClientRect();
+  let left = rect.left + rect.width / 2 - bubbleRect.width / 2;
+  left = Math.max(margin, Math.min(left, window.innerWidth - bubbleRect.width - margin));
+  let top = rect.top - bubbleRect.height - 8;
+  if (top < margin) top = rect.bottom + 8; // flip below if no room above
+  explainerTipEl.style.left = left + 'px';
+  explainerTipEl.style.top = top + 'px';
+}
+
+function hideExplainerTip() {
+  explainerTipTrigger = null;
+  if (explainerTipEl) explainerTipEl.classList.remove('visible');
+}
+
+document.addEventListener('mouseover', (e) => {
+  const trigger = e.target.closest('[data-tip]');
+  if (trigger) showExplainerTip(trigger);
+});
+document.addEventListener('mouseout', (e) => {
+  const trigger = e.target.closest('[data-tip]');
+  if (trigger && trigger === explainerTipTrigger) hideExplainerTip();
+});
+document.addEventListener('focusin', (e) => {
+  const trigger = e.target.closest('[data-tip]');
+  if (trigger) showExplainerTip(trigger);
+});
+document.addEventListener('focusout', (e) => {
+  const trigger = e.target.closest('[data-tip]');
+  if (trigger && trigger === explainerTipTrigger) hideExplainerTip();
+});
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('[data-tip]');
+  if (!trigger) { hideExplainerTip(); return; }
+  if (trigger === explainerTipTrigger) hideExplainerTip();
+  else showExplainerTip(trigger);
+});
 
 function fmtPct(v) {
   if (v === null || v === undefined) return '&mdash;';
@@ -574,9 +662,59 @@ function rebuildAllCharts() {
 /* Rendering                                                               */
 /* ---------------------------------------------------------------------- */
 
+// Beginner-friendly, 1-2 sentence explanations for every technical term
+// shown on a card. Keyed by the specific reading so the tooltip can name
+// what's actually happening, not just define the term in the abstract.
+const RSI_TOOLTIPS = {
+  oversold: "RSI (Relative Strength Index) tracks how fast the price has moved lately, on a 0-100 scale. Below 30, like here, suggests it's dropped quickly and could bounce back — though that's not guaranteed.",
+  overbought: "RSI (Relative Strength Index) tracks how fast the price has moved lately, on a 0-100 scale. Above 70, like here, suggests it's climbed quickly and could cool off — though strong trends can keep going.",
+  neutral: "RSI (Relative Strength Index) tracks how fast the price has moved lately, on a 0-100 scale. This reading is in the normal range — no strong signal either way.",
+};
+
+const SIGNAL_TOOLTIPS = {
+  "LEANS POSITIVE": "More of the factors below point positive than negative right now. It's a mechanical tally of technicals, not investment advice.",
+  "LEANS NEGATIVE": "More of the factors below point negative than positive right now. It's a mechanical tally of technicals, not investment advice.",
+  "MIXED SIGNALS": "The factors below are evenly split between positive and negative — no clear lean either way.",
+  "NOTHING COMPELLING": "Most factors below are neutral right now — there isn't much of a signal to read either way.",
+};
+
+function factorTooltip(f) {
+  const label = f.label;
+  if (label.startsWith('RSI ')) {
+    return RSI_TOOLTIPS[f.lean === 'pos' ? 'oversold' : f.lean === 'neg' ? 'overbought' : 'neutral'];
+  }
+  if (label.startsWith('Vol:')) {
+    return f.lean === 'neutral'
+      ? "Trading volume compared to its normal 20-day average — this is roughly typical, nothing unusual."
+      : "Trading volume compared to its normal 20-day average. Unusually high volume often means a move has real conviction behind it, not just noise.";
+  }
+  if (label === 'Above 50d avg') {
+    return "Compares the current price to its average over the last 50 trading days. Being above that average is a sign of a longer-term uptrend.";
+  }
+  if (label === 'Below 50d avg') {
+    return "Compares the current price to its average over the last 50 trading days. Being below that average is a sign of a longer-term downtrend.";
+  }
+  if (label.startsWith('Sector-wide')) {
+    return "Most of your watchlist is moving the same way today, so this looks like a broad market or sector move rather than news about this specific company.";
+  }
+  if (label === 'Stock-specific move') {
+    return "This stock is moving noticeably differently from the rest of your watchlist today — suggests something specific to this company, not just the wider market.";
+  }
+  if (label === 'No earnings soon') {
+    return "No earnings report is expected from this company in the next couple of weeks.";
+  }
+  if (label === 'Earnings just passed') {
+    return "This company reported earnings in the last few days — the stock may still be reacting to that news.";
+  }
+  if (label.startsWith('Earnings in')) {
+    return "This company reports earnings soon. These announcements often cause bigger-than-usual price swings.";
+  }
+  return '';
+}
+
 function rsiBadge(stock) {
   if (stock.rsi === null || stock.rsi === undefined) return '';
-  return `<div class="rsi-row">
+  return `<div class="rsi-row" ${tip(RSI_TOOLTIPS[stock.rsi_label])}>
     <span class="rsi-badge ${stock.rsi_label} mono">${esc(stock.rsi_label.toUpperCase())}</span>
     <span class="rsi-num mono">RSI ${stock.rsi.toFixed(0)}</span>
   </div>`;
@@ -586,14 +724,14 @@ function factorChips(factors) {
   if (!factors || !factors.length) return '';
   return `<div class="factor-row">${factors.map(f => {
     const cls = f.lean === 'pos' ? 'on-g' : f.lean === 'neg' ? 'on-r' : '';
-    return `<span class="factor ${cls}">${esc(f.label)}</span>`;
+    return `<span class="factor ${cls}" ${tip(factorTooltip(f))}>${esc(f.label)}</span>`;
   }).join('')}</div>`;
 }
 
 function signalBar(signal) {
   if (!signal) return '';
   return `<div class="signal-bar ${signal.class}">
-    <span class="signal-label mono">${signal.icon} ${esc(signal.label)}</span>
+    <span class="signal-label mono" ${tip(SIGNAL_TOOLTIPS[signal.label])}>${signal.icon} ${esc(signal.label)}</span>
     <span class="signal-score mono">${signal.up} up &middot; ${signal.down} down &middot; ${signal.neutral} neutral</span>
   </div>`;
 }
@@ -702,6 +840,7 @@ function renderStatStrip(data) {
 
 function render(data) {
   lastData = data;
+  hideExplainerTip(); // about to replace #app's DOM, so drop any open tooltip
   document.getElementById('clock').innerHTML = `Last sync ${fmtTime(data.generated_at)} &middot; next ${fmtTime(data.next_sync_at)}`;
 
   const stocks = data.stocks || [];

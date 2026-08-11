@@ -2,6 +2,11 @@
   "best_performer": "NVDA",
   "checks_per_day": 36,
   "featured_mover": {
+    "accuracy": {
+      "accuracy_pct": null,
+      "correct": 0,
+      "resolved": 0
+    },
     "breadth": "specific",
     "candles": [
       {
@@ -141,7 +146,7 @@
         "c": 217.55,
         "h": 224.14,
         "l": 216.77,
-        "o": 223.45,
+        "o": 223.4,
         "t": "2026-08-10"
       }
     ],
@@ -173,7 +178,7 @@
     "ma50_pct": 5.5454828781552745,
     "price": 217.5500030517578,
     "read_line": "NVDA: RSI 58 (neutral), 5.5% above its 50-day average, a stock-specific move.",
-    "rsi": 58.0672883928898,
+    "rsi": 58.06611470757325,
     "rsi_label": "neutral",
     "signal": {
       "class": "mixed",
@@ -184,11 +189,11 @@
       "up": 1
     },
     "symbol": "NVDA",
-    "volume_ratio": 0.8500309124951961,
+    "volume_ratio": 0.9080209613435671,
     "weekly_pct": 5.279715299232579
   },
   "flagged": [],
-  "generated_at": "2026-08-10T22:30:23.810925+00:00",
+  "generated_at": "2026-08-11T09:14:57.106294+00:00",
   "market_overview": [
     {
       "daily_pct": -0.02974167367321983,
@@ -233,7 +238,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-10T22:45:23.810925+00:00",
+  "next_sync_at": "2026-08-11T09:29:57.106294+00:00",
   "notable_movers": [
     {
       "daily_pct": 5.8209267427126345,
@@ -278,150 +283,155 @@
   ],
   "stocks": [
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
-          "c": 314.86,
-          "h": 316.19,
-          "l": 311.91,
-          "o": 313.76,
+          "c": 314.59,
+          "h": 315.92,
+          "l": 311.64,
+          "o": 313.49,
           "t": "2026-07-14"
         },
         {
-          "c": 327.5,
-          "h": 328.73,
-          "l": 317.32,
-          "o": 317.62,
+          "c": 327.22,
+          "h": 328.45,
+          "l": 317.05,
+          "o": 317.35,
           "t": "2026-07-15"
         },
         {
-          "c": 333.26,
-          "h": 334.68,
-          "l": 326.79,
-          "o": 328.01,
+          "c": 332.97,
+          "h": 334.39,
+          "l": 326.51,
+          "o": 327.73,
           "t": "2026-07-16"
         },
         {
-          "c": 333.74,
-          "h": 334.99,
-          "l": 329.0,
-          "o": 331.98,
+          "c": 333.45,
+          "h": 334.7,
+          "l": 328.72,
+          "o": 331.69,
           "t": "2026-07-17"
         },
         {
-          "c": 326.59,
-          "h": 333.71,
-          "l": 323.68,
-          "o": 333.51,
+          "c": 326.31,
+          "h": 333.42,
+          "l": 323.4,
+          "o": 333.22,
           "t": "2026-07-20"
         },
         {
-          "c": 327.74,
-          "h": 329.6,
-          "l": 322.22,
-          "o": 323.13,
+          "c": 327.46,
+          "h": 329.32,
+          "l": 321.94,
+          "o": 322.85,
           "t": "2026-07-21"
         },
         {
-          "c": 325.89,
-          "h": 329.0,
-          "l": 323.34,
-          "o": 327.87,
+          "c": 325.61,
+          "h": 328.72,
+          "l": 323.06,
+          "o": 327.59,
           "t": "2026-07-22"
         },
         {
-          "c": 321.66,
-          "h": 323.3,
-          "l": 319.35,
-          "o": 321.73,
+          "c": 321.38,
+          "h": 323.02,
+          "l": 319.07,
+          "o": 321.45,
           "t": "2026-07-23"
         },
         {
-          "c": 333.02,
-          "h": 334.37,
-          "l": 321.62,
-          "o": 321.79,
+          "c": 332.73,
+          "h": 334.08,
+          "l": 321.34,
+          "o": 321.51,
           "t": "2026-07-24"
         },
         {
-          "c": 336.91,
-          "h": 339.57,
-          "l": 334.02,
-          "o": 334.54,
+          "c": 336.62,
+          "h": 339.28,
+          "l": 333.73,
+          "o": 334.25,
           "t": "2026-07-27"
         },
         {
-          "c": 340.08,
-          "h": 342.89,
-          "l": 335.6,
-          "o": 340.03,
+          "c": 339.79,
+          "h": 342.59,
+          "l": 335.31,
+          "o": 339.74,
           "t": "2026-07-28"
         },
         {
-          "c": 338.19,
-          "h": 344.57,
-          "l": 337.35,
-          "o": 339.73,
+          "c": 337.9,
+          "h": 344.27,
+          "l": 337.06,
+          "o": 339.44,
           "t": "2026-07-29"
         },
         {
-          "c": 333.43,
-          "h": 334.75,
-          "l": 329.59,
-          "o": 333.1,
+          "c": 333.14,
+          "h": 334.46,
+          "l": 329.31,
+          "o": 332.81,
           "t": "2026-07-30"
         },
         {
-          "c": 308.91,
-          "h": 310.69,
-          "l": 300.0,
-          "o": 304.81,
+          "c": 308.64,
+          "h": 310.42,
+          "l": 299.74,
+          "o": 304.55,
           "t": "2026-07-31"
         },
         {
-          "c": 303.42,
-          "h": 311.8,
-          "l": 302.56,
-          "o": 309.58,
+          "c": 303.16,
+          "h": 311.53,
+          "l": 302.3,
+          "o": 309.31,
           "t": "2026-08-03"
         },
         {
-          "c": 309.38,
-          "h": 310.42,
-          "l": 301.32,
-          "o": 302.73,
+          "c": 309.11,
+          "h": 310.15,
+          "l": 301.06,
+          "o": 302.47,
           "t": "2026-08-04"
         },
         {
-          "c": 311.0,
-          "h": 311.71,
-          "l": 305.67,
-          "o": 309.36,
+          "c": 310.73,
+          "h": 311.44,
+          "l": 305.41,
+          "o": 309.09,
           "t": "2026-08-05"
         },
         {
-          "c": 312.41,
-          "h": 316.29,
-          "l": 309.23,
-          "o": 314.34,
+          "c": 312.14,
+          "h": 316.02,
+          "l": 308.96,
+          "o": 314.07,
           "t": "2026-08-06"
         },
         {
-          "c": 313.33,
-          "h": 314.81,
-          "l": 310.74,
-          "o": 311.45,
+          "c": 313.06,
+          "h": 314.54,
+          "l": 310.47,
+          "o": 311.18,
           "t": "2026-08-07"
         },
         {
           "c": 308.26,
           "h": 308.26,
-          "l": 304.63,
+          "l": 304.61,
           "o": 306.83,
           "t": "2026-08-10"
         }
       ],
-      "daily_pct": -1.6180949873660748,
+      "daily_pct": -1.533248524372828,
       "earnings_text": "No earnings soon",
       "factors": [
         {
@@ -446,10 +456,10 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": -0.46509162506191665,
+      "ma50_pct": -0.38095910305000186,
       "price": 308.260009765625,
-      "read_line": "AAPL: RSI 44 (neutral), 0.5% below its 50-day average, part of a broader sector move.",
-      "rsi": 44.10236804081278,
+      "read_line": "AAPL: RSI 44 (neutral), 0.4% below its 50-day average, part of a broader sector move.",
+      "rsi": 44.27158230804372,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -460,10 +470,15 @@
         "up": 1
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.7702282203065581,
-      "weekly_pct": 1.5951473613138472
+      "volume_ratio": 0.7947635009205214,
+      "weekly_pct": 1.682763063852062
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -602,7 +617,7 @@
         {
           "c": 506.06,
           "h": 513.73,
-          "l": 502.5,
+          "l": 502.27,
           "o": 503.44,
           "t": "2026-08-10"
         }
@@ -635,7 +650,7 @@
       "ma50_pct": 23.854178996945897,
       "price": 506.05999755859375,
       "read_line": "MSFT: RSI 79 (overbought), 23.9% above its 50-day average, part of a broader sector move.",
-      "rsi": 79.15314884428332,
+      "rsi": 79.15132716229456,
       "rsi_label": "overbought",
       "signal": {
         "class": "mixed",
@@ -646,10 +661,15 @@
         "up": 1
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.7827079933516936,
+      "volume_ratio": 0.7836694947612006,
       "weekly_pct": 3.7752494396662186
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -789,7 +809,7 @@
           "c": 357.52,
           "h": 357.61,
           "l": 352.71,
-          "o": 355.17,
+          "o": 355.18,
           "t": "2026-08-10"
         }
       ],
@@ -821,7 +841,7 @@
       "ma50_pct": 0.47581384593159526,
       "price": 357.5199890136719,
       "read_line": "GOOGL: RSI 52 (neutral), 0.5% above its 50-day average, part of a broader sector move.",
-      "rsi": 52.24588638303088,
+      "rsi": 52.24551036491787,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -832,10 +852,15 @@
         "up": 1
       },
       "symbol": "GOOGL",
-      "volume_ratio": 0.5813493642928909,
+      "volume_ratio": 0.5826372059696465,
       "weekly_pct": -4.281015323253787
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -975,7 +1000,7 @@
           "c": 278.09,
           "h": 280.14,
           "l": 273.6,
-          "o": 274.2,
+          "o": 274.01,
           "t": "2026-08-10"
         }
       ],
@@ -1007,7 +1032,7 @@
       "ma50_pct": 12.319295655961508,
       "price": 278.0899963378906,
       "read_line": "AMZN: RSI 66 (neutral), 12.3% above its 50-day average, part of a broader sector move.",
-      "rsi": 65.8705360011741,
+      "rsi": 65.86999941483569,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1018,10 +1043,15 @@
         "up": 1
       },
       "symbol": "AMZN",
-      "volume_ratio": 0.6897786523618764,
+      "volume_ratio": 0.712801769405053,
       "weekly_pct": -2.0878786371250078
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "specific",
       "candles": [
         {
@@ -1161,7 +1191,7 @@
           "c": 217.55,
           "h": 224.14,
           "l": 216.77,
-          "o": 223.45,
+          "o": 223.4,
           "t": "2026-08-10"
         }
       ],
@@ -1193,7 +1223,7 @@
       "ma50_pct": 5.5454828781552745,
       "price": 217.5500030517578,
       "read_line": "NVDA: RSI 58 (neutral), 5.5% above its 50-day average, a stock-specific move.",
-      "rsi": 58.0672883928898,
+      "rsi": 58.06611470757325,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1204,10 +1234,15 @@
         "up": 1
       },
       "symbol": "NVDA",
-      "volume_ratio": 0.8500309124951961,
+      "volume_ratio": 0.9080209613435671,
       "weekly_pct": 5.279715299232579
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -1347,7 +1382,7 @@
           "c": 330.88,
           "h": 332.05,
           "l": 326.15,
-          "o": 326.64,
+          "o": 326.6,
           "t": "2026-08-10"
         }
       ],
@@ -1379,7 +1414,7 @@
       "ma50_pct": -12.515736700695124,
       "price": 330.8800048828125,
       "read_line": "TSLA: RSI 43 (neutral), 12.5% below its 50-day average, part of a broader sector move.",
-      "rsi": 42.521260132574184,
+      "rsi": 42.520105554631115,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1390,10 +1425,15 @@
         "up": 0
       },
       "symbol": "TSLA",
-      "volume_ratio": 0.618607185421367,
+      "volume_ratio": 0.6334438211645673,
       "weekly_pct": 2.73224623616047
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -1533,7 +1573,7 @@
           "c": 594.92,
           "h": 608.21,
           "l": 592.03,
-          "o": 599.01,
+          "o": 599.13,
           "t": "2026-08-10"
         }
       ],
@@ -1565,7 +1605,7 @@
       "ma50_pct": -0.6526910240572549,
       "price": 594.9199829101562,
       "read_line": "META: RSI 49 (neutral), 0.7% below its 50-day average, part of a broader sector move.",
-      "rsi": 48.56890985712289,
+      "rsi": 48.56785405900787,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1576,10 +1616,15 @@
         "up": 0
       },
       "symbol": "META",
-      "volume_ratio": 0.8299827362919318,
+      "volume_ratio": 0.866639151736339,
       "weekly_pct": 0.792896576513377
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -1717,8 +1762,8 @@
         },
         {
           "c": 359.79,
-          "h": 359.98,
-          "l": 356.53,
+          "h": 359.99,
+          "l": 356.5,
           "o": 357.96,
           "t": "2026-08-10"
         }
@@ -1751,7 +1796,7 @@
       "ma50_pct": 7.858861964744333,
       "price": 359.7900085449219,
       "read_line": "JPM: RSI 65 (neutral), 7.9% above its 50-day average, part of a broader sector move.",
-      "rsi": 64.93284550439992,
+      "rsi": 64.92927941465855,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1762,10 +1807,15 @@
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 0.4274348351266578,
+      "volume_ratio": 0.6584136749262522,
       "weekly_pct": 2.0275617058411597
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -1937,7 +1987,7 @@
       "ma50_pct": 5.420872945763021,
       "price": 261.80999755859375,
       "read_line": "JNJ: RSI 58 (neutral), 5.4% above its 50-day average, part of a broader sector move.",
-      "rsi": 58.29245058336308,
+      "rsi": 58.293091725789566,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1948,10 +1998,15 @@
         "up": 1
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.7247599653732685,
+      "volume_ratio": 1.1092834632445194,
       "weekly_pct": 2.908688255164903
     },
     {
+      "accuracy": {
+        "accuracy_pct": null,
+        "correct": 0,
+        "resolved": 0
+      },
       "breadth": "sector",
       "candles": [
         {
@@ -2089,8 +2144,8 @@
         },
         {
           "c": 773.03,
-          "h": 775.03,
-          "l": 771.89,
+          "h": 775.05,
+          "l": 771.62,
           "o": 772.6,
           "t": "2026-08-10"
         }
@@ -2123,7 +2178,7 @@
       "ma50_pct": 3.481767220087819,
       "price": 773.030029296875,
       "read_line": "SPY: RSI 66 (neutral), 3.5% above its 50-day average, part of a broader sector move.",
-      "rsi": 65.81937546766645,
+      "rsi": 65.81706554653607,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2134,13 +2189,13 @@
         "up": 2
       },
       "symbol": "SPY",
-      "volume_ratio": 0.6428084547907045,
+      "volume_ratio": 0.7884556437760817,
       "weekly_pct": 2.0272739758967235
     }
   ],
   "tickers_tracked": 10,
   "watchlist_health": {
-    "avg_weekly_pct": 1.476988488941048,
+    "avg_weekly_pct": 1.4857500591948696,
     "green_count": 8,
     "total": 10
   }
