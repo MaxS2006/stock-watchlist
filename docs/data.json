@@ -146,7 +146,7 @@
         "c": 343.54,
         "h": 346.48,
         "l": 340.88,
-        "o": 346.31,
+        "o": 346.0,
         "t": "2026-08-12"
       }
     ],
@@ -177,8 +177,8 @@
     "flagged": false,
     "ma50_pct": -3.077609223052706,
     "price": 343.5400085449219,
-    "read_line": "Google is consolidating amid sector-wide weakness despite positive AI sentiment, with modest price declines and neutral technicals offset by product pricing increases and health tech innovation.",
-    "rsi": 45.74423198862799,
+    "read_line": "Google is down modestly amid sector-wide weakness despite positive AI sentiment, while raising hardware prices in a mixed earnings-free period.",
+    "rsi": 45.74423199094322,
     "rsi_label": "neutral",
     "signal": {
       "class": "mixed",
@@ -193,12 +193,12 @@
     "weekly_pct": -5.212036672626533
   },
   "flagged": [],
-  "generated_at": "2026-08-12T20:24:54.812093+00:00",
+  "generated_at": "2026-08-12T21:22:58.399400+00:00",
   "market_overview": [
     {
-      "daily_pct": 0.24786819333766608,
+      "daily_pct": 0.25046624297863224,
       "label": "S&P 500",
-      "price": 772.47,
+      "price": 772.49,
       "symbol": "SPY"
     },
     {
@@ -208,9 +208,9 @@
       "symbol": "QQQ"
     },
     {
-      "daily_pct": -0.029785990723856376,
+      "daily_pct": -0.024196857453018337,
       "label": "Dow",
-      "price": 537.12,
+      "price": 537.15,
       "symbol": "DIA"
     },
     {
@@ -220,9 +220,9 @@
       "symbol": "XLK"
     },
     {
-      "daily_pct": 0.19031247716873959,
+      "daily_pct": 0.2076106115375586,
       "label": "Financials",
-      "price": 57.91,
+      "price": 57.92,
       "symbol": "XLF"
     },
     {
@@ -238,7 +238,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-12T20:39:54.812093+00:00",
+  "next_sync_at": "2026-08-12T21:37:58.399400+00:00",
   "notable_movers": [
     {
       "daily_pct": 6.393729343564369,
@@ -427,7 +427,7 @@
           "c": 302.25,
           "h": 305.66,
           "l": 300.57,
-          "o": 305.1,
+          "o": 305.13,
           "t": "2026-08-12"
         }
       ],
@@ -458,7 +458,7 @@
       "flagged": false,
       "ma50_pct": -2.2557345974314145,
       "price": 302.25,
-      "read_line": "AAPL is down modestly amid broad sector weakness, with neutral momentum and below-average volume suggesting consolidation rather than conviction in either direction.",
+      "read_line": "Apple is declining alongside broader market weakness, with neutral momentum and below-average trading interest amid sector-wide volatility.",
       "rsi": 40.35903856609267,
       "rsi_label": "neutral",
       "signal": {
@@ -470,7 +470,7 @@
         "up": 1
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.6617132944836563,
+      "volume_ratio": 0.6874257092450697,
       "weekly_pct": -2.7296913288824363
     },
     {
@@ -618,7 +618,7 @@
           "c": 492.43,
           "h": 501.5,
           "l": 491.52,
-          "o": 499.99,
+          "o": 500.24,
           "t": "2026-08-12"
         }
       ],
@@ -649,8 +649,8 @@
       "flagged": false,
       "ma50_pct": 20.016182126956902,
       "price": 492.42999267578125,
-      "read_line": "MSFT has pulled back 2.3% today amid broad tech sector weakness from Fed rate concerns, though it remains 20% above its 50-day average with overbought technicals.",
-      "rsi": 70.78754060163735,
+      "read_line": "MSFT is pulling back today amid broad sector weakness tied to Fed rate concerns, despite being significantly elevated on the 50-day average with overbought technicals.",
+      "rsi": 70.7875405985481,
       "rsi_label": "overbought",
       "signal": {
         "class": "bullish",
@@ -809,7 +809,7 @@
           "c": 343.54,
           "h": 346.48,
           "l": 340.88,
-          "o": 346.31,
+          "o": 346.0,
           "t": "2026-08-12"
         }
       ],
@@ -840,8 +840,8 @@
       "flagged": false,
       "ma50_pct": -3.077609223052706,
       "price": 343.5400085449219,
-      "read_line": "Google is consolidating amid sector-wide weakness despite positive AI sentiment, with modest price declines and neutral technicals offset by product pricing increases and health tech innovation.",
-      "rsi": 45.74423198862799,
+      "read_line": "Google is down modestly amid sector-wide weakness despite positive AI sentiment, while raising hardware prices in a mixed earnings-free period.",
+      "rsi": 45.74423199094322,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1000,7 +1000,7 @@
           "c": 267.28,
           "h": 273.46,
           "l": 267.1,
-          "o": 273.18,
+          "o": 273.2,
           "t": "2026-08-12"
         }
       ],
@@ -1031,7 +1031,7 @@
       "flagged": false,
       "ma50_pct": 7.886517138731677,
       "price": 267.2799987792969,
-      "read_line": "Amazon is down modestly in a sector-wide pullback despite remaining above its 50-day average, with mixed signals from neutral momentum and below-average volume.",
+      "read_line": "Amazon is down modestly on sector-wide weakness with neutral momentum, trading above its 50-day average on below-average volume.",
       "rsi": 57.06437446438616,
       "rsi_label": "neutral",
       "signal": {
@@ -1043,7 +1043,7 @@
         "up": 2
       },
       "symbol": "AMZN",
-      "volume_ratio": 0.5845154567080816,
+      "volume_ratio": 0.5865353070472678,
       "weekly_pct": -1.9695562946633691
     },
     {
@@ -1222,7 +1222,7 @@
       "flagged": false,
       "ma50_pct": 8.648846375016486,
       "price": 224.08999633789062,
-      "read_line": "NVDA is up on broad AI sector strength with solid technicals, though below-average volume suggests conviction may be limited.",
+      "read_line": "NVDA has gained 3% today in light volume while trading 8.6% above its 50-day average, with semiconductor peers rallying on memory chip demand.",
       "rsi": 62.433093331245246,
       "rsi_label": "neutral",
       "signal": {
@@ -1234,7 +1234,7 @@
         "up": 2
       },
       "symbol": "NVDA",
-      "volume_ratio": 0.8401537973913223,
+      "volume_ratio": 0.8461071560679185,
       "weekly_pct": 2.2215103959809563
     },
     {
@@ -1413,7 +1413,7 @@
       "flagged": false,
       "ma50_pct": -12.521605521310155,
       "price": 327.510009765625,
-      "read_line": "Tesla is down on Fed rate-hike concerns alongside broad sector weakness, trading below its 50-day average on below-average volume with neutral momentum.",
+      "read_line": "Tesla is down with the broader market on Fed rate concerns, trading below its 50-day average on light volume with neutral momentum.",
       "rsi": 41.422439639672525,
       "rsi_label": "neutral",
       "signal": {
@@ -1573,7 +1573,7 @@
           "c": 578.85,
           "h": 604.5,
           "l": 578.25,
-          "o": 601.07,
+          "o": 601.7,
           "t": "2026-08-12"
         }
       ],
@@ -1605,7 +1605,7 @@
       "ma50_pct": -3.162041997357392,
       "price": 578.8499755859375,
       "read_line": "META is down on stock-specific weakness while the broader AI narrative remains positive, with neutral momentum and below-average volume suggesting consolidation rather than conviction.",
-      "rsi": 43.88035459164561,
+      "rsi": 43.88035458597263,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1796,7 +1796,7 @@
       "ma50_pct": 8.602141789803508,
       "price": 365.17999267578125,
       "read_line": "JPMorgan is up modestly on stock-specific momentum with above-average strength, though volume remains light and RSI suggests limited room for further gains.",
-      "rsi": 68.92035278492327,
+      "rsi": 68.92035277891429,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1807,7 +1807,7 @@
         "up": 2
       },
       "symbol": "JPM",
-      "volume_ratio": 0.41588178122754366,
+      "volume_ratio": 0.5814159268438687,
       "weekly_pct": 1.6534914271462038
     },
     {
@@ -2143,18 +2143,18 @@
           "t": "2026-08-11"
         },
         {
-          "c": 772.47,
+          "c": 772.49,
           "h": 774.87,
           "l": 771.29,
           "o": 774.71,
           "t": "2026-08-12"
         }
       ],
-      "daily_pct": 0.24786819333766608,
+      "daily_pct": 0.25046624297863224,
       "earnings_text": "No earnings soon",
       "factors": [
         {
-          "label": "RSI 64",
+          "label": "RSI 65",
           "lean": "neutral"
         },
         {
@@ -2175,10 +2175,10 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 3.318546371290015,
-      "price": 772.469970703125,
-      "read_line": "SPY is consolidating near recent highs on light volume amid mixed signals: modest gains offset by stagflation concerns and geopolitical uncertainty.",
-      "rsi": 64.49683160966015,
+      "ma50_pct": 3.3211686702447833,
+      "price": 772.489990234375,
+      "read_line": "SPY is consolidating near recent highs on light volume amid mixed macro signals about tariffs, energy, and inflation data.",
+      "rsi": 64.50780108646842,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2189,13 +2189,13 @@
         "up": 2
       },
       "symbol": "SPY",
-      "volume_ratio": 0.5492354295789127,
-      "weekly_pct": 0.34814595568637735
+      "volume_ratio": 0.6612408346887472,
+      "weekly_pct": 0.35074660415172915
     }
   ],
   "tickers_tracked": 10,
   "watchlist_health": {
-    "avg_weekly_pct": -0.32304573974233786,
+    "avg_weekly_pct": -0.3227856748958027,
     "green_count": 6,
     "total": 10
   }
