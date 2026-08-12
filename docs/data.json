@@ -177,7 +177,7 @@
     "flagged": false,
     "ma50_pct": -3.077609223052706,
     "price": 343.5400085449219,
-    "read_line": "Google is down modestly amid sector-wide weakness despite positive AI sentiment, while raising hardware prices in a mixed earnings-free period.",
+    "read_line": "Google is trading down alongside broader sector weakness, with neutral momentum and below-average volume suggesting consolidation rather than conviction in either direction.",
     "rsi": 45.74423199094322,
     "rsi_label": "neutral",
     "signal": {
@@ -193,7 +193,7 @@
     "weekly_pct": -5.212036672626533
   },
   "flagged": [],
-  "generated_at": "2026-08-12T21:22:58.399400+00:00",
+  "generated_at": "2026-08-12T22:20:05.682765+00:00",
   "market_overview": [
     {
       "daily_pct": 0.25046624297863224,
@@ -238,7 +238,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-12T21:37:58.399400+00:00",
+  "next_sync_at": "2026-08-12T22:35:05.682765+00:00",
   "notable_movers": [
     {
       "daily_pct": 6.393729343564369,
@@ -458,7 +458,7 @@
       "flagged": false,
       "ma50_pct": -2.2557345974314145,
       "price": 302.25,
-      "read_line": "Apple is declining alongside broader market weakness, with neutral momentum and below-average trading interest amid sector-wide volatility.",
+      "read_line": "Apple is down modestly on sector-wide weakness with neutral momentum, trading below its 50-day average on light volume amid broad tech volatility.",
       "rsi": 40.35903856609267,
       "rsi_label": "neutral",
       "signal": {
@@ -649,7 +649,7 @@
       "flagged": false,
       "ma50_pct": 20.016182126956902,
       "price": 492.42999267578125,
-      "read_line": "MSFT is pulling back today amid broad sector weakness tied to Fed rate concerns, despite being significantly elevated on the 50-day average with overbought technicals.",
+      "read_line": "MSFT is pullback after a strong 20% run, with overbought technicals and sector-wide weakness from Fed rate concerns outweighing fundamentals.",
       "rsi": 70.7875405985481,
       "rsi_label": "overbought",
       "signal": {
@@ -840,7 +840,7 @@
       "flagged": false,
       "ma50_pct": -3.077609223052706,
       "price": 343.5400085449219,
-      "read_line": "Google is down modestly amid sector-wide weakness despite positive AI sentiment, while raising hardware prices in a mixed earnings-free period.",
+      "read_line": "Google is trading down alongside broader sector weakness, with neutral momentum and below-average volume suggesting consolidation rather than conviction in either direction.",
       "rsi": 45.74423199094322,
       "rsi_label": "neutral",
       "signal": {
@@ -1031,7 +1031,7 @@
       "flagged": false,
       "ma50_pct": 7.886517138731677,
       "price": 267.2799987792969,
-      "read_line": "Amazon is down modestly on sector-wide weakness with neutral momentum, trading above its 50-day average on below-average volume.",
+      "read_line": "Amazon is down moderately on a sector-wide pullback with neutral technicals, showing no catalysts from earnings or company-specific news.",
       "rsi": 57.06437446438616,
       "rsi_label": "neutral",
       "signal": {
@@ -1222,8 +1222,8 @@
       "flagged": false,
       "ma50_pct": 8.648846375016486,
       "price": 224.08999633789062,
-      "read_line": "NVDA has gained 3% today in light volume while trading 8.6% above its 50-day average, with semiconductor peers rallying on memory chip demand.",
-      "rsi": 62.433093331245246,
+      "read_line": "NVDA is up modestly on positive semiconductor sector momentum, with technicals showing strength but below overbought levels and below-average volume suggesting limited conviction.",
+      "rsi": 62.4330933378754,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1413,7 +1413,7 @@
       "flagged": false,
       "ma50_pct": -12.521605521310155,
       "price": 327.510009765625,
-      "read_line": "Tesla is down with the broader market on Fed rate concerns, trading below its 50-day average on light volume with neutral momentum.",
+      "read_line": "Tesla is down alongside broader sector weakness on Fed rate hike concerns, trading below its 50-day average on below-average volume with neutral momentum.",
       "rsi": 41.422439639672525,
       "rsi_label": "neutral",
       "signal": {
@@ -1604,8 +1604,8 @@
       "flagged": false,
       "ma50_pct": -3.162041997357392,
       "price": 578.8499755859375,
-      "read_line": "META is down on stock-specific weakness while the broader AI narrative remains positive, with neutral momentum and below-average volume suggesting consolidation rather than conviction.",
-      "rsi": 43.88035458597263,
+      "read_line": "Meta is down on stock-specific weakness without fundamental catalysts, showing neutral momentum as it trades below its 50-day average on below-average volume.",
+      "rsi": 43.88035459164561,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1795,8 +1795,8 @@
       "flagged": false,
       "ma50_pct": 8.602141789803508,
       "price": 365.17999267578125,
-      "read_line": "JPMorgan is up modestly on stock-specific momentum with above-average strength, though volume remains light and RSI suggests limited room for further gains.",
-      "rsi": 68.92035277891429,
+      "read_line": "JPM is up modestly on stock-specific strength with solid technicals, likely supported by positive sentiment around its Olympics investment and broader financial sector positioning.",
+      "rsi": 68.92035278492327,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2177,8 +2177,8 @@
       "flagged": false,
       "ma50_pct": 3.3211686702447833,
       "price": 772.489990234375,
-      "read_line": "SPY is consolidating near recent highs on light volume amid mixed macro signals about tariffs, energy, and inflation data.",
-      "rsi": 64.50780108646842,
+      "read_line": "SPY is modestly up on light volume with neutral technicals, while broader market sentiment is mixed between profit optimism and concerns over energy costs and U.S.-Canada trade tensions.",
+      "rsi": 64.50780107214598,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
