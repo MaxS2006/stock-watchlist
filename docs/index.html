@@ -289,6 +289,30 @@
   .signal-bar.mixed .signal-label { color: var(--text-factor); }
   .signal-score { font-size: 9px; color: var(--text-muted-2); font-family: 'JetBrains Mono', monospace; }
 
+  /* Move Maturity — a full plain-English sentence, not a badge you have to
+     interpret, so it gets real reading room (larger font, generous line
+     height) rather than the compact label styling used elsewhere on the
+     card. Fresh stays neutral/calm (nothing to flag); Extended and
+     Overextended both use the same amber accent as the Oversold Bounce
+     badge — not red, since this isn't a bearish call — with Overextended
+     escalating via a stronger border and bolder heading rather than a
+     different color, so the three states read as a spectrum, not three
+     unrelated colors. */
+  .move-maturity {
+    margin-top: 8px; padding: 9px 11px; border-radius: 6px;
+    font-size: 11px; line-height: 1.5; color: var(--text-body);
+  }
+  .move-maturity .maturity-label {
+    display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .move-maturity.fresh { background: var(--mixed-bg); border: 1px solid var(--mixed-border); }
+  .move-maturity.fresh .maturity-label { color: var(--text-secondary); }
+  .move-maturity.extended { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+  .move-maturity.extended .maturity-label { color: var(--amber); }
+  .move-maturity.overextended { background: var(--amber-bg); border: 1.5px solid var(--amber-border-strong); }
+  .move-maturity.overextended .maturity-label { color: var(--amber); font-weight: 800; }
+
   /* Experimental weighted signal — same color language as the signal bar
      above, but visually secondary (dashed, no fill) so it never competes
      with the primary signal for attention. */
@@ -1085,6 +1109,24 @@ function signalBar(signal) {
   </div>`;
 }
 
+// Move Maturity: only present on LEANS POSITIVE cards (see
+// monitor.compute_move_maturity) — a full plain-English sentence on the
+// card itself, not a badge or tooltip you have to interpret, on purpose.
+const MOVE_MATURITY_HEADINGS = {
+  "Fresh": "FRESH SIGNAL",
+  "Extended": "EXTENDED MOVE",
+  "Overextended": "OVEREXTENDED MOVE",
+};
+
+function moveMaturityBlock(maturity) {
+  if (!maturity) return '';
+  const cls = maturity.label.toLowerCase();
+  const heading = MOVE_MATURITY_HEADINGS[maturity.label] || maturity.label.toUpperCase();
+  return `<div class="move-maturity ${cls}">
+    <span class="maturity-label mono">${heading}</span>${esc(maturity.sentence)}
+  </div>`;
+}
+
 // The weighted signal is an experimental, parallel read — see README's
 // "Weighted signal (experimental)" section. It's fit from backtesting, not
 // yet validated on new data, and (unlike the tally above) its LEANS
@@ -1153,6 +1195,7 @@ function renderCard(stock, index) {
     ${stock.read_line ? `<div class="read-line">${esc(stock.read_line)}</div>` : ''}
     ${factorChips(stock.factors)}
     ${signalBar(stock.signal)}
+    ${moveMaturityBlock(stock.move_maturity)}
     ${weightedSignalBar(stock.weighted_signal)}
   </div>`;
 }

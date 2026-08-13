@@ -71,7 +71,7 @@ NEWS_LOOKBACK_DAYS = 2
 MAX_NEWS_PER_TICKER = 3
 
 # Dashboard / technical-metrics tuning.
-HISTORY_PERIOD = "6mo"  # comfortably covers 50-day MA + 14-day RSI + volume avg
+HISTORY_PERIOD = "1y"  # covers 50-day MA + 14-day RSI + volume avg, with enough left over for a 52-week high
 CANDLE_POINTS = 20  # trading days of OHLC history sent to the dashboard's charts
 RSI_PERIOD = 14
 VOLUME_AVG_DAYS = 20
@@ -114,6 +114,21 @@ MAX_SIGNAL_HISTORY = 50
 SPY_REGIME_TICKER = "SPY"
 SPY_REGIME_MA_PERIOD = 200
 SPY_REGIME_HISTORY_PERIOD = "2y"
+
+# Move Maturity — is a LEANS POSITIVE signal catching a move early, or
+# arriving after it's already mostly played out? Historical positioning
+# only, never a prediction (see compute_move_maturity). Thresholds reuse
+# numbers already meaningful elsewhere in this codebase where possible
+# (WEEKLY_DROP_PCT mirrored for gains, ACCURACY_RESOLUTION_DAYS for "how
+# long has this signal held") rather than inventing new ones.
+MOVE_MATURITY_WEEKLY_SOFT_PCT = 4
+MOVE_MATURITY_MONTHLY_STRONG_PCT = 15
+MOVE_MATURITY_MONTHLY_SOFT_PCT = 8
+MOVE_MATURITY_NEAR_HIGH_STRONG_PCT = 2
+MOVE_MATURITY_NEAR_HIGH_SOFT_PCT = 5
+MOVE_MATURITY_STREAK_SOFT_DAYS = 3
+MOVE_MATURITY_EXTENDED_SCORE = 2
+MOVE_MATURITY_OVEREXTENDED_SCORE = 5
 
 
 def load_tickers(path):
@@ -161,6 +176,37 @@ def compute_price_moves(closes):
     week_ago_close = float(closes.iloc[week_idx])
     weekly_pct = (current_price - week_ago_close) / week_ago_close * 100
     return current_price, daily_pct, weekly_pct
+
+
+def compute_monthly_pct(closes):
+    """% change over the trailing ~21 trading days (a calendar month's worth
+    of sessions) — same "N trading days back, or the earliest available row"
+    style as compute_price_moves' weekly figure. Kept as a separate function
+    (only used by the Move Maturity read below) rather than folded into
+    compute_price_moves, since backtest.py also calls that function and
+    doesn't need this."""
+    month_idx = -22 if len(closes) >= 22 else 0
+    month_ago_close = float(closes.iloc[month_idx])
+    if month_ago_close == 0:
+        return None
+    current_price = float(closes.iloc[-1])
+    return (current_price - month_ago_close) / month_ago_close * 100
+
+
+def compute_pct_below_52wk_high(closes):
+    """How far the current price sits below the highest close in the given
+    history — 0 means today is at/above the highest close seen. Only an
+    approximation of a true 52-week high (HISTORY_PERIOD is "1y" of trading
+    days, not exactly 52 calendar weeks), same spirit as the accuracy
+    tracker's calendar-day-not-trading-day simplification: documented, not
+    hidden."""
+    if closes.empty:
+        return None
+    high = float(closes.max())
+    if high == 0:
+        return None
+    current_price = float(closes.iloc[-1])
+    return max(0.0, (high - current_price) / high * 100)
 
 
 def compute_rsi(closes, period=RSI_PERIOD):
@@ -548,6 +594,101 @@ def compute_weighted_signal(factors, regime):
     return {"label": label, "class": cls, "icon": icon, "score": round(score, 4)}
 
 
+def update_signal_streak(ticker_state, signal_class, today_str):
+    """Days the current signal class (bullish/bearish/mixed) has persisted,
+    for the Move Maturity read below — a signal that just flipped reads very
+    differently from one that's held for weeks. Stored separately from
+    signal_history: that list only records directional days for accuracy-
+    tracking and has gaps on MIXED/NOTHING days, so it can't reconstruct a
+    clean day-count. Mutates ticker_state (same pattern as the other
+    per-run state fields set inline in process_ticker) and returns the
+    streak length in days, 0 on the day it flips."""
+    streak = ticker_state.get("signal_streak")
+    if streak is None or streak.get("class") != signal_class:
+        streak = {"class": signal_class, "since": today_str}
+        ticker_state["signal_streak"] = streak
+    return (date.fromisoformat(today_str) - date.fromisoformat(streak["since"])).days
+
+
+def compute_move_maturity(weekly_pct, monthly_pct, pct_below_52wk_high, rsi, rsi_label_value, streak_days):
+    """Is this LEANS POSITIVE signal catching a move early, or arriving
+    after it's already mostly played out? A points-based read on how far
+    price has already run and how long the signal has held — never a
+    prediction of what happens next, only a description of positioning so
+    far. Each contributing factor is scored independently against a
+    threshold that's already meaningful elsewhere in this codebase (see the
+    MOVE_MATURITY_* constants), then summed into Fresh / Extended /
+    Overextended. The generated sentence only cites whichever factors
+    actually triggered, not a fixed recitation of every number."""
+    score = 0
+    reasons = []  # (points, phrase) — sorted by points to build the sentence
+
+    if weekly_pct is not None:
+        if weekly_pct >= WEEKLY_DROP_PCT:
+            score += 2
+            reasons.append((2, f"up {weekly_pct:.0f}% this week"))
+        elif weekly_pct >= MOVE_MATURITY_WEEKLY_SOFT_PCT:
+            score += 1
+            reasons.append((1, f"up {weekly_pct:.0f}% this week"))
+
+    if monthly_pct is not None:
+        if monthly_pct >= MOVE_MATURITY_MONTHLY_STRONG_PCT:
+            score += 2
+            reasons.append((2, f"up {monthly_pct:.0f}% this month"))
+        elif monthly_pct >= MOVE_MATURITY_MONTHLY_SOFT_PCT:
+            score += 1
+            reasons.append((1, f"up {monthly_pct:.0f}% this month"))
+
+    if pct_below_52wk_high is not None:
+        if pct_below_52wk_high <= MOVE_MATURITY_NEAR_HIGH_STRONG_PCT:
+            score += 2
+            phrase = "at a new 52-week high" if pct_below_52wk_high == 0 else "near its 52-week high"
+            reasons.append((2, phrase))
+        elif pct_below_52wk_high <= MOVE_MATURITY_NEAR_HIGH_SOFT_PCT:
+            score += 1
+            reasons.append((1, f"only {pct_below_52wk_high:.1f}% below its 52-week high"))
+
+    if rsi_label_value == "overbought":
+        score += 2
+        rsi_phrase = f"RSI overbought at {rsi:.0f}" if rsi is not None else "RSI overbought"
+        reasons.append((2, rsi_phrase))
+
+    if streak_days is not None:
+        if streak_days >= ACCURACY_RESOLUTION_DAYS:
+            score += 2
+            reasons.append((2, f"this signal has held positive for {streak_days} days"))
+        elif streak_days >= MOVE_MATURITY_STREAK_SOFT_DAYS:
+            score += 1
+            reasons.append((1, f"this signal has held positive for {streak_days} days"))
+
+    if score >= MOVE_MATURITY_OVEREXTENDED_SCORE:
+        label = "Overextended"
+    elif score >= MOVE_MATURITY_EXTENDED_SCORE:
+        label = "Extended"
+    else:
+        label = "Fresh"
+
+    reasons.sort(key=lambda r: r[0], reverse=True)
+    top_reasons = [phrase for _, phrase in reasons[:3]]
+
+    if label == "Fresh":
+        if streak_days is not None and streak_days <= 1:
+            lead = "Fresh signal — just turned positive " + ("today" if streak_days == 0 else "yesterday")
+        else:
+            lead = "Hasn't moved much yet"
+        if top_reasons:
+            sentence = f"{lead}, {', '.join(top_reasons)}."
+        else:
+            sentence = f"{lead}. Nothing here suggests the move has already run far."
+        sentence += " This looks early-stage based on positioning so far, not a prediction of what happens next."
+    else:
+        lead = "This move is already well extended" if label == "Overextended" else "This move looks extended"
+        sentence = f"{lead} — {', '.join(top_reasons)}."
+        sentence += " This reflects how far the move has already run and how long the signal has held — not a prediction of what happens next."
+
+    return {"label": label, "score": score, "sentence": sentence}
+
+
 # --- Signal accuracy tracking -------------------------------------------------
 #
 # Only "LEANS POSITIVE" (bullish) and "LEANS NEGATIVE" (bearish) signals make
@@ -746,6 +887,8 @@ def gather_ticker_data(symbol):
         "current_price": None,
         "daily_pct": None,
         "weekly_pct": None,
+        "monthly_pct": None,
+        "pct_below_52wk_high": None,
         "candles": [],
         "rsi": None,
         "rsi_label": None,
@@ -773,6 +916,8 @@ def gather_ticker_data(symbol):
             data["current_price"] = current_price
             data["daily_pct"] = daily_pct
             data["weekly_pct"] = weekly_pct
+            data["monthly_pct"] = compute_monthly_pct(closes)
+            data["pct_below_52wk_high"] = compute_pct_below_52wk_high(closes)
             data["candles"] = build_candles(hist)
             rsi = compute_rsi(closes)
             data["rsi"] = rsi
@@ -888,11 +1033,21 @@ def process_ticker(raw, state, today_str, avg_daily_pct, regime):
         )
         accuracy = summarize_accuracy(ticker_state["signal_history"])
 
+        streak_days = update_signal_streak(ticker_state, signal["class"], today_str)
+        move_maturity = None
+        if signal["class"] == "bullish":
+            move_maturity = compute_move_maturity(
+                raw["weekly_pct"], raw["monthly_pct"], raw["pct_below_52wk_high"],
+                raw["rsi"], raw["rsi_label"], streak_days,
+            )
+
         dashboard_entry = {
             "symbol": symbol,
             "price": raw["current_price"],
             "daily_pct": raw["daily_pct"],
             "weekly_pct": raw["weekly_pct"],
+            "monthly_pct": raw["monthly_pct"],
+            "pct_below_52wk_high": raw["pct_below_52wk_high"],
             "flagged": current_price_flag,
             "candles": raw["candles"],
             "rsi": raw["rsi"],
@@ -904,6 +1059,7 @@ def process_ticker(raw, state, today_str, avg_daily_pct, regime):
             "factors": factors,
             "signal": signal,
             "weighted_signal": weighted_signal,
+            "move_maturity": move_maturity,
             "read_line": read_line,
             "accuracy": accuracy,
         }
