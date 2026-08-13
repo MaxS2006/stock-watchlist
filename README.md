@@ -88,7 +88,7 @@ A few things about how this was actually built, not just what it does:
 
 ## The dashboard
 
-Each watchlist card shows price, day/week % change, a real interactive candlestick chart, RSI with an Oversold/Overbought/Neutral read, volume vs. its 20-day average, position vs. the 50-day moving average, sector-wide vs. stock-specific classification, earnings-date proximity, the Claude-written synthesis, and the signal bar — every technical term has a hover/tap tooltip explaining it in plain English, aimed at someone with no trading background. A light/dark theme toggle and three accent colors are available, but the green/red up-down colors never change — the one thing that has to stay unambiguous, always does.
+Each watchlist card shows price, day/week % change, a real interactive candlestick chart, RSI with an Oversold/Overbought/Neutral read, volume vs. its 20-day average, position vs. the 50-day moving average, sector-wide vs. stock-specific classification, earnings-date proximity, the Claude-written synthesis, and the signal bar — every technical term has a hover/tap tooltip explaining it in plain English, aimed at someone with no trading background. A light/dark theme toggle and three accent colors are available, but the green/red up-down colors never change — the one thing that has to stay unambiguous, always does. A dashed, muted "EXPERIMENTAL" badge beneath the main signal bar shows the [weighted signal](#weighted-signal-experimental) as a second opinion — deliberately styled to never compete with the primary signal.
 
 A **Manage Watchlist** panel lets you add or remove tickers straight from the dashboard — no editing `tickers.txt` by hand. Adding/removing triggers [`watchlist-edit.yml`](.github/workflows/watchlist-edit.yml) via the GitHub API, which commits the change for you; a newly added ticker gets full price/RSI/signal analysis after the next scheduled run. This needs a GitHub personal access token with permission to trigger a workflow on the repo — the dashboard prompts for it only when you use the feature, and it's kept, at most, in that browser tab's session storage. It is never written into the page's shipped code, so nothing is there for a random visitor to the public dashboard to extract.
 
@@ -99,7 +99,7 @@ pip install -r requirements-test.txt
 pytest -v
 ```
 
-44 tests, fixture data only, no network calls or API keys — they run in under a second and pass identically on a laptop or in CI. Covers RSI calculation, the daily/weekly drop-threshold flagging, the signal-scoring tally, and the accuracy-tracking resolution logic. `.github/workflows/tests.yml` runs this on every push, independent of the scheduled monitor workflow, so a logic regression fails a check before it ever reaches the live dashboard.
+52 tests, fixture data only, no network calls or API keys — they run in under a second and pass identically on a laptop or in CI. Covers RSI calculation, the daily/weekly drop-threshold flagging, the signal-scoring tally, the weighted signal's scoring/labeling, and the accuracy-tracking resolution logic. `.github/workflows/tests.yml` runs this on every push, independent of the scheduled monitor workflow, so a logic regression fails a check before it ever reaches the live dashboard.
 
 ## Backtesting
 
@@ -113,7 +113,18 @@ Two views are reported throughout: every day a ticker showed a signal ("daily"),
 
 Known limitation: the earnings-proximity factor is always treated as neutral here. yfinance's earnings-dates endpoint only reflects earnings as currently known, not a point-in-time historical view, so there's no safe way to reconstruct "what earnings were upcoming as of some past date" without risking the exact lookahead bias this exists to avoid — so this tests 4 of the 5 live factors faithfully, and excludes the fifth rather than faking it.
 
-Results go to `backtest_results/report.md` (human-readable summary) and `backtest_results/results.json` (every signal, factor, and outcome — tens of MB, gitignored rather than committed). Tune via env vars: `BACKTEST_YEARS` (default `5`), `BACKTEST_OUTPUT_DIR`.
+Results go to [`backtest_results/report.md`](backtest_results/report.md) (human-readable summary, committed) and `backtest_results/results.json` / `all_days.json` (every signal/day, factor, and outcome — tens of MB, gitignored rather than committed). Tune via env vars: `BACKTEST_YEARS` (default `5`), `BACKTEST_OUTPUT_DIR`.
+
+## Weighted signal (experimental)
+
+The backtest above showed the live tally logic has a real but uneven edge: `LEANS POSITIVE` is concentrated in specific states (RSI oversold alone: ~60% win rate) rather than spread evenly across the ~45% of bullish calls that make up its largest bucket, and `LEANS NEGATIVE` is unreliable overall (46% — worse than a coin flip). Rather than guess at a fix, the dashboard now also runs a second, clearly-labeled **experimental** signal alongside the live one, built directly from that backtest data:
+
+- **Weights are fit, not hand-picked.** [`fit_weights.py`](fit_weights.py) runs a small logistic regression (hand-rolled Newton-Raphson, `numpy` only — no new dependency) over `backtest_results/all_days.json`, predicting whether price rose over the following week from that day's factor readings. Critically, this trains on *every* trading day in the 5-year backtest, not just the days the live tally already called directional — training only on tally-flagged days would bake the tally's own selection bias into the new weights. The fitted coefficients are pasted into `monitor.py` as a plain constant (`WEIGHTED_FACTOR_WEIGHTS`), regenerated by hand whenever the analysis is redone — nothing is loaded at runtime.
+- **Market regime is a fitted input, not a hardcoded rule.** The original plan was to gate `LEANS NEGATIVE` behind a "SPY is in a confirmed downtrend" check (added as `compute_spy_regime`, SPY vs. its own 200-day MA). Backtesting that rule directly showed the opposite of what was assumed: bearish signals were *less* reliable, not more, when SPY itself was trending down — likely because real downtrends are choppy and produce the oversold bounces that already hurt bearish calls the most. Regime is instead included as just another weighted dimension, so its real, non-obvious effect gets sized by the regression.
+- **`LEANS NEGATIVE` is honestly rare.** With the fitted weights, no combination of the four factors produces a net negative score — every weight is positive except `ma50`'s (-0.0134), and the intercept alone (+0.0856, the sample's base rate of price rising over the window) already clears it. This isn't a bug: it's the same thing the backtest already showed (`LEANS NEGATIVE`'s raw win rate was under 46%) confirmed from a different angle. Within this factor set, there's no real recipe for betting on a decline.
+- **The label is relative to baseline, not absolute.** Since every day's score is technically positive, thresholding at zero would make this an always-on classifier (it was, briefly, during development — 99.9% `LEANS POSITIVE`, discriminating nothing). Instead, `LEANS POSITIVE` requires a score *meaningfully above* the intercept (what's actually distinctive about that day); at-or-below-baseline days fall to `MIXED SIGNALS` instead of being relabeled `LEANS NEGATIVE` — `MIXED SIGNALS` asserts no direction, so nothing is overstated in either direction.
+
+To compare the two approaches on the same historical window, run `SIGNAL_LOGIC=weighted python backtest.py` — it produces `backtest_results/report_weighted.md` alongside the original `report.md`. That comparison is **in-sample** (fit and tested on the same data), which is expected to look decent almost by construction — it's a sanity check, not validation. Real validation is walk-forward testing (fit on earlier data, test on strictly later, unseen data), which hasn't been done yet and is the planned next step before this could ever become the primary signal.
 
 ## Repo structure
 
@@ -121,16 +132,20 @@ Results go to `backtest_results/report.md` (human-readable summary) and `backtes
 .
 ├── monitor.py                 # the scheduled script: fetch, analyze, synthesize, alert
 ├── backtest.py                # replays the signal logic against historical data
+├── fit_weights.py             # fits WEIGHTED_FACTOR_WEIGHTS from a backtest run (one-off analysis tool)
 ├── tickers.txt                # core watchlist (edit freely, one ticker per line)
 ├── movers_pool.txt            # wider large-cap pool for Notable Movers + backtest universe
 ├── state.json                 # dedup + signal-history state, committed back each run
 ├── docs/
 │   ├── index.html             # the dashboard — static, no build step
 │   └── data.json              # regenerated fresh every run, fetched client-side
+├── backtest_results/
+│   └── report.md              # latest backtest summary (committed); raw JSON outputs are gitignored
 ├── tests/
 │   ├── test_rsi.py
 │   ├── test_flags.py
 │   ├── test_signal.py
+│   ├── test_weighted_signal.py
 │   └── test_accuracy.py
 ├── requirements.txt
 ├── requirements-test.txt

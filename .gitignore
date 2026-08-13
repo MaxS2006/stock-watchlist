@@ -2,4 +2,6 @@ __pycache__/
 *.pyc
 .venv/
 .claude/
-backtest_results/
+backtest_results/*
+!backtest_results/report.md
+!backtest_results/report_weighted.md
