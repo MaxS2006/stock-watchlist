@@ -30,6 +30,10 @@
     --pos-bg: #39ff9c14; --pos-bg-soft: #39ff9c0d; --pos-border: #39ff9c33; --pos-border-strong: #39ff9c44;
     --neg-bg: #ff557714; --neg-bg-soft: #ff55770d; --neg-border: #ff557733; --neg-border-strong: #ff557744;
 
+    /* Distinct from --pos/--neg on purpose — never used for up/down price
+       or signal direction, only to flag the "oversold bounce" setup badge. */
+    --amber: #ffc247; --amber-bg: #ffc24722; --amber-border: #ffc24755; --amber-border-strong: #ffc24777;
+
     --chip-bg: #ffffff08; --chip-border: #ffffff14;
     --mixed-bg: #ffffff0a; --mixed-border: #ffffff1a;
     --neutral-badge-bg: #ffffff0d; --neutral-badge-border: #ffffff1a;
@@ -45,6 +49,10 @@
     --pos: #059669; --neg: #dc2626; --neg-on-bg: #dc2626;
     --pos-bg: #0596691a; --pos-bg-soft: #05966912; --pos-border: #05966940; --pos-border-strong: #05966966;
     --neg-bg: #dc26261a; --neg-bg-soft: #dc262612; --neg-border: #dc262640; --neg-border-strong: #dc262666;
+
+    /* Distinct from --pos/--neg on purpose — never used for up/down price
+       or signal direction, only to flag the "oversold bounce" setup badge. */
+    --amber: #b45309; --amber-bg: #f59e0b1f; --amber-border: #f59e0b55; --amber-border-strong: #f59e0b80;
 
     --chip-bg: #0000000a; --chip-border: #00000018;
     --mixed-bg: #00000008; --mixed-border: #00000016;
@@ -238,6 +246,19 @@
   .dot-flag {
     width: 6px; height: 6px; border-radius: 50%; background: var(--neg);
     box-shadow: 0 0 6px var(--neg); margin-top: 3px;
+  }
+
+  /* Oversold Bounce Setup — the single strongest specific factor
+     combination from the backtest (below-50d-avg + RSI oversold +
+     sector-wide dip, ~59.5% win rate vs. ~53.6% for Leans Positive
+     generally). Amber on purpose, not green — it's a notable historical
+     pattern, not a stronger version of "bullish", and the README is
+     explicit that the pos/neg color language must stay unambiguous. */
+  .bounce-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    margin-top: 8px; padding: 3px 8px; border-radius: 5px;
+    background: var(--amber-bg); border: 1px solid var(--amber-border);
+    color: var(--amber); font-size: 9.5px; font-weight: 700; letter-spacing: .03em;
   }
 
   .rsi-row { display: flex; align-items: center; gap: 6px; margin-top: 10px; }
@@ -1086,6 +1107,31 @@ function weightedSignalBar(signal) {
   </div>`;
 }
 
+// The single strongest specific factor combination found in the backtest
+// (backtest_results/report.md, "Most common exact factor combinations" —
+// "Below 50d avg, RSI oversold, Sector-wide dip": 59.5% win rate, n=1618,
+// vs. ~53.6% for Leans Positive overall). Matched on the *exact* signature
+// — volume also has to be unremarkable — since that's the specific
+// combination the 59.5% figure was measured on; a looser match (e.g. also
+// allowing unusual volume) would cite a number that was never actually
+// tested for that broader case.
+function isOversoldBounceSetup(factors) {
+  if (!factors || !factors.length) return false;
+  const hasBelowMa50 = factors.some(f => f.label === 'Below 50d avg');
+  const hasRsiOversold = factors.some(f => f.label.startsWith('RSI ') && f.lean === 'pos');
+  const hasSectorDip = factors.some(f => f.label === 'Sector-wide dip');
+  const volumeUnremarkable = factors.some(f => f.label === 'Vol: avg');
+  return hasBelowMa50 && hasRsiOversold && hasSectorDip && volumeUnremarkable;
+}
+
+const BOUNCE_SETUP_TOOLTIP =
+  "The strongest specific pattern found in backtesting: price below its 50-day average, RSI oversold, and a sector-wide (not stock-specific) dip, all at once. Over 5 years / 104 tickers this exact combination won 59.5% of the time over the following week (n=1,618) — notably above the ~53.6% average for Leans Positive generally. This is a historical backtest result, not a live prediction or investment advice — see the README's Backtesting section.";
+
+function bounceBadge(factors) {
+  if (!isOversoldBounceSetup(factors)) return '';
+  return `<div class="bounce-badge mono" ${tip(BOUNCE_SETUP_TOOLTIP)}>🎯 OVERSOLD BOUNCE SETUP</div>`;
+}
+
 function renderCard(stock, index) {
   const delay = Math.min(index * 30, 300);
   const priceAttrs = animAttrs(`${stock.symbol}:price`, stock.price, { prefix: '$', decimals: 2 });
@@ -1096,6 +1142,7 @@ function renderCard(stock, index) {
       <div class="ticker">${esc(stock.symbol)}</div>
       ${stock.flagged ? '<div class="dot-flag"></div>' : ''}
     </div>
+    ${bounceBadge(stock.factors)}
     <div class="price mono" ${priceAttrs}>&mdash;</div>
     <div class="pct mono">
       <span class="${pctClass(stock.daily_pct || 0)}" ${dayAttrs}>&mdash;</span>
