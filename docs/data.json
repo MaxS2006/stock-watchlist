@@ -184,7 +184,7 @@
     },
     "pct_below_52wk_high": 7.52411659172299,
     "price": 262.6499938964844,
-    "read_line": "Amazon is consolidating near recent highs on sector-wide weakness while major investors increase stakes amid AI infrastructure demand.",
+    "read_line": "Amazon is down slightly amid broad sector weakness despite neutral technicals and institutional investors increasing positions, while AI compute demand narratives dominate headlines.",
     "rsi": 53.4889473965786,
     "rsi_label": "neutral",
     "signal": {
@@ -206,7 +206,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-14T21:51:29.108450+00:00",
+  "generated_at": "2026-08-14T22:02:38.524581+00:00",
   "market_overview": [
     {
       "daily_pct": -0.19797115463531517,
@@ -251,7 +251,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-14T22:06:29.108450+00:00",
+  "next_sync_at": "2026-08-14T22:17:38.524581+00:00",
   "notable_movers": [
     {
       "daily_pct": 6.4967607810114085,
@@ -296,7 +296,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 10.471238789481323
+    "pct_vs_ma": 10.471238693535383
   },
   "stocks": [
     {
@@ -479,7 +479,7 @@
       "pct_below_52wk_high": 9.964166062967784,
       "price": 305.92999267578125,
       "read_line": "Apple is consolidating near its 50-day average on sector-wide weakness with neutral momentum, while positive operational developments like new manufacturing capacity receive modest investor attention.",
-      "rsi": 43.81779001462733,
+      "rsi": 43.8177900163088,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -682,8 +682,8 @@
       },
       "pct_below_52wk_high": 8.030796853892557,
       "price": 495.3999938964844,
-      "read_line": "MSFT is up 20% in two months amid sector-wide AI compute momentum, but overbought technicals and light volume suggest consolidation risk.",
-      "rsi": 70.92350614609937,
+      "read_line": "Microsoft is overbought after a strong 20% run, with mixed institutional positioning shifts amid sector-wide AI compute demand.",
+      "rsi": 70.92350614609012,
       "rsi_label": "overbought",
       "signal": {
         "class": "bullish",
@@ -882,8 +882,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 14.036413769796189,
       "price": 345.8999938964844,
-      "read_line": "Google is down modestly in line with the broader market while facing competitive AI revenue pressures despite strong sector-wide compute demand.",
-      "rsi": 47.04248811946036,
+      "read_line": "Google is experiencing sector-wide weakness amid competitive AI pressure from rivals like Anthropic and OpenAI, with neutral technicals and below-average volume.",
+      "rsi": 47.04248811946745,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1086,7 +1086,7 @@
       },
       "pct_below_52wk_high": 7.52411659172299,
       "price": 262.6499938964844,
-      "read_line": "Amazon is consolidating near recent highs on sector-wide weakness while major investors increase stakes amid AI infrastructure demand.",
+      "read_line": "Amazon is down slightly amid broad sector weakness despite neutral technicals and institutional investors increasing positions, while AI compute demand narratives dominate headlines.",
       "rsi": 53.4889473965786,
       "rsi_label": "neutral",
       "signal": {
@@ -1290,8 +1290,8 @@
       },
       "pct_below_52wk_high": 4.376679036193048,
       "price": 225.16000366210938,
-      "read_line": "NVDA is up 9% from its 50-day average amid broad AI sector momentum, with earnings approaching in 12 days and below-average trading volume.",
-      "rsi": 63.03738218400408,
+      "read_line": "NVDA is trading near 50-day highs on sector-wide AI momentum ahead of earnings, with neutral technicals and below-average volume.",
+      "rsi": 63.03738218032924,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1691,7 +1691,7 @@
       "pct_below_52wk_high": 24.635683192468637,
       "price": 589.8499755859375,
       "read_line": "META is consolidating near its 50-day average amid sector-wide weakness while AI compute competition intensifies, with neutral momentum offering little directional conviction.",
-      "rsi": 47.626723491003176,
+      "rsi": 47.62672349078755,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1895,7 +1895,7 @@
       "pct_below_52wk_high": 0.6407788993982895,
       "price": 362.8399963378906,
       "read_line": "JPM is up 7% from its 50-day average on sector-wide strength, with analyst support and insider accumulation, though today's weak volume suggests consolidation.",
-      "rsi": 65.30791173767986,
+      "rsi": 65.30791173781924,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1906,7 +1906,7 @@
         "up": 2
       },
       "symbol": "JPM",
-      "volume_ratio": 0.7420483951081043,
+      "volume_ratio": 0.7420396843738651,
       "weekly_pct": 1.4880307360983132,
       "weighted_signal": {
         "class": "bullish",
@@ -2099,7 +2099,7 @@
       "pct_below_52wk_high": 2.5782010113144804,
       "price": 260.3500061035156,
       "read_line": "JNJ is flat today amid sector-wide weakness while resolving talc litigation uncertainty, with neutral technicals and below-average volume.",
-      "rsi": 55.232169381316915,
+      "rsi": 55.23216938130342,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2110,7 +2110,7 @@
         "up": 2
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.5214138240663867,
+      "volume_ratio": 0.521408979566916,
       "weekly_pct": 0.4281808019422761,
       "weighted_signal": {
         "class": "bullish",
@@ -2303,7 +2303,7 @@
       "pct_below_52wk_high": 0.19797115463531517,
       "price": 776.3400268554688,
       "read_line": "SPY is up modestly on sector strength amid Fed uncertainty over conflicting inflation and labor data, with neutral momentum and below-average trading interest.",
-      "rsi": 65.7612350588232,
+      "rsi": 65.76123505882276,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2314,7 +2314,7 @@
         "up": 2
       },
       "symbol": "SPY",
-      "volume_ratio": 0.6174716210826247,
+      "volume_ratio": 0.6175144753248395,
       "weekly_pct": 0.3983158382621264,
       "weighted_signal": {
         "class": "bullish",
