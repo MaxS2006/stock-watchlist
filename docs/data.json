@@ -184,7 +184,7 @@
     },
     "pct_below_52wk_high": 7.995913081309546,
     "price": 261.30999755859375,
-    "read_line": "Amazon is trading down amid broad sector weakness, though it remains above its 50-day average with neutral momentum indicators.",
+    "read_line": "Amazon is down modestly in a sector-wide retail decline, with neutral momentum and volume below average despite trading actively.",
     "rsi": 52.430887235322366,
     "rsi_label": "neutral",
     "signal": {
@@ -206,7 +206,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-17T21:31:42.288826+00:00",
+  "generated_at": "2026-08-17T21:52:03.663482+00:00",
   "market_overview": [
     {
       "daily_pct": -0.47273666413644183,
@@ -251,7 +251,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-17T21:46:42.288826+00:00",
+  "next_sync_at": "2026-08-17T22:07:03.663482+00:00",
   "notable_movers": [
     {
       "daily_pct": 5.546355394345144,
@@ -478,8 +478,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 10.064227693243968,
       "price": 305.5899963378906,
-      "read_line": "Apple is experiencing modest weakness amid sector-wide pullback and analyst concerns about memory cost pressures, with neutral momentum and below-average trading volume.",
-      "rsi": 43.550736321064996,
+      "read_line": "Apple is trading slightly below its 50-day average on sector-wide weakness with soft volume, while analysts cite memory headwinds as a reason for caution.",
+      "rsi": 43.55073630806368,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -676,10 +676,10 @@
       "ma50_pct": 16.076591589387952,
       "monthly_pct": 21.971966169829365,
       "move_maturity": null,
-      "pct_below_52wk_high": 10.824772230822417,
+      "pct_below_52wk_high": 10.824762126416978,
       "price": 480.3500061035156,
-      "read_line": "MSFT is pulling back 3% today on lighter volume while remaining well above its 50-day average, with no company-specific news driving the move.",
-      "rsi": 62.19737152583069,
+      "read_line": "MSFT is pulling back 3-5% this week despite being well above its 50-day average, with neutral momentum and light volume suggesting stock-specific selling rather than broad market weakness.",
+      "rsi": 62.197371525824714,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -878,8 +878,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 14.508603107868783,
       "price": 344.0,
-      "read_line": "Google is down modestly on sector-wide weakness with neutral momentum, while being positioned as relatively cheap among mega-cap tech peers.",
-      "rsi": 46.03135344860422,
+      "read_line": "Tech sector weakness is pulling GOOGL down modestly while valuation comparisons suggest relative appeal compared to peers.",
+      "rsi": 46.03135344808872,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1082,7 +1082,7 @@
       },
       "pct_below_52wk_high": 7.995913081309546,
       "price": 261.30999755859375,
-      "read_line": "Amazon is trading down amid broad sector weakness, though it remains above its 50-day average with neutral momentum indicators.",
+      "read_line": "Amazon is down modestly in a sector-wide retail decline, with neutral momentum and volume below average despite trading actively.",
       "rsi": 52.430887235322366,
       "rsi_label": "neutral",
       "signal": {
@@ -1286,8 +1286,8 @@
       },
       "pct_below_52wk_high": 4.440386503633613,
       "price": 225.00999450683594,
-      "read_line": "NVDA is up 8.9% above its 50-day average amid broad sector strength, with earnings arriving in 9 days and light trading volume suggesting cautious positioning.",
-      "rsi": 62.85381508355804,
+      "read_line": "NVDA is trading near recent highs ahead of earnings with sector-wide momentum, though today's flat movement and below-average volume suggest consolidation before the event.",
+      "rsi": 62.85381508716912,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1686,8 +1686,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 26.839500750832652,
       "price": 568.969970703125,
-      "read_line": "Meta faces modest selling pressure amid sector rotation toward AI specialists, with technicals showing neutral momentum and no near-term catalysts.",
-      "rsi": 41.89041182908513,
+      "read_line": "Meta is declining amid sector rotation toward AI competitors and activist investor Dan Loeb's exit, with neutral momentum indicators suggesting consolidation rather than capitulation.",
+      "rsi": 41.890411829059325,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1891,7 +1891,7 @@
       "pct_below_52wk_high": 1.155594858793313,
       "price": 360.9599914550781,
       "read_line": "JPM is up 6.3% above its 50-day average amid sector-wide strength, but today's flat price action and low volume suggest consolidation before the next move.",
-      "rsi": 62.29322508094991,
+      "rsi": 62.29322508079585,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2095,7 +2095,7 @@
       "pct_below_52wk_high": 1.8223302256957927,
       "price": 262.3699951171875,
       "read_line": "JNJ is trading near its 50-day average on light volume with neutral momentum, while analysts debate whether its dividend quality justifies current valuation levels.",
-      "rsi": 57.803735381669895,
+      "rsi": 57.80373538168565,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2298,8 +2298,8 @@
       },
       "pct_below_52wk_high": 0.6697719365393816,
       "price": 772.6699829101562,
-      "read_line": "SPY is trading slightly below its recent peak with neutral momentum amid conflicting sentiment about bull market sustainability and leverage concerns.",
-      "rsi": 61.84489770628701,
+      "read_line": "SPY is holding near highs with neutral momentum while market structure shows signs of strain amid elevated leverage and liquidity concerns.",
+      "rsi": 61.84489771718766,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
