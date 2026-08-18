@@ -207,7 +207,7 @@
       "symbol": "META"
     }
   ],
-  "generated_at": "2026-08-18T20:31:18.881854+00:00",
+  "generated_at": "2026-08-18T20:52:05.577938+00:00",
   "market_overview": [
     {
       "daily_pct": -0.6755757074274701,
@@ -252,7 +252,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-18T20:46:18.881854+00:00",
+  "next_sync_at": "2026-08-18T21:07:05.577938+00:00",
   "notable_movers": [
     {
       "daily_pct": -7.016554507968865,
@@ -297,7 +297,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 9.068885919592653
+    "pct_vs_ma": 9.068886014201489
   },
   "stocks": [
     {
@@ -484,7 +484,7 @@
       "pct_below_52wk_high": 8.75752572852968,
       "price": 310.0299987792969,
       "read_line": "Apple is up modestly on stock-specific gains while resolving European regulatory issues, with neutral momentum and below-average trading activity.",
-      "rsi": 48.007149572754344,
+      "rsi": 48.00714957305291,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -688,7 +688,7 @@
       "pct_below_52wk_high": 10.587145123009972,
       "price": 481.6300048828125,
       "read_line": "MSFT is consolidating near recent highs amid neutral momentum while AI infrastructure concerns and broader macro headwinds create uncertainty around tech valuations.",
-      "rsi": 62.61862659108256,
+      "rsi": 62.61862659108888,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -888,7 +888,7 @@
       "pct_below_52wk_high": 14.458895773640354,
       "price": 344.20001220703125,
       "read_line": "Google is consolidating near its 50-day average with neutral momentum while sector peers remain active amid evolving AI narrative discussions.",
-      "rsi": 46.16254095707293,
+      "rsi": 46.16254095706469,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1091,7 +1091,7 @@
       },
       "pct_below_52wk_high": 8.650791408015264,
       "price": 259.45001220703125,
-      "read_line": "Amazon is down modestly today amid sector-wide weakness, trading near its 50-day average with neutral momentum and below-average volume.",
+      "read_line": "Amazon is down modestly amid broad sector weakness, trading neutral technicals with below-average volume and slight outperformance versus its 50-day trend.",
       "rsi": 50.925082624279895,
       "rsi_label": "neutral",
       "signal": {
@@ -1291,8 +1291,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 6.678500923307899,
       "price": 219.74000549316406,
-      "read_line": "NVDA is consolidating near recent highs with neutral momentum ahead of earnings in eight days, while market focus shifts toward semiconductor peers like SK Hynix.",
-      "rsi": 56.61626114055638,
+      "read_line": "NVDA is down today in lighter volume despite staying above its 50-day average, with earnings approaching in eight days amid broad market activity.",
+      "rsi": 56.61626113872803,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1896,7 +1896,7 @@
       "pct_below_52wk_high": 0.5285044949039036,
       "price": 363.25,
       "read_line": "JPM is holding steady near recent highs on light volume while broader market moves dominate, with investment banking activity potentially supporting the financial sector.",
-      "rsi": 64.44613570691533,
+      "rsi": 64.44613569601793,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2100,7 +2100,7 @@
       "pct_below_52wk_high": 0.0,
       "price": 271.1099853515625,
       "read_line": "JNJ is up solidly on stock-specific momentum with neutral technicals, though low volume suggests the move may lack conviction.",
-      "rsi": 66.71317867951007,
+      "rsi": 66.71317868063181,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2303,8 +2303,8 @@
       },
       "pct_below_52wk_high": 1.340822827468425,
       "price": 767.4500122070312,
-      "read_line": "SPY is holding modest gains above its 50-day average amid sector-wide weakness, with bond yield concerns and AI valuation questions weighing on market sentiment.",
-      "rsi": 56.674987036515496,
+      "read_line": "SPY is flat amid sector-wide pressure from rising long-term yields and AI valuation concerns, with neutral technicals suggesting consolidation rather than directional conviction.",
+      "rsi": 56.67498703652782,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
