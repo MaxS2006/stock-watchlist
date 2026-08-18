@@ -146,7 +146,7 @@
         "c": 543.67,
         "h": 560.66,
         "l": 543.21,
-        "o": 557.48,
+        "o": 557.31,
         "t": "2026-08-18"
       }
     ],
@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 30.092682737325138,
     "price": 543.6699829101562,
-    "read_line": "Meta is down sharply on stock-specific regulatory concerns from an ongoing federal child safety trial, with technical weakness but no imminent earnings catalyst.",
-    "rsi": 36.20089097065126,
+    "read_line": "Meta is down sharply on stock-specific concerns amid a federal trial over child safety allegations, with technical weakness showing oversold conditions but no imminent earnings catalyst.",
+    "rsi": 36.200890970650136,
     "rsi_label": "neutral",
     "signal": {
       "class": "bearish",
@@ -207,7 +207,7 @@
       "symbol": "META"
     }
   ],
-  "generated_at": "2026-08-18T21:09:45.692396+00:00",
+  "generated_at": "2026-08-18T21:41:18.723591+00:00",
   "market_overview": [
     {
       "daily_pct": -0.6755757074274701,
@@ -252,7 +252,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-18T21:24:45.692396+00:00",
+  "next_sync_at": "2026-08-18T21:56:18.723591+00:00",
   "notable_movers": [
     {
       "daily_pct": -7.016554507968865,
@@ -297,7 +297,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 9.068886014201489
+    "pct_vs_ma": 9.068886203419165
   },
   "stocks": [
     {
@@ -484,7 +484,7 @@
       "pct_below_52wk_high": 8.75752572852968,
       "price": 310.0299987792969,
       "read_line": "Apple is up modestly on stock-specific gains while resolving European regulatory issues, with neutral momentum and below-average trading activity.",
-      "rsi": 48.007149572754344,
+      "rsi": 48.00714959667806,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -495,7 +495,7 @@
         "up": 2
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.8958329199009614,
+      "volume_ratio": 0.8987386238598548,
       "weekly_pct": 1.6791823999521183,
       "weighted_signal": {
         "class": "bullish",
@@ -685,10 +685,10 @@
         "score": 2,
         "sentence": "This move looks extended \u2014 up 20% this month. This reflects how far the move has already run and how long the signal has held \u2014 not a prediction of what happens next."
       },
-      "pct_below_52wk_high": 10.587145123009972,
+      "pct_below_52wk_high": 10.587134991679113,
       "price": 481.6300048828125,
       "read_line": "MSFT is consolidating near recent highs amid neutral momentum while AI infrastructure concerns and broader macro headwinds create uncertainty around tech valuations.",
-      "rsi": 62.61862659108298,
+      "rsi": 62.61862659151587,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -853,7 +853,7 @@
           "c": 344.2,
           "h": 344.87,
           "l": 340.19,
-          "o": 342.4,
+          "o": 342.45,
           "t": "2026-08-18"
         }
       ],
@@ -888,7 +888,7 @@
       "pct_below_52wk_high": 14.458895773640354,
       "price": 344.20001220703125,
       "read_line": "Google is consolidating near its 50-day average with neutral momentum while sector peers remain active amid evolving AI narrative discussions.",
-      "rsi": 46.16254095755584,
+      "rsi": 46.16254095707291,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1091,7 +1091,7 @@
       },
       "pct_below_52wk_high": 8.650791408015264,
       "price": 259.45001220703125,
-      "read_line": "Amazon is down modestly today in a broader sector pullback, with neutral momentum and volume below average, while the market reassesses AI valuations.",
+      "read_line": "Amazon is down moderately on low volume within a broader sector pullback, though it remains above its 50-day average with neutral momentum indicators.",
       "rsi": 50.925082624279895,
       "rsi_label": "neutral",
       "signal": {
@@ -1291,8 +1291,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 6.678500923307899,
       "price": 219.74000549316406,
-      "read_line": "NVDA is down today on light volume while remaining above its 50-day average ahead of earnings in 8 days, with the move appearing company-specific rather than market-driven.",
-      "rsi": 56.61626113872669,
+      "read_line": "NVDA is down today in light trading ahead of earnings in a week, while maintaining a modest gain versus its 50-day average with neutral momentum.",
+      "rsi": 56.61626114056193,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1491,7 +1491,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 31.2341814812849,
       "price": 336.8699951171875,
-      "read_line": "Tesla is down in line with broader sector weakness, trading below its 50-day average on light volume with neutral momentum amid cash flow concerns.",
+      "read_line": "Tesla is trading near its 50-day lows on sector-wide weakness with neutral momentum, while concerns about cash flow deterioration weigh on sentiment.",
       "rsi": 46.28314348705175,
       "rsi_label": "neutral",
       "signal": {
@@ -1657,7 +1657,7 @@
           "c": 543.67,
           "h": 560.66,
           "l": 543.21,
-          "o": 557.48,
+          "o": 557.31,
           "t": "2026-08-18"
         }
       ],
@@ -1691,8 +1691,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 30.092682737325138,
       "price": 543.6699829101562,
-      "read_line": "Meta is down sharply on stock-specific regulatory concerns from an ongoing federal child safety trial, with technical weakness but no imminent earnings catalyst.",
-      "rsi": 36.20089097065126,
+      "read_line": "Meta is down sharply on stock-specific concerns amid a federal trial over child safety allegations, with technical weakness showing oversold conditions but no imminent earnings catalyst.",
+      "rsi": 36.200890970650136,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1896,7 +1896,7 @@
       "pct_below_52wk_high": 0.5285044949039036,
       "price": 363.25,
       "read_line": "JPM is holding steady near recent highs on light volume while broader market moves dominate, with investment banking activity potentially supporting the financial sector.",
-      "rsi": 64.44613569601925,
+      "rsi": 64.44613570691709,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2303,8 +2303,8 @@
       },
       "pct_below_52wk_high": 1.340822827468425,
       "price": 767.4500122070312,
-      "read_line": "SPY is consolidating near resistance with mixed signals: moderately weakened by yield concerns and valuation questions, but stabilized by modest outperformance versus its 50-day average.",
-      "rsi": 56.674987036515994,
+      "read_line": "SPY is modestly lower amid sector-wide pressure from rising long-term yields and shifting AI valuations, while breadth remains neutral.",
+      "rsi": 56.674987036515894,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
