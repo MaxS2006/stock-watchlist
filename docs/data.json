@@ -202,7 +202,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-19T20:35:47.644221+00:00",
+  "generated_at": "2026-08-19T20:57:44.161775+00:00",
   "market_overview": [
     {
       "daily_pct": 0.2097837417361565,
@@ -247,7 +247,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-19T20:50:47.644221+00:00",
+  "next_sync_at": "2026-08-19T21:12:44.161775+00:00",
   "notable_movers": [
     {
       "daily_pct": 12.598948738618418,
@@ -292,7 +292,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 9.22410446414538
+    "pct_vs_ma": 9.22410441680553
   },
   "stocks": [
     {
@@ -475,7 +475,7 @@
       "pct_below_52wk_high": 6.7562751602324305,
       "price": 316.8299865722656,
       "read_line": "Apple is up modestly on sector-wide momentum amid AI enthusiasm, with neutral technicals and below-average volume suggesting cautious participation.",
-      "rsi": 53.997085073059445,
+      "rsi": 53.99708507231744,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -672,10 +672,10 @@
       "ma50_pct": 16.26075864592009,
       "monthly_pct": 21.762412962562856,
       "move_maturity": null,
-      "pct_below_52wk_high": 10.089604063552612,
+      "pct_below_52wk_high": 10.089614251258471,
       "price": 484.30999755859375,
       "read_line": "MSFT is up modestly on sector momentum with strong medium-term gains, though today's low volume and neutral technicals suggest consolidation rather than conviction.",
-      "rsi": 63.53486736112023,
+      "rsi": 63.53486736066522,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -875,7 +875,7 @@
       "pct_below_52wk_high": 14.329667322630558,
       "price": 344.7200012207031,
       "read_line": "Google is flat amid sector-wide moves, with low volume and neutral momentum, while headlines focus on its AI chip supplier deal rather than Google itself.",
-      "rsi": 46.52646611478388,
+      "rsi": 46.526466114795646,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1074,7 +1074,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 6.4009553478667724,
       "price": 265.8399963378906,
-      "read_line": "Amazon is up on sector-wide momentum with neutral technicals, though volume is light and no fundamental catalysts are imminent.",
+      "read_line": "Amazon is up on sector-wide strength with neutral momentum, trading above its 50-day average on below-average volume with no near-term catalysts.",
       "rsi": 55.63876205196714,
       "rsi_label": "neutral",
       "signal": {
@@ -1275,7 +1275,7 @@
       "pct_below_52wk_high": 7.6043296452859455,
       "price": 217.55999755859375,
       "read_line": "NVDA is trading near its 50-day high with neutral momentum ahead of earnings next week, while a competitor's win with Alphabet suggests potential competitive headwinds.",
-      "rsi": 54.21925431185566,
+      "rsi": 54.21925431185574,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1675,7 +1675,7 @@
       "pct_below_52wk_high": 29.78921277861134,
       "price": 546.030029296875,
       "read_line": "Meta is stabilizing after a weekly decline, with a legal win providing support despite oversold technicals and below-average trading volume.",
-      "rsi": 37.05965748860086,
+      "rsi": 37.05965748858816,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1875,7 +1875,7 @@
       "pct_below_52wk_high": 2.168788835369705,
       "price": 357.260009765625,
       "read_line": "JPM is down modestly on light volume while remaining above its 50-day average, with recent headlines suggesting broader financials sector activity rather than company-specific news.",
-      "rsi": 55.517055397005336,
+      "rsi": 55.517055399496044,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2075,7 +2075,7 @@
       "pct_below_52wk_high": 0.0,
       "price": 273.4100036621094,
       "read_line": "JNJ is up modestly on sector momentum with neutral technicals, while an executive option exercise and broader Dow movement generate routine market coverage.",
-      "rsi": 68.59255680885218,
+      "rsi": 68.59255680885248,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2274,8 +2274,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 1.1338519140297845,
       "price": 769.0599975585938,
-      "read_line": "SPY is consolidating after a three-day decline with neutral momentum, supported by broad sector strength from innovation themes and regulatory developments.",
-      "rsi": 57.84546183897695,
+      "read_line": "SPY is stabilizing after a three-day decline with neutral momentum, as markets digest higher bond yields and potential policy shifts under the new administration.",
+      "rsi": 57.8454618312979,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
