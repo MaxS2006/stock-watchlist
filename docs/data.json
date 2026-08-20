@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 29.814931170926933,
     "price": 545.8300170898438,
-    "read_line": "Meta is down alongside its sector while facing legal headwinds from a youth-safety trial, though momentum remains neutral and no earnings catalyst is imminent.",
-    "rsi": 37.014185004768656,
+    "read_line": "Meta is down 8% weekly amid a high-profile youth-safety trial, showing weak momentum with below-average volume while the broader sector declines.",
+    "rsi": 37.01418500738567,
     "rsi_label": "neutral",
     "signal": {
       "class": "mixed",
@@ -207,7 +207,7 @@
       "symbol": "META"
     }
   ],
-  "generated_at": "2026-08-20T21:45:55.462346+00:00",
+  "generated_at": "2026-08-20T22:03:35.212623+00:00",
   "market_overview": [
     {
       "daily_pct": -0.8399893367440514,
@@ -252,7 +252,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-20T22:00:55.462346+00:00",
+  "next_sync_at": "2026-08-20T22:18:35.212623+00:00",
   "notable_movers": [
     {
       "daily_pct": -9.151361710052312,
@@ -297,7 +297,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 8.240420393169021
+    "pct_vs_ma": 8.240420627593107
   },
   "stocks": [
     {
@@ -483,8 +483,8 @@
       },
       "pct_below_52wk_high": 8.383765317081574,
       "price": 311.29998779296875,
-      "read_line": "Apple is down modestly in sector-wide weakness with neutral technicals, while broader market concerns about consumer spending and tech competition dominate headlines.",
-      "rsi": 49.048243464681796,
+      "read_line": "Apple is down today amid broad market volatility driven by economic concerns, while its neutral technicals and light volume suggest consolidation rather than directional conviction.",
+      "rsi": 49.048243490178926,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -685,10 +685,10 @@
         "score": 2,
         "sentence": "This move looks extended \u2014 up 23% this month. This reflects how far the move has already run and how long the signal has held \u2014 not a prediction of what happens next."
       },
-      "pct_below_52wk_high": 10.676257412993568,
+      "pct_below_52wk_high": 10.676247291759982,
       "price": 481.1499938964844,
       "read_line": "MSFT is up 15% from its 50-day average amid sector-wide gains, though today's slight decline on light volume suggests consolidation as AI competition intensifies.",
-      "rsi": 61.617107134694756,
+      "rsi": 61.617107134690016,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -887,8 +887,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 15.336176374424099,
       "price": 340.6700134277344,
-      "read_line": "Google is down modestly alongside its sector as AI competition intensifies with Anthropic's planned IPO and hyperscaler capex dynamics.",
-      "rsi": 44.03002907407676,
+      "read_line": "Google is declining with sector-wide pressure amid neutral technicals, while AI competition from Anthropic's potential IPO dominates industry headlines.",
+      "rsi": 44.0300290730804,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1091,7 +1091,7 @@
       },
       "pct_below_52wk_high": 8.418422852962795,
       "price": 260.1099853515625,
-      "read_line": "AMZN is down modestly on sector-wide weakness with neutral momentum, while Anthropic IPO news and Prime Video's Latin America investment plans provide mixed sentiment.",
+      "read_line": "Amazon is down modestly in a sector-wide decline with neutral momentum, while its streaming division signals long-term regional expansion investments.",
       "rsi": 50.91600970841263,
       "rsi_label": "neutral",
       "signal": {
@@ -1295,8 +1295,8 @@
       },
       "pct_below_52wk_high": 7.905856291609769,
       "price": 216.85000610351562,
-      "read_line": "NVDA is consolidating near its 50-day high on sector-wide weakness ahead of earnings in six days, with neutral momentum and below-average volume.",
-      "rsi": 53.425913555340706,
+      "read_line": "NVDA is holding above its 50-day average amid sector-wide weakness, with neutral momentum ahead of earnings in six days.",
+      "rsi": 53.42591355429184,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1695,8 +1695,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 29.814931170926933,
       "price": 545.8300170898438,
-      "read_line": "Meta is down alongside its sector while facing legal headwinds from a youth-safety trial, though momentum remains neutral and no earnings catalyst is imminent.",
-      "rsi": 37.014185004768656,
+      "read_line": "Meta is down 8% weekly amid a high-profile youth-safety trial, showing weak momentum with below-average volume while the broader sector declines.",
+      "rsi": 37.01418500738567,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1900,7 +1900,7 @@
       "pct_below_52wk_high": 3.7324073487546356,
       "price": 351.54998779296875,
       "read_line": "JPM is down modestly in a sector-wide financial decline with neutral momentum and below-average volume, while positive Tesla commentary offers limited near-term support.",
-      "rsi": 48.603886195997354,
+      "rsi": 48.60388619599759,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1911,7 +1911,7 @@
         "up": 2
       },
       "symbol": "JPM",
-      "volume_ratio": 1.0590306281696553,
+      "volume_ratio": 1.0630877869850814,
       "weekly_pct": -3.1836077290469937,
       "weighted_signal": {
         "class": "bullish",
@@ -2104,7 +2104,7 @@
       "pct_below_52wk_high": 2.2091395574488017,
       "price": 267.3699951171875,
       "read_line": "JNJ is down today amid sector-wide weakness despite positive product innovation news, trading above its 50-day average on light volume.",
-      "rsi": 59.14816362406954,
+      "rsi": 59.148163624538256,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2115,7 +2115,7 @@
         "up": 2
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.5797988087864185,
+      "volume_ratio": 0.9138282056153579,
       "weekly_pct": 2.018471007309524,
       "weighted_signal": {
         "class": "bullish",
@@ -2307,8 +2307,8 @@
       },
       "pct_below_52wk_high": 1.9643170156015175,
       "price": 762.5999755859375,
-      "read_line": "SPY is consolidating near its 50-day average amid mixed sentiment: trade optimism and policy support offset by consumer caution and fading Treasury enthusiasm.",
-      "rsi": 51.79849935926146,
+      "read_line": "SPY is consolidating after a modest weekly decline amid mixed macro signals: trade deal progress and energy relief offset by volatility concerns and treasury policy debates.",
+      "rsi": 51.79849935927467,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2319,7 +2319,7 @@
         "up": 2
       },
       "symbol": "SPY",
-      "volume_ratio": 0.8542016343390881,
+      "volume_ratio": 0.967060569664204,
       "weekly_pct": -1.9643170156015175,
       "weighted_signal": {
         "class": "bullish",
