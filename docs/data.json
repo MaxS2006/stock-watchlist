@@ -143,18 +143,18 @@
         "t": "2026-08-20"
       },
       {
-        "c": 549.2,
+        "c": 549.58,
         "h": 553.87,
         "l": 543.23,
         "o": 546.89,
         "t": "2026-08-21"
       }
     ],
-    "daily_pct": 0.6164905060216066,
+    "daily_pct": 0.6870270748379801,
     "earnings_text": "No earnings soon",
     "factors": [
       {
-        "label": "RSI 38",
+        "label": "RSI 39",
         "lean": "neutral"
       },
       {
@@ -175,13 +175,13 @@
       }
     ],
     "flagged": false,
-    "ma50_pct": -7.380151900441362,
-    "monthly_pct": -9.38870987524901,
+    "ma50_pct": -7.316424927871747,
+    "monthly_pct": -9.325187390323515,
     "move_maturity": null,
-    "pct_below_52wk_high": 29.382246884950963,
-    "price": 549.1950073242188,
-    "read_line": "META is caught in sector-wide weakness amid rising bond yields while facing litigation risks, though technicals show oversold conditions with low volume.",
-    "rsi": 38.38397371509598,
+    "pct_below_52wk_high": 29.332746291650626,
+    "price": 549.5800170898438,
+    "read_line": "Meta is down on sector-wide weakness with below-average volume, while facing legal risks despite recent AI innovation announcements.",
+    "rsi": 38.536910920231385,
     "rsi_label": "neutral",
     "signal": {
       "class": "mixed",
@@ -192,8 +192,8 @@
       "up": 0
     },
     "symbol": "META",
-    "volume_ratio": 0.31981866686154875,
-    "weekly_pct": -6.892425183426251,
+    "volume_ratio": 0.3643347807388061,
+    "weekly_pct": -6.82715269354566,
     "weighted_signal": {
       "class": "mixed",
       "icon": "\u26a0",
@@ -202,97 +202,97 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-21T15:40:09.652508+00:00",
+  "generated_at": "2026-08-21T16:12:25.956494+00:00",
   "market_overview": [
     {
-      "daily_pct": 0.580914483708671,
+      "daily_pct": 0.49764543231156133,
       "label": "S&P 500",
-      "price": 767.03,
+      "price": 766.4,
       "symbol": "SPY"
     },
     {
-      "daily_pct": 0.521854755162679,
+      "daily_pct": 0.3734586139602951,
       "label": "Nasdaq",
-      "price": 714.64,
+      "price": 713.59,
       "symbol": "QQQ"
     },
     {
-      "daily_pct": 0.744059396088548,
+      "daily_pct": 0.6663408434655556,
       "label": "Dow",
-      "price": 531.43,
+      "price": 531.03,
       "symbol": "DIA"
     },
     {
-      "daily_pct": 0.338610101868039,
+      "daily_pct": 0.1529212288166597,
       "label": "Tech",
-      "price": 183.72,
+      "price": 183.38,
       "symbol": "XLK"
     },
     {
-      "daily_pct": 0.9482017704883904,
+      "daily_pct": 0.8516252921056667,
       "label": "Financials",
-      "price": 57.49,
+      "price": 57.44,
       "symbol": "XLF"
     },
     {
-      "daily_pct": 1.6358299983775533,
+      "daily_pct": 1.5604167590523104,
       "label": "Healthcare",
-      "price": 175.21,
+      "price": 175.08,
       "symbol": "XLV"
     },
     {
-      "daily_pct": -0.1647051642922794,
+      "daily_pct": 0.0,
       "label": "Energy",
-      "price": 63.65,
+      "price": 63.75,
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-21T15:55:09.652508+00:00",
+  "next_sync_at": "2026-08-21T16:27:25.956494+00:00",
   "notable_movers": [
     {
-      "daily_pct": 3.7314368273597944,
-      "price": 164.15,
-      "symbol": "TGT"
-    },
-    {
-      "daily_pct": 3.568657566026185,
-      "price": 147.14,
+      "daily_pct": 3.9065161588280146,
+      "price": 147.62,
       "symbol": "ORCL"
     },
     {
-      "daily_pct": 3.2533739718302654,
-      "price": 187.25,
-      "symbol": "ACN"
+      "daily_pct": 3.826219700335703,
+      "price": 164.3,
+      "symbol": "TGT"
     },
     {
-      "daily_pct": 2.822481153036719,
-      "price": 178.87,
+      "daily_pct": 3.750858613851868,
+      "price": 180.49,
       "symbol": "PLTR"
     },
     {
-      "daily_pct": 2.779898672506352,
-      "price": 67.29,
+      "daily_pct": 3.2064995792158726,
+      "price": 187.16,
+      "symbol": "ACN"
+    },
+    {
+      "daily_pct": 2.702299562629555,
+      "price": 67.24,
       "symbol": "BMY"
     },
     {
-      "daily_pct": 2.7642193742364753,
-      "price": 147.4,
+      "daily_pct": 2.6979887418562702,
+      "price": 147.31,
       "symbol": "GILD"
     },
     {
-      "daily_pct": 2.75185629475977,
-      "price": 153.09,
-      "symbol": "MRK"
+      "daily_pct": 2.530608923256803,
+      "price": 188.4,
+      "symbol": "ANET"
     },
     {
-      "daily_pct": 2.3706423353977475,
-      "price": 210.3,
-      "symbol": "CRM"
+      "daily_pct": 2.4363980738224673,
+      "price": 152.62,
+      "symbol": "MRK"
     }
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 8.790373296584972
+    "pct_vs_ma": 8.705016732072156
   },
   "stocks": [
     {
@@ -437,14 +437,14 @@
           "t": "2026-08-20"
         },
         {
-          "c": 311.43,
+          "c": 311.55,
           "h": 312.38,
           "l": 307.01,
           "o": 312.05,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 0.04336966621238314,
+      "daily_pct": 0.07871045434430926,
       "earnings_text": "No earnings soon",
       "factors": [
         {
@@ -469,13 +469,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 0.45140886235465066,
-      "monthly_pct": -3.0953256140186283,
+      "ma50_pct": 0.4861806432256423,
+      "monthly_pct": -3.061093584670812,
       "move_maturity": null,
-      "pct_below_52wk_high": 8.344031661903237,
-      "price": 311.43499755859375,
-      "read_line": "Apple is treading water amid sector-wide softness while facing fresh downward pressure from competitive AI chip developments and analyst concerns.",
-      "rsi": 49.170725408834365,
+      "pct_below_52wk_high": 8.311653762509499,
+      "price": 311.5450134277344,
+      "read_line": "Apple is trading near its 50-day average on light volume amid sector-wide moves, while facing analyst concerns about diminishing resilience to market headwinds.",
+      "rsi": 49.270098086811196,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -486,8 +486,8 @@
         "up": 1
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.4167301717015909,
-      "weekly_pct": 1.799432881576472,
+      "volume_ratio": 0.45598066619255856,
+      "weekly_pct": 1.835394007250481,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -637,18 +637,18 @@
           "t": "2026-08-20"
         },
         {
-          "c": 484.73,
+          "c": 484.4,
           "h": 486.36,
           "l": 478.53,
           "o": 479.88,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 0.7440542731491674,
+      "daily_pct": 0.6765052320696461,
       "earnings_text": "No earnings soon",
       "factors": [
         {
-          "label": "RSI 64",
+          "label": "RSI 63",
           "lean": "neutral"
         },
         {
@@ -669,13 +669,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 15.653744458623942,
-      "monthly_pct": 27.271486754252905,
+      "ma50_pct": 15.577990970108266,
+      "monthly_pct": 27.18615102948938,
       "move_maturity": null,
-      "pct_below_52wk_high": 9.842232749322582,
-      "price": 484.7300109863281,
-      "read_line": "MSFT is up sharply over two months alongside sector strength, but low volume and neutral momentum suggest the recent rally may lack conviction.",
-      "rsi": 63.51285016427049,
+      "pct_below_52wk_high": 9.90268366890878,
+      "price": 484.4049987792969,
+      "read_line": "Microsoft is up strongly from its 50-day average amid broad sector strength, though light volume and moderating weekly performance suggest momentum may be stabilizing.",
+      "rsi": 63.3936007023167,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -686,8 +686,8 @@
         "up": 1
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.21287140555982798,
-      "weekly_pct": -1.9696144454357019,
+      "volume_ratio": 0.24355101489557493,
+      "weekly_pct": -2.03534396752653,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -837,14 +837,14 @@
           "t": "2026-08-20"
         },
         {
-          "c": 344.9,
-          "h": 345.13,
+          "c": 344.51,
+          "h": 345.51,
           "l": 340.4,
           "o": 342.35,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 1.2416650430101026,
+      "daily_pct": 1.1271894168945384,
       "earnings_text": "No earnings soon",
       "factors": [
         {
@@ -869,13 +869,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": -1.9532050625622563,
-      "monthly_pct": 8.564950500794136,
+      "ma50_pct": -2.061896651169945,
+      "monthly_pct": 8.44219431461818,
       "move_maturity": null,
-      "pct_below_52wk_high": 14.284935272389593,
-      "price": 344.8999938964844,
+      "pct_below_52wk_high": 14.381854714578349,
+      "price": 344.510009765625,
       "read_line": "Google is consolidating near its 50-day average amid sector-wide weakness, with neutral momentum and below-average volume suggesting indecision before potential directional movement.",
-      "rsi": 47.21565672333786,
+      "rsi": 46.937212272937685,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -886,8 +886,8 @@
         "up": 0
       },
       "symbol": "GOOGL",
-      "volume_ratio": 0.2882010984957618,
-      "weekly_pct": -0.2891009013140557,
+      "volume_ratio": 0.3180140459180771,
+      "weekly_pct": -0.40184566504367963,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -1037,18 +1037,18 @@
           "t": "2026-08-20"
         },
         {
-          "c": 259.6,
+          "c": 259.17,
           "h": 261.08,
           "l": 257.04,
           "o": 260.75,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": -0.1953003091296735,
+      "daily_pct": -0.3613747940347875,
       "earnings_text": "No earnings soon",
       "factors": [
         {
-          "label": "RSI 51",
+          "label": "RSI 50",
           "lean": "neutral"
         },
         {
@@ -1069,13 +1069,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 3.945473507421166,
-      "monthly_pct": 11.102450431139475,
+      "ma50_pct": 3.7760987176682246,
+      "monthly_pct": 10.917576549606867,
       "move_maturity": null,
-      "pct_below_52wk_high": 8.59728195623679,
-      "price": 259.60198974609375,
-      "read_line": "Amazon is trading near its 50-day highs with neutral momentum on light volume, while broader market discussions focus on tech's long-term potential amid rising yields.",
-      "rsi": 50.50669640132846,
+      "pct_below_52wk_high": 8.749375588751713,
+      "price": 259.1700134277344,
+      "read_line": "AMZN is consolidating near its 50-day average with neutral momentum amid broad market positioning discussions about AI and growth stocks.",
+      "rsi": 50.163777267749985,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1086,8 +1086,8 @@
         "up": 1
       },
       "symbol": "AMZN",
-      "volume_ratio": 0.3499479893039349,
-      "weekly_pct": -1.1604813330366588,
+      "volume_ratio": 0.3923903444200132,
+      "weekly_pct": -1.3249497618954944,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -1237,18 +1237,18 @@
           "t": "2026-08-20"
         },
         {
-          "c": 216.53,
+          "c": 215.72,
           "h": 218.74,
           "l": 214.5,
           "o": 218.42,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": -0.14757081633006325,
+      "daily_pct": -0.52109976989029,
       "earnings_text": "Earnings in 5d",
       "factors": [
         {
-          "label": "RSI 53",
+          "label": "RSI 52",
           "lean": "neutral"
         },
         {
@@ -1269,13 +1269,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 4.294909792709438,
-      "monthly_pct": 3.7219795348320464,
+      "ma50_pct": 3.912870631659952,
+      "monthly_pct": 3.333975329089826,
       "move_maturity": null,
-      "pct_below_52wk_high": 8.041760371272423,
-      "price": 216.52999877929688,
-      "read_line": "Nvidia trades near its 50-day high with neutral momentum ahead of earnings in five days, while analyst coverage remains bullish despite broader market skepticism about AI valuations.",
-      "rsi": 53.049143750119796,
+      "pct_below_52wk_high": 8.385758662556626,
+      "price": 215.72000122070312,
+      "read_line": "NVDA is consolidating near its 50-day average ahead of earnings in five days, with neutral technicals and soft volume amid broader AI valuation concerns.",
+      "rsi": 52.11880234213461,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1286,8 +1286,8 @@
         "up": 1
       },
       "symbol": "NVDA",
-      "volume_ratio": 0.3856139304112474,
-      "weekly_pct": -3.8328320938221694,
+      "volume_ratio": 0.432562177818706,
+      "weekly_pct": -4.192575185587832,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -1437,18 +1437,18 @@
           "t": "2026-08-20"
         },
         {
-          "c": 361.82,
-          "h": 364.13,
+          "c": 361.41,
+          "h": 364.48,
           "l": 346.9,
           "o": 349.76,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 4.8358595906702675,
+      "daily_pct": 4.717062715200518,
       "earnings_text": "No earnings soon",
       "factors": [
         {
-          "label": "RSI 58",
+          "label": "RSI 57",
           "lean": "neutral"
         },
         {
@@ -1469,13 +1469,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": -1.09797324619693,
-      "monthly_pct": 13.178392993548247,
+      "ma50_pct": -1.207831695295933,
+      "monthly_pct": 13.05014260755611,
       "move_maturity": null,
-      "pct_below_52wk_high": 26.141095019631972,
-      "price": 361.82000732421875,
-      "read_line": "Tesla is up on positive sentiment around Musk's ventures, but volume is light and the stock remains slightly below its 50-day average.",
-      "rsi": 57.6240400551485,
+      "pct_below_52wk_high": 26.224789732219282,
+      "price": 361.4100036621094,
+      "read_line": "TSLA has rallied 4-5% this week on stock-specific momentum while headlines focus on Musk's broader ventures, though volume remains subdued and technicals show neutral positioning.",
+      "rsi": 57.47182323316407,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1486,8 +1486,8 @@
         "up": 1
       },
       "symbol": "TSLA",
-      "volume_ratio": 0.7938436306053576,
-      "weekly_pct": 5.711870435057617,
+      "volume_ratio": 0.9092865678452622,
+      "weekly_pct": 5.592080890174966,
       "weighted_signal": {
         "class": "bullish",
         "icon": "\u25b2",
@@ -1637,18 +1637,18 @@
           "t": "2026-08-20"
         },
         {
-          "c": 549.2,
+          "c": 549.58,
           "h": 553.87,
           "l": 543.23,
           "o": 546.89,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 0.6164905060216066,
+      "daily_pct": 0.6870270748379801,
       "earnings_text": "No earnings soon",
       "factors": [
         {
-          "label": "RSI 38",
+          "label": "RSI 39",
           "lean": "neutral"
         },
         {
@@ -1669,13 +1669,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": -7.380151900441362,
-      "monthly_pct": -9.38870987524901,
+      "ma50_pct": -7.316424927871747,
+      "monthly_pct": -9.325187390323515,
       "move_maturity": null,
-      "pct_below_52wk_high": 29.382246884950963,
-      "price": 549.1950073242188,
-      "read_line": "META is caught in sector-wide weakness amid rising bond yields while facing litigation risks, though technicals show oversold conditions with low volume.",
-      "rsi": 38.38397371509598,
+      "pct_below_52wk_high": 29.332746291650626,
+      "price": 549.5800170898438,
+      "read_line": "Meta is down on sector-wide weakness with below-average volume, while facing legal risks despite recent AI innovation announcements.",
+      "rsi": 38.536910920231385,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1686,8 +1686,8 @@
         "up": 0
       },
       "symbol": "META",
-      "volume_ratio": 0.31981866686154875,
-      "weekly_pct": -6.892425183426251,
+      "volume_ratio": 0.3643347807388061,
+      "weekly_pct": -6.82715269354566,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -1701,7 +1701,7 @@
         "correct": 1,
         "resolved": 3
       },
-      "breadth": "sector",
+      "breadth": "specific",
       "candles": [
         {
           "c": 356.2,
@@ -1837,18 +1837,18 @@
           "t": "2026-08-20"
         },
         {
-          "c": 353.05,
+          "c": 351.44,
           "h": 356.86,
-          "l": 351.85,
+          "l": 351.36,
           "o": 354.07,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 0.42810551417194537,
+      "daily_pct": -0.031285835693805074,
       "earnings_text": "No earnings soon",
       "factors": [
         {
-          "label": "RSI 50",
+          "label": "RSI 48",
           "lean": "neutral"
         },
         {
@@ -1860,8 +1860,8 @@
           "lean": "pos"
         },
         {
-          "label": "Sector-wide rally",
-          "lean": "neutral"
+          "label": "Stock-specific move",
+          "lean": "neg"
         },
         {
           "label": "No earnings soon",
@@ -1869,30 +1869,30 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 2.7731204408703944,
-      "monthly_pct": 0.9016858629126644,
+      "ma50_pct": 2.3126220232312504,
+      "monthly_pct": 0.44012819999576125,
       "move_maturity": null,
-      "pct_below_52wk_high": 3.320280476254068,
-      "price": 353.05499267578125,
+      "pct_below_52wk_high": 3.762525469617886,
+      "price": 351.44000244140625,
       "read_line": "JPM is trading near its 50-day high on sector-wide momentum with neutral technicals and light volume, while headlines focus on macro uncertainty and Tesla's autonomous vehicle prospects.",
-      "rsi": 50.358495833884234,
+      "rsi": 48.47866346971278,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
-        "down": 0,
-        "icon": "\u25c6",
-        "label": "NOTHING COMPELLING",
-        "neutral": 4,
+        "down": 1,
+        "icon": "\u26a0",
+        "label": "MIXED SIGNALS",
+        "neutral": 3,
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 0.4334957491144999,
-      "weekly_pct": -2.696781986789902,
+      "volume_ratio": 0.47438750551669395,
+      "weekly_pct": -3.141879068334093,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
         "label": "MIXED SIGNALS",
-        "score": 0.0722
+        "score": 0.0829
       }
     },
     {
@@ -2037,14 +2037,14 @@
           "t": "2026-08-20"
         },
         {
-          "c": 271.45,
+          "c": 271.23,
           "h": 272.65,
           "l": 267.04,
           "o": 267.83,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 1.5278421399857098,
+      "daily_pct": 1.4436982232986881,
       "earnings_text": "No earnings soon",
       "factors": [
         {
@@ -2069,13 +2069,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 6.514631319973409,
-      "monthly_pct": 4.699733125668937,
+      "ma50_pct": 6.428233498153103,
+      "monthly_pct": 4.612960419428093,
       "move_maturity": null,
-      "pct_below_52wk_high": 0.7150495825528884,
-      "price": 271.4549865722656,
+      "pct_below_52wk_high": 0.7973346426911903,
+      "price": 271.2300109863281,
       "read_line": "JNJ is down today amid sector-wide weakness despite positive product innovation news, trading above its 50-day average on light volume.",
-      "rsi": 62.871581663044786,
+      "rsi": 62.684269317393884,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2086,8 +2086,8 @@
         "up": 1
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.29250119648839584,
-      "weekly_pct": 4.265404343541532,
+      "volume_ratio": 0.3129743630038645,
+      "weekly_pct": 4.178991598904204,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -2237,14 +2237,14 @@
           "t": "2026-08-20"
         },
         {
-          "c": 766.96,
-          "h": 767.09,
+          "c": 766.35,
+          "h": 767.85,
           "l": 764.17,
           "o": 766.05,
           "t": "2026-08-21"
         }
       ],
-      "daily_pct": 0.5717343989381515,
+      "daily_pct": 0.49112252988089583,
       "earnings_text": "No earnings soon",
       "factors": [
         {
@@ -2269,13 +2269,13 @@
         }
       ],
       "flagged": false,
-      "ma50_pct": 2.045959827411269,
-      "monthly_pct": 3.8987820832900284,
+      "ma50_pct": 1.965834342328701,
+      "monthly_pct": 3.815503465629091,
       "move_maturity": null,
-      "pct_below_52wk_high": 1.403813292745755,
-      "price": 766.9600219726562,
-      "read_line": "SPY is consolidating near its 50-day average amid broad market weakness, low volume, and mixed signals about whether the recent bounce will sustain.",
-      "rsi": 55.20231009323199,
+      "pct_below_52wk_high": 1.4828416891425247,
+      "price": 766.3452758789062,
+      "read_line": "SPY is consolidating near resistance with weakening breadth and sector-wide pressure, as markets grapple with rising yields and credit concerns.",
+      "rsi": 54.75179340546492,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2286,8 +2286,8 @@
         "up": 1
       },
       "symbol": "SPY",
-      "volume_ratio": 0.3416930536948456,
-      "weekly_pct": -1.208234093095238,
+      "volume_ratio": 0.3899614933890691,
+      "weekly_pct": -1.2874192532679014,
       "weighted_signal": {
         "class": "mixed",
         "icon": "\u26a0",
@@ -2298,7 +2298,7 @@
   ],
   "tickers_tracked": 10,
   "watchlist_health": {
-    "avg_weekly_pct": -0.6272762376744356,
+    "avg_weekly_pct": -0.7604699098871539,
     "green_count": 3,
     "total": 10
   }
