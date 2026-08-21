@@ -178,10 +178,10 @@
     "ma50_pct": -7.263458445298501,
     "monthly_pct": -9.272389611556179,
     "move_maturity": null,
-    "pct_below_52wk_high": 29.291598436805316,
+    "pct_below_52wk_high": 29.291592887502873,
     "price": 549.9000244140625,
     "read_line": "META is down alongside semiconductor peers as AI chip stocks face rotation pressure, while technical indicators suggest oversold conditions within a broader sector decline.",
-    "rsi": 38.663450531271174,
+    "rsi": 38.66345053337142,
     "rsi_label": "neutral",
     "signal": {
       "class": "mixed",
@@ -202,7 +202,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-21T20:32:14.943960+00:00",
+  "generated_at": "2026-08-21T20:52:14.131988+00:00",
   "market_overview": [
     {
       "daily_pct": 0.4091260447248608,
@@ -247,7 +247,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-21T20:47:14.943960+00:00",
+  "next_sync_at": "2026-08-21T21:07:14.131988+00:00",
   "notable_movers": [
     {
       "daily_pct": 4.543445460604265,
@@ -475,7 +475,7 @@
       "pct_below_52wk_high": 8.957648989082047,
       "price": 309.3500061035156,
       "read_line": "Apple is trading near its 50-day average with neutral momentum and below-average volume, showing modest weakness amid broad market discussion of AI valuations.",
-      "rsi": 47.39860421924234,
+      "rsi": 47.398604204589525,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -672,10 +672,10 @@
       "ma50_pct": 15.30643274870323,
       "monthly_pct": 26.88026452311873,
       "move_maturity": null,
-      "pct_below_52wk_high": 10.119360212369497,
+      "pct_below_52wk_high": 10.119370415876217,
       "price": 483.239990234375,
       "read_line": "MSFT is up 15% from its 50-day average amid sector-wide strength, but faces weak volume and modest daily losses suggesting consolidation before potential next move.",
-      "rsi": 62.95966956572202,
+      "rsi": 62.95966956037975,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -875,7 +875,7 @@
       "pct_below_52wk_high": 14.304813655516343,
       "price": 344.82000732421875,
       "read_line": "Google shares are trading near neutral technicals amid sector-wide momentum, with cloud partnerships driving positive sentiment despite volume trailing averages.",
-      "rsi": 47.15878558635362,
+      "rsi": 47.15878558634767,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1274,8 +1274,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 8.810449191107628,
       "price": 214.72000122070312,
-      "read_line": "NVDA is trading near its 50-day average with neutral momentum ahead of earnings in five days, despite light volume and recent weakness.",
-      "rsi": 51.01428609941056,
+      "read_line": "NVDA is trading near its 50-day average with neutral momentum ahead of earnings in five days, while recent activity appears stock-specific rather than broad-market driven.",
+      "rsi": 51.01428609941054,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1676,10 +1676,10 @@
       "ma50_pct": -7.263458445298501,
       "monthly_pct": -9.272389611556179,
       "move_maturity": null,
-      "pct_below_52wk_high": 29.291598436805316,
+      "pct_below_52wk_high": 29.291592887502873,
       "price": 549.9000244140625,
       "read_line": "META is down alongside semiconductor peers as AI chip stocks face rotation pressure, while technical indicators suggest oversold conditions within a broader sector decline.",
-      "rsi": 38.663450531271174,
+      "rsi": 38.66345053337142,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1879,7 +1879,7 @@
       "pct_below_52wk_high": 3.7241925560774507,
       "price": 351.5799865722656,
       "read_line": "JPM is flat today within a modest weekly decline, trading neutrally with average momentum as financial sector headwinds persist.",
-      "rsi": 48.64007084452945,
+      "rsi": 48.64007084455842,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2079,7 +2079,7 @@
       "pct_below_52wk_high": 1.1594357870138505,
       "price": 270.239990234375,
       "read_line": "JNJ is rallying modestly within a sector-wide move, trading above its 50-day average on light volume with neutral momentum indicators.",
-      "rsi": 61.83702015952833,
+      "rsi": 61.83702015953149,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2278,8 +2278,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 1.5632275033884444,
       "price": 765.719970703125,
-      "read_line": "The broad market is consolidating after rate concerns eased, with tech-heavy SPY trading near recent highs on modest volume while investors reassess economic resilience.",
-      "rsi": 54.284146040691006,
+      "read_line": "SPY is consolidating near recent highs as investors reassess rate concerns and rotate between growth stocks and bonds.",
+      "rsi": 54.284146040653155,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
