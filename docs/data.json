@@ -146,7 +146,7 @@
         "c": 208.48,
         "h": 215.59,
         "l": 207.37,
-        "o": 215.53,
+        "o": 215.38,
         "t": "2026-08-24"
       }
     ],
@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 11.460520422160632,
     "price": 208.47999572753906,
-    "read_line": "NVDA is down sharply this week with neutral momentum ahead of earnings in 2 days, showing stock-specific weakness despite broader market activity.",
-    "rsi": 44.65488415064527,
+    "read_line": "NVDA is down sharply this week despite stable technicals, with earnings arriving in two days potentially driving the stock-specific volatility.",
+    "rsi": 44.65488415134517,
     "rsi_label": "neutral",
     "signal": {
       "class": "bearish",
@@ -192,7 +192,7 @@
       "up": 1
     },
     "symbol": "NVDA",
-    "volume_ratio": 1.1422703425926948,
+    "volume_ratio": 1.153054325568044,
     "weekly_pct": -7.346339799494856,
     "weighted_signal": {
       "class": "mixed",
@@ -202,7 +202,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-24T20:37:49.275516+00:00",
+  "generated_at": "2026-08-24T21:12:29.940761+00:00",
   "market_overview": [
     {
       "daily_pct": -0.29384110198065355,
@@ -247,7 +247,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-24T20:52:49.275516+00:00",
+  "next_sync_at": "2026-08-24T21:27:29.940761+00:00",
   "notable_movers": [
     {
       "daily_pct": -5.828630599876615,
@@ -292,7 +292,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 8.224294045038667
+    "pct_vs_ma": 8.22429390458635
   },
   "stocks": [
     {
@@ -475,7 +475,7 @@
       "pct_below_52wk_high": 8.666292801472371,
       "price": 310.3399963378906,
       "read_line": "Apple is trading sideways with sector-wide weakness from semiconductor selling and tariff concerns, showing no directional conviction on low volume.",
-      "rsi": 48.348408847380426,
+      "rsi": 48.34840884722301,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -486,7 +486,7 @@
         "up": 1
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.5237798839045036,
+      "volume_ratio": 0.6485053273076425,
       "weekly_pct": 1.5543702532552566,
       "weighted_signal": {
         "class": "mixed",
@@ -672,10 +672,10 @@
       "ma50_pct": 15.737939138989415,
       "monthly_pct": 27.90865460674004,
       "move_maturity": null,
-      "pct_below_52wk_high": 9.362365970661834,
+      "pct_below_52wk_high": 9.3623556812178,
       "price": 487.30999755859375,
-      "read_line": "MSFT is up modestly on sector-wide strength with solid technicals, though low volume suggests conviction is limited amid broader market noise.",
-      "rsi": 64.54106411936706,
+      "read_line": "MSFT is up modestly on sector-wide strength with solid technicals, though low volume and semiconductor volatility in headlines suggest cautious market conditions.",
+      "rsi": 64.54106411341678,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -686,7 +686,7 @@
         "up": 1
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.39392360256132347,
+      "volume_ratio": 0.45713038077307616,
       "weekly_pct": 1.6399187958856138,
       "weighted_signal": {
         "class": "mixed",
@@ -874,8 +874,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 13.49960641408151,
       "price": 348.05999755859375,
-      "read_line": "GOOGL is tracking sector-wide modest gains on neutral technicals while AI trade volatility pressures suppliers, with no near-term catalyst.",
-      "rsi": 49.53083504628539,
+      "read_line": "GOOGL is up modestly on sector-wide momentum with neutral technicals, while AI trade volatility and tariff concerns weigh on broader market sentiment.",
+      "rsi": 49.530835045925436,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -886,7 +886,7 @@
         "up": 0
       },
       "symbol": "GOOGL",
-      "volume_ratio": 0.8264938810558538,
+      "volume_ratio": 0.984315763550027,
       "weekly_pct": 1.1802318484284158,
       "weighted_signal": {
         "class": "mixed",
@@ -1038,7 +1038,7 @@
         },
         {
           "c": 262.07,
-          "h": 263.31,
+          "h": 263.32,
           "l": 259.05,
           "o": 259.52,
           "t": "2026-08-24"
@@ -1074,7 +1074,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 7.728322842937832,
       "price": 262.07000732421875,
-      "read_line": "Amazon is up modestly in line with broader market strength, but low volume and neutral momentum suggest conviction is lacking as semiconductor weakness weighs on tech.",
+      "read_line": "Amazon is up modestly on sector-wide strength with neutral momentum, while semiconductor weakness and AI chip focus dominate broader market attention.",
       "rsi": 52.4849761592274,
       "rsi_label": "neutral",
       "signal": {
@@ -1086,7 +1086,7 @@
         "up": 1
       },
       "symbol": "AMZN",
-      "volume_ratio": 0.5593741603292041,
+      "volume_ratio": 0.5831542417797467,
       "weekly_pct": 0.2908460344899672,
       "weighted_signal": {
         "class": "mixed",
@@ -1240,7 +1240,7 @@
           "c": 208.48,
           "h": 215.59,
           "l": 207.37,
-          "o": 215.53,
+          "o": 215.38,
           "t": "2026-08-24"
         }
       ],
@@ -1274,8 +1274,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 11.460520422160632,
       "price": 208.47999572753906,
-      "read_line": "NVDA is down sharply this week with neutral momentum ahead of earnings in 2 days, showing stock-specific weakness despite broader market activity.",
-      "rsi": 44.65488415064527,
+      "read_line": "NVDA is down sharply this week despite stable technicals, with earnings arriving in two days potentially driving the stock-specific volatility.",
+      "rsi": 44.65488415134517,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1286,7 +1286,7 @@
         "up": 1
       },
       "symbol": "NVDA",
-      "volume_ratio": 1.1422703425926948,
+      "volume_ratio": 1.153054325568044,
       "weekly_pct": -7.346339799494856,
       "weighted_signal": {
         "class": "mixed",
@@ -1439,8 +1439,8 @@
         {
           "c": 348.95,
           "h": 363.24,
-          "l": 348.27,
-          "o": 361.41,
+          "l": 348.26,
+          "o": 361.75,
           "t": "2026-08-24"
         }
       ],
@@ -1486,7 +1486,7 @@
         "up": 0
       },
       "symbol": "TSLA",
-      "volume_ratio": 1.0836113016186002,
+      "volume_ratio": 1.1125493788996519,
       "weekly_pct": 2.844098072868388,
       "weighted_signal": {
         "class": "bullish",
@@ -1672,10 +1672,10 @@
       "ma50_pct": -5.697183198667811,
       "monthly_pct": -6.077048129469718,
       "move_maturity": null,
-      "pct_below_52wk_high": 28.118912042241888,
+      "pct_below_52wk_high": 28.118906400905235,
       "price": 559.02001953125,
-      "read_line": "META is consolidating after a sector-wide pullback with neutral technicals, facing regulatory headwinds from New Zealand's social media restrictions.",
-      "rsi": 42.30881870403922,
+      "read_line": "Meta is consolidating after a week-long decline amid sector-wide semiconductor weakness and regulatory headwinds, with neutral momentum despite today's modest bounce.",
+      "rsi": 42.308818705175376,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1686,7 +1686,7 @@
         "up": 0
       },
       "symbol": "META",
-      "volume_ratio": 0.7023447011885602,
+      "volume_ratio": 0.7416476738137812,
       "weekly_pct": -1.7487656087682435,
       "weighted_signal": {
         "class": "mixed",
@@ -1875,7 +1875,7 @@
       "pct_below_52wk_high": 2.4070261798673567,
       "price": 356.3900146484375,
       "read_line": "JPM is up modestly on sector momentum with neutral technicals, while bond yield concerns and analyst commentary create mixed sentiment around financials.",
-      "rsi": 54.207085758603284,
+      "rsi": 54.20708575861576,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1886,7 +1886,7 @@
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 0.6694685715113388,
+      "volume_ratio": 0.6817700764287542,
       "weekly_pct": -1.2660618669172823,
       "weighted_signal": {
         "class": "mixed",
@@ -2075,7 +2075,7 @@
       "pct_below_52wk_high": 0.13532610812761417,
       "price": 273.0400085449219,
       "read_line": "JNJ is rising with healthcare stocks amid sector momentum, though volume is light and RSI suggests it's approaching overbought territory.",
-      "rsi": 64.30545836801952,
+      "rsi": 64.30545836733569,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2086,7 +2086,7 @@
         "up": 1
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.670711095980936,
+      "volume_ratio": 0.7740976487517128,
       "weekly_pct": 4.066781120672208,
       "weighted_signal": {
         "class": "mixed",
@@ -2278,8 +2278,8 @@
       },
       "pct_below_52wk_high": 1.852475200446677,
       "price": 763.469970703125,
-      "read_line": "SPY is slightly down on light volume amid broad sector rotation toward economically sensitive stocks, with geopolitical tensions and policy shifts creating near-term uncertainty.",
-      "rsi": 52.193833013379475,
+      "read_line": "SPY is consolidating near neutral technicals amid sector-wide uncertainty about fiscal policy and economic outlook ahead of Jackson Hole.",
+      "rsi": 52.193833009308115,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2290,7 +2290,7 @@
         "up": 2
       },
       "symbol": "SPY",
-      "volume_ratio": 0.6830588962200571,
+      "volume_ratio": 0.6909720765406008,
       "weekly_pct": -1.1906780916194852,
       "weighted_signal": {
         "class": "bullish",
