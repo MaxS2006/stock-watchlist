@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 11.460520422160632,
     "price": 208.47999572753906,
-    "read_line": "NVDA is down sharply this week despite stable technicals, with earnings arriving in two days potentially driving the stock-specific volatility.",
-    "rsi": 44.65488415134517,
+    "read_line": "NVDA is down sharply this week with neutral momentum ahead of earnings in two days, while market attention focuses on AI sector valuations.",
+    "rsi": 44.65488415065939,
     "rsi_label": "neutral",
     "signal": {
       "class": "bearish",
@@ -202,7 +202,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-24T21:12:29.940761+00:00",
+  "generated_at": "2026-08-24T21:45:51.777585+00:00",
   "market_overview": [
     {
       "daily_pct": -0.29384110198065355,
@@ -247,7 +247,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-24T21:27:29.940761+00:00",
+  "next_sync_at": "2026-08-24T22:00:51.777585+00:00",
   "notable_movers": [
     {
       "daily_pct": -5.828630599876615,
@@ -292,7 +292,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 8.22429390458635
+    "pct_vs_ma": 8.224294045038667
   },
   "stocks": [
     {
@@ -474,8 +474,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 8.666292801472371,
       "price": 310.3399963378906,
-      "read_line": "Apple is trading sideways with sector-wide weakness from semiconductor selling and tariff concerns, showing no directional conviction on low volume.",
-      "rsi": 48.34840884722301,
+      "read_line": "Apple is flat near its 50-day average on light volume amid sector-wide tech selling tied to semiconductor weakness and tariff concerns.",
+      "rsi": 48.348408847220576,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -674,8 +674,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 9.3623556812178,
       "price": 487.30999755859375,
-      "read_line": "MSFT is up modestly on sector-wide strength with solid technicals, though low volume and semiconductor volatility in headlines suggest cautious market conditions.",
-      "rsi": 64.54106411341678,
+      "read_line": "MSFT is up modestly on sector-wide strength with solid technical momentum, though light volume and upcoming semiconductor headwinds warrant monitoring.",
+      "rsi": 64.5410641206858,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -874,8 +874,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 13.49960641408151,
       "price": 348.05999755859375,
-      "read_line": "GOOGL is up modestly on sector-wide momentum with neutral technicals, while AI trade volatility and tariff concerns weigh on broader market sentiment.",
-      "rsi": 49.530835045925436,
+      "read_line": "GOOGL is flat with neutral momentum amid sector-wide moves, while AI supply chain concerns weigh on tech stocks broadly.",
+      "rsi": 49.53083504592798,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1074,7 +1074,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 7.728322842937832,
       "price": 262.07000732421875,
-      "read_line": "Amazon is up modestly on sector-wide strength with neutral momentum, while semiconductor weakness and AI chip focus dominate broader market attention.",
+      "read_line": "Amazon is up modestly on sector-wide strength with neutral technicals, though trading on light volume amid broader market movements.",
       "rsi": 52.4849761592274,
       "rsi_label": "neutral",
       "signal": {
@@ -1274,8 +1274,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 11.460520422160632,
       "price": 208.47999572753906,
-      "read_line": "NVDA is down sharply this week despite stable technicals, with earnings arriving in two days potentially driving the stock-specific volatility.",
-      "rsi": 44.65488415134517,
+      "read_line": "NVDA is down sharply this week with neutral momentum ahead of earnings in two days, while market attention focuses on AI sector valuations.",
+      "rsi": 44.65488415065939,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1672,10 +1672,10 @@
       "ma50_pct": -5.697183198667811,
       "monthly_pct": -6.077048129469718,
       "move_maturity": null,
-      "pct_below_52wk_high": 28.118906400905235,
+      "pct_below_52wk_high": 28.118912042241888,
       "price": 559.02001953125,
-      "read_line": "Meta is consolidating after a week-long decline amid sector-wide semiconductor weakness and regulatory headwinds, with neutral momentum despite today's modest bounce.",
-      "rsi": 42.308818705175376,
+      "read_line": "META is consolidating after a week-long decline amid sector-wide selling and regulatory headwinds, with neutral momentum and below-average volume.",
+      "rsi": 42.30881870405378,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1875,7 +1875,7 @@
       "pct_below_52wk_high": 2.4070261798673567,
       "price": 356.3900146484375,
       "read_line": "JPM is up modestly on sector momentum with neutral technicals, while bond yield concerns and analyst commentary create mixed sentiment around financials.",
-      "rsi": 54.20708575861576,
+      "rsi": 54.20708575747003,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2278,8 +2278,8 @@
       },
       "pct_below_52wk_high": 1.852475200446677,
       "price": 763.469970703125,
-      "read_line": "SPY is consolidating near neutral technicals amid sector-wide uncertainty about fiscal policy and economic outlook ahead of Jackson Hole.",
-      "rsi": 52.193833009308115,
+      "read_line": "Broad market pullback amid fiscal policy debate and geopolitical tensions, with SPY slightly above its 50-day moving average but lacking conviction on light volume.",
+      "rsi": 52.19383300933192,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
