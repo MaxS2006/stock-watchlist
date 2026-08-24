@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 11.460520422160632,
     "price": 208.47999572753906,
-    "read_line": "NVDA is down sharply this week with neutral momentum ahead of earnings in two days, while market attention focuses on AI sector valuations.",
-    "rsi": 44.65488415065939,
+    "read_line": "NVDA is down nearly 3% today in stock-specific weakness ahead of earnings in two days, with neutral momentum despite above-average trading volume.",
+    "rsi": 44.65488415064483,
     "rsi_label": "neutral",
     "signal": {
       "class": "bearish",
@@ -202,7 +202,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-24T21:45:51.777585+00:00",
+  "generated_at": "2026-08-24T22:03:04.075892+00:00",
   "market_overview": [
     {
       "daily_pct": -0.29384110198065355,
@@ -247,7 +247,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-24T22:00:51.777585+00:00",
+  "next_sync_at": "2026-08-24T22:18:04.075892+00:00",
   "notable_movers": [
     {
       "daily_pct": -5.828630599876615,
@@ -292,7 +292,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 8.224294045038667
+    "pct_vs_ma": 8.22429390458635
   },
   "stocks": [
     {
@@ -475,7 +475,7 @@
       "pct_below_52wk_high": 8.666292801472371,
       "price": 310.3399963378906,
       "read_line": "Apple is flat near its 50-day average on light volume amid sector-wide tech selling tied to semiconductor weakness and tariff concerns.",
-      "rsi": 48.348408847220576,
+      "rsi": 48.348408867422314,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -672,10 +672,10 @@
       "ma50_pct": 15.737939138989415,
       "monthly_pct": 27.90865460674004,
       "move_maturity": null,
-      "pct_below_52wk_high": 9.3623556812178,
+      "pct_below_52wk_high": 9.362365970661834,
       "price": 487.30999755859375,
       "read_line": "MSFT is up modestly on sector-wide strength with solid technical momentum, though light volume and upcoming semiconductor headwinds warrant monitoring.",
-      "rsi": 64.5410641206858,
+      "rsi": 64.54106411214146,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -875,7 +875,7 @@
       "pct_below_52wk_high": 13.49960641408151,
       "price": 348.05999755859375,
       "read_line": "GOOGL is flat with neutral momentum amid sector-wide moves, while AI supply chain concerns weigh on tech stocks broadly.",
-      "rsi": 49.53083504592798,
+      "rsi": 49.5308350459257,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1074,7 +1074,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 7.728322842937832,
       "price": 262.07000732421875,
-      "read_line": "Amazon is up modestly on sector-wide strength with neutral technicals, though trading on light volume amid broader market movements.",
+      "read_line": "Amazon is up modestly on sector-wide strength with neutral momentum, trading above its 50-day average on below-average volume.",
       "rsi": 52.4849761592274,
       "rsi_label": "neutral",
       "signal": {
@@ -1274,8 +1274,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 11.460520422160632,
       "price": 208.47999572753906,
-      "read_line": "NVDA is down sharply this week with neutral momentum ahead of earnings in two days, while market attention focuses on AI sector valuations.",
-      "rsi": 44.65488415065939,
+      "read_line": "NVDA is down nearly 3% today in stock-specific weakness ahead of earnings in two days, with neutral momentum despite above-average trading volume.",
+      "rsi": 44.65488415064483,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1675,7 +1675,7 @@
       "pct_below_52wk_high": 28.118912042241888,
       "price": 559.02001953125,
       "read_line": "META is consolidating after a week-long decline amid sector-wide selling and regulatory headwinds, with neutral momentum and below-average volume.",
-      "rsi": 42.30881870405378,
+      "rsi": 42.30881870403922,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1875,7 +1875,7 @@
       "pct_below_52wk_high": 2.4070261798673567,
       "price": 356.3900146484375,
       "read_line": "JPM is up modestly on sector momentum with neutral technicals, while bond yield concerns and analyst commentary create mixed sentiment around financials.",
-      "rsi": 54.20708575747003,
+      "rsi": 54.20708575861576,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2075,7 +2075,7 @@
       "pct_below_52wk_high": 0.13532610812761417,
       "price": 273.0400085449219,
       "read_line": "JNJ is rising with healthcare stocks amid sector momentum, though volume is light and RSI suggests it's approaching overbought territory.",
-      "rsi": 64.30545836733569,
+      "rsi": 64.30545836801952,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2279,7 +2279,7 @@
       "pct_below_52wk_high": 1.852475200446677,
       "price": 763.469970703125,
       "read_line": "Broad market pullback amid fiscal policy debate and geopolitical tensions, with SPY slightly above its 50-day moving average but lacking conviction on light volume.",
-      "rsi": 52.19383300933192,
+      "rsi": 52.193833009333886,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
