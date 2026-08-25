@@ -181,7 +181,7 @@
     "pct_below_52wk_high": 26.700627710849613,
     "price": 570.0499877929688,
     "read_line": "META is rallying modestly on sector momentum while trading below its 50-day average on light volume, with no near-term catalysts visible.",
-    "rsi": 46.453733346159034,
+    "rsi": 46.45373334617099,
     "rsi_label": "neutral",
     "signal": {
       "class": "mixed",
@@ -202,7 +202,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-08-25T21:45:44.858214+00:00",
+  "generated_at": "2026-08-25T22:01:58.362938+00:00",
   "market_overview": [
     {
       "daily_pct": 0.3195937672779856,
@@ -247,7 +247,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-08-25T22:00:44.858214+00:00",
+  "next_sync_at": "2026-08-25T22:16:58.362938+00:00",
   "notable_movers": [
     {
       "daily_pct": 5.058236195727868,
@@ -475,7 +475,7 @@
       "pct_below_52wk_high": 8.795786436273739,
       "price": 309.8999938964844,
       "read_line": "Apple's new chip announcements have generated positive news, but the stock shows neutral technicals with subdued volume and minimal price movement.",
-      "rsi": 47.93413189720047,
+      "rsi": 47.934131914470655,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -675,7 +675,7 @@
       "pct_below_52wk_high": 8.543985394603737,
       "price": 491.7099914550781,
       "read_line": "MSFT is up modestly on sector-wide momentum with strong uptrend positioning, though volume weakness suggests conviction may be limited.",
-      "rsi": 66.22011963871952,
+      "rsi": 66.22011964732931,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -874,8 +874,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 13.772981583789129,
       "price": 346.9599914550781,
-      "read_line": "Google is consolidating near its 50-day average on light volume with neutral momentum, while Waymo's European expansion signals long-term autonomous vehicle progress.",
-      "rsi": 48.73101472280222,
+      "read_line": "Google is consolidating near its 50-day average on light volume while AI infrastructure competitors draw market attention.",
+      "rsi": 48.73101472279838,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1074,7 +1074,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 8.083935054998154,
       "price": 261.05999755859375,
-      "read_line": "AMZN is consolidating near recent highs with neutral momentum while data center sector dynamics remain in focus amid broader AI trade developments.",
+      "read_line": "Amazon is trading near its 50-day high on light volume with neutral momentum amid broader market movement in data center and AI-related stocks.",
       "rsi": 51.59447874269504,
       "rsi_label": "neutral",
       "signal": {
@@ -1274,8 +1274,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 9.51968159615622,
       "price": 213.0500030517578,
-      "read_line": "NVDA is up modestly today within a broader sector move, ahead of earnings tomorrow, with neutral momentum and average volume.",
-      "rsi": 49.60928957685195,
+      "read_line": "NVDA is up modestly today within a weak week, trading near its 50-day average with neutral momentum ahead of earnings tomorrow.",
+      "rsi": 49.60928957685217,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1675,7 +1675,7 @@
       "pct_below_52wk_high": 26.700627710849613,
       "price": 570.0499877929688,
       "read_line": "META is rallying modestly on sector momentum while trading below its 50-day average on light volume, with no near-term catalysts visible.",
-      "rsi": 46.453733346159034,
+      "rsi": 46.45373334617099,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1875,7 +1875,7 @@
       "pct_below_52wk_high": 2.324878253095506,
       "price": 356.69000244140625,
       "read_line": "JPM is flat amid sector-wide weakness while regulators scrutinize Wall Street banks, though the stock holds a modest uptrend on moderate volume.",
-      "rsi": 54.538054161914424,
+      "rsi": 54.53805416189763,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2075,7 +2075,7 @@
       "pct_below_52wk_high": 0.09874876926798108,
       "price": 273.1400146484375,
       "read_line": "JNJ is trading modestly higher on the week with moderate bullish technicals, though today's flat price action and low volume suggest limited momentum currently.",
-      "rsi": 64.39404191269321,
+      "rsi": 64.39404191338238,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2274,8 +2274,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 1.5388018284496892,
       "price": 765.9099731445312,
-      "read_line": "SPY is modestly higher amid sector-wide moves with neutral momentum, while markets digest concerns about AI valuations, fiscal headwinds, and earnings sustainability.",
-      "rsi": 54.251194070823,
+      "read_line": "SPY is trading near recent highs on modest momentum while markets weigh AI valuations and macroeconomic concerns amid low volume.",
+      "rsi": 54.25119407081841,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
