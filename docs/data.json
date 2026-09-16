@@ -146,7 +146,7 @@
         "c": 332.41,
         "h": 335.48,
         "l": 330.7,
-        "o": 332.53,
+        "o": 332.42,
         "t": "2026-09-16"
       }
     ],
@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 2.1710436856449955,
     "price": 332.4100036621094,
-    "read_line": "Apple is participating in a broad tech sector rally with modest upside momentum, though volume is light and margin concerns linger in the background.",
-    "rsi": 62.15377367519025,
+    "read_line": "Apple is participating in a broad tech sector rally with modest gains and neutral momentum, while margin concerns linger as a potential headwind.",
+    "rsi": 62.15377367480496,
     "rsi_label": "neutral",
     "signal": {
       "class": "mixed",
@@ -192,7 +192,7 @@
       "up": 1
     },
     "symbol": "AAPL",
-    "volume_ratio": 0.8332253927053556,
+    "volume_ratio": 0.8400464640441491,
     "weekly_pct": 5.413207180331172,
     "weighted_signal": {
       "class": "mixed",
@@ -202,7 +202,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-09-16T20:23:48.481864+00:00",
+  "generated_at": "2026-09-16T23:12:11.096366+00:00",
   "market_overview": [
     {
       "daily_pct": -0.4409916675517714,
@@ -247,7 +247,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-09-16T20:38:48.481864+00:00",
+  "next_sync_at": "2026-09-16T23:27:11.096366+00:00",
   "notable_movers": [
     {
       "daily_pct": -6.146443747019177,
@@ -292,7 +292,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 5.700225851723142
+    "pct_vs_ma": 5.700225942157143
   },
   "stocks": [
     {
@@ -440,7 +440,7 @@
           "c": 332.41,
           "h": 335.48,
           "l": 330.7,
-          "o": 332.53,
+          "o": 332.42,
           "t": "2026-09-16"
         }
       ],
@@ -474,8 +474,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 2.1710436856449955,
       "price": 332.4100036621094,
-      "read_line": "Apple is participating in a broad tech sector rally with modest upside momentum, though volume is light and margin concerns linger in the background.",
-      "rsi": 62.15377367519025,
+      "read_line": "Apple is participating in a broad tech sector rally with modest gains and neutral momentum, while margin concerns linger as a potential headwind.",
+      "rsi": 62.15377367480496,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -486,7 +486,7 @@
         "up": 1
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.8332253927053556,
+      "volume_ratio": 0.8400464640441491,
       "weekly_pct": 5.413207180331172,
       "weighted_signal": {
         "class": "mixed",
@@ -640,7 +640,7 @@
           "c": 490.3,
           "h": 495.92,
           "l": 487.23,
-          "o": 493.03,
+          "o": 493.17,
           "t": "2026-09-16"
         }
       ],
@@ -678,8 +678,8 @@
       },
       "pct_below_52wk_high": 8.806229862462505,
       "price": 490.29998779296875,
-      "read_line": "Microsoft is down modestly in a sector-wide tech pullback despite outperforming its 50-day average, with neutral momentum and below-average trading activity.",
-      "rsi": 51.84643146658751,
+      "read_line": "Microsoft is down modestly in a sector-wide tech pullback despite sitting above its 50-day average, with neutral momentum and light volume suggesting consolidation rather than conviction.",
+      "rsi": 51.846431463929896,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -690,7 +690,7 @@
         "up": 2
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.7938867170202806,
+      "volume_ratio": 0.8085013814641476,
       "weekly_pct": -0.27458682401608353,
       "weighted_signal": {
         "class": "bullish",
@@ -844,7 +844,7 @@
           "c": 342.87,
           "h": 348.4,
           "l": 340.64,
-          "o": 347.08,
+          "o": 346.98,
           "t": "2026-09-16"
         }
       ],
@@ -878,8 +878,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 14.73466018482463,
       "price": 342.8699951171875,
-      "read_line": "Google is down modestly in line with broader sector weakness, showing neutral momentum with no imminent catalysts while infrastructure projects proceed normally.",
-      "rsi": 50.06305156552591,
+      "read_line": "Google is consolidating near its 50-day average amid sector-wide weakness, with neutral technicals and no near-term catalysts beyond infrastructure development delays.",
+      "rsi": 50.0630515655246,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -890,7 +890,7 @@
         "up": 1
       },
       "symbol": "GOOGL",
-      "volume_ratio": 0.7646505574295436,
+      "volume_ratio": 0.7859711776877365,
       "weekly_pct": 3.6957512312940812,
       "weighted_signal": {
         "class": "bullish",
@@ -1044,7 +1044,7 @@
           "c": 245.96,
           "h": 249.26,
           "l": 244.3,
-          "o": 248.1,
+          "o": 248.2,
           "t": "2026-09-16"
         }
       ],
@@ -1078,7 +1078,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 13.400459042329093,
       "price": 245.9600067138672,
-      "read_line": "Amazon is trading down amid sector-wide weakness while managing operational costs through wage increases and delivery expansion.",
+      "read_line": "Amazon is down alongside the broader sector with neutral momentum, while positive company-specific news on wages and benefits appears insufficient to reverse the current pullback.",
       "rsi": 39.446702032211974,
       "rsi_label": "neutral",
       "signal": {
@@ -1090,7 +1090,7 @@
         "up": 1
       },
       "symbol": "AMZN",
-      "volume_ratio": 1.0246749517810354,
+      "volume_ratio": 1.0441800222716555,
       "weekly_pct": -2.5515005302489784,
       "weighted_signal": {
         "class": "bullish",
@@ -1278,7 +1278,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 9.057050163537262,
       "price": 213.89999389648438,
-      "read_line": "NVDA is trading flat near its 50-day average on below-average volume amid a sector-wide tech rally, with neutral momentum ahead of anticipated rate hikes.",
+      "read_line": "NVDA is flat near its 50-day average amid sector-wide tech strength, but low volume and neutral momentum suggest traders are awaiting clearer direction.",
       "rsi": 46.88755036039115,
       "rsi_label": "neutral",
       "signal": {
@@ -1290,7 +1290,7 @@
         "up": 1
       },
       "symbol": "NVDA",
-      "volume_ratio": 0.7314666294099675,
+      "volume_ratio": 0.7378168981648516,
       "weekly_pct": -4.261034979179491,
       "weighted_signal": {
         "class": "mixed",
@@ -1444,7 +1444,7 @@
           "c": 358.08,
           "h": 365.05,
           "l": 354.89,
-          "o": 357.92,
+          "o": 357.71,
           "t": "2026-09-16"
         }
       ],
@@ -1478,7 +1478,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 26.904551522178505,
       "price": 358.0799865722656,
-      "read_line": "Tesla is holding steady near its 50-day average with neutral momentum amid sector-wide moves, while regulatory scrutiny of Cybercab and upcoming product reveals create near-term uncertainty.",
+      "read_line": "Tesla is trading flat amid sector-wide pressure with neutral momentum, while regulatory scrutiny on Cybercab and upcoming product reveals create near-term uncertainty.",
       "rsi": 51.11449141272419,
       "rsi_label": "neutral",
       "signal": {
@@ -1490,7 +1490,7 @@
         "up": 1
       },
       "symbol": "TSLA",
-      "volume_ratio": 0.8115464984087745,
+      "volume_ratio": 0.8192465420313172,
       "weekly_pct": -2.6453905687482275,
       "weighted_signal": {
         "class": "mixed",
@@ -1644,7 +1644,7 @@
           "c": 673.31,
           "h": 685.31,
           "l": 671.91,
-          "o": 679.91,
+          "o": 679.75,
           "t": "2026-09-16"
         }
       ],
@@ -1678,8 +1678,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 13.423030902724204,
       "price": 673.3099975585938,
-      "read_line": "Meta is riding broad AI-sector momentum with strong recent gains, but technical overbought conditions and below-average volume suggest the rally may be overextended.",
-      "rsi": 72.24454352019572,
+      "read_line": "Meta is rallying with the broader AI sector amid overbought technicals, buoyed by Zuckerberg's AI positioning and energy infrastructure moves.",
+      "rsi": 72.244543522136,
       "rsi_label": "overbought",
       "signal": {
         "class": "mixed",
@@ -1690,7 +1690,7 @@
         "up": 1
       },
       "symbol": "META",
-      "volume_ratio": 0.9197953856033608,
+      "volume_ratio": 0.9261659856885359,
       "weekly_pct": 3.0014219345424586,
       "weighted_signal": {
         "class": "bullish",
@@ -1878,8 +1878,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 4.452593125079286,
       "price": 348.9200134277344,
-      "read_line": "JPM is down modestly amid sector-wide banking weakness, with neutral momentum and typical volume ahead of the Fed's interest rate decision.",
-      "rsi": 43.34605066741921,
+      "read_line": "JPM is down modestly amid sector-wide banking weakness, with neutral momentum and average volume as markets await the Fed's interest rate decision.",
+      "rsi": 43.3460506691424,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1890,7 +1890,7 @@
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 1.278428837775469,
+      "volume_ratio": 1.3334209609273002,
       "weekly_pct": -1.6323132042580242,
       "weighted_signal": {
         "class": "bullish",
@@ -2079,7 +2079,7 @@
       "pct_below_52wk_high": 4.004595118984909,
       "price": 267.2799987792969,
       "read_line": "JNJ trades flat amid sector-wide movement with neutral momentum, while biotech innovation in immunotherapies generates industry-wide discussion relevant to its pipeline.",
-      "rsi": 51.46103117194423,
+      "rsi": 51.46103117203634,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2090,7 +2090,7 @@
         "up": 1
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.7722424189895624,
+      "volume_ratio": 0.7844396079205569,
       "weekly_pct": 0.07488850422610432,
       "weighted_signal": {
         "class": "mixed",
@@ -2256,8 +2256,8 @@
           "lean": "neutral"
         },
         {
-          "label": "Vol: avg",
-          "lean": "neutral"
+          "label": "Vol: 1.5x avg",
+          "lean": "neg"
         },
         {
           "label": "Below 50d avg",
@@ -2278,25 +2278,25 @@
       "move_maturity": null,
       "pct_below_52wk_high": 3.06345669515361,
       "price": 754.0499877929688,
-      "read_line": "SPY is down modestly amid a sector-wide rotation where clean energy and AI infrastructure stocks are gaining while speculative software names are selling off.",
-      "rsi": 41.78426028453343,
+      "read_line": "SPY is slightly down amid mixed sector momentum, with neutral technicals and elevated volume suggesting consolidation rather than directional conviction.",
+      "rsi": 41.78426028451183,
       "rsi_label": "neutral",
       "signal": {
-        "class": "mixed",
-        "down": 1,
-        "icon": "\u26a0",
-        "label": "MIXED SIGNALS",
-        "neutral": 3,
+        "class": "bearish",
+        "down": 2,
+        "icon": "\u25bc",
+        "label": "LEANS NEGATIVE",
+        "neutral": 2,
         "up": 1
       },
       "symbol": "SPY",
-      "volume_ratio": 1.407373620050103,
+      "volume_ratio": 1.527591225216995,
       "weekly_pct": -1.095230371681994,
       "weighted_signal": {
         "class": "bullish",
         "icon": "\u25b2",
         "label": "LEANS POSITIVE",
-        "score": 0.1137
+        "score": 0.1833
       }
     }
   ],
