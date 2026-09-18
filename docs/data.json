@@ -184,8 +184,8 @@
     },
     "pct_below_52wk_high": 13.075952891720217,
     "price": 349.5400085449219,
-    "read_line": "Google is trading steadily higher on sector-wide momentum and AI chip sales optimism, with neutral technicals suggesting consolidation rather than breakout.",
-    "rsi": 55.088550996521185,
+    "read_line": "Google is trading slightly higher on moderate volume amid sector-wide gains, with neutral momentum and no imminent catalysts driving the move.",
+    "rsi": 55.08855099665588,
     "rsi_label": "neutral",
     "signal": {
       "class": "bullish",
@@ -206,7 +206,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-09-18T21:47:38.723880+00:00",
+  "generated_at": "2026-09-18T23:36:37.358059+00:00",
   "market_overview": [
     {
       "daily_pct": -0.11932509489422413,
@@ -251,7 +251,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-09-18T22:02:38.723880+00:00",
+  "next_sync_at": "2026-09-18T23:51:37.358059+00:00",
   "notable_movers": [
     {
       "daily_pct": 6.980798322898665,
@@ -296,7 +296,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 6.642741307817701
+    "pct_vs_ma": 6.642741535644298
   },
   "stocks": [
     {
@@ -482,8 +482,8 @@
       },
       "pct_below_52wk_high": 1.0762395795705064,
       "price": 336.1300048828125,
-      "read_line": "Apple is modestly down today amid sector-wide weakness and labor disruptions, but remains up 5% over 50 days with elevated trading volume.",
-      "rsi": 64.30000142197692,
+      "read_line": "Apple is up 5% from its 50-day average amid sector-wide strength and positive iPhone demand signals, though today's slight dip suggests consolidation.",
+      "rsi": 64.30000142133093,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -684,10 +684,10 @@
         "score": 0,
         "sentence": "Fresh signal \u2014 just turned positive today. Nothing here suggests the move has already run far. This looks early-stage based on positioning so far, not a prediction of what happens next."
       },
-      "pct_below_52wk_high": 8.158972636337825,
+      "pct_below_52wk_high": 8.15896221028113,
       "price": 493.7799987792969,
-      "read_line": "MSFT is trading near its 50-day high on above-average volume amid sector-wide softness, with neutral momentum as broader earnings concerns weigh on tech.",
-      "rsi": 53.2594685133141,
+      "read_line": "MSFT is holding gains above its 50-day average on elevated volume amid sector-wide movement, with no near-term catalysts beyond broader tech uncertainty around AI competition and earnings pressure.",
+      "rsi": 53.25946851337943,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -890,8 +890,8 @@
       },
       "pct_below_52wk_high": 13.075952891720217,
       "price": 349.5400085449219,
-      "read_line": "Google is trading steadily higher on sector-wide momentum and AI chip sales optimism, with neutral technicals suggesting consolidation rather than breakout.",
-      "rsi": 55.088550996521185,
+      "read_line": "Google is trading slightly higher on moderate volume amid sector-wide gains, with neutral momentum and no imminent catalysts driving the move.",
+      "rsi": 55.08855099665588,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1090,7 +1090,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 10.671777857982262,
       "price": 253.7100067138672,
-      "read_line": "Amazon is trading near its 50-day average with neutral momentum amid broad market concerns about S&P 500 earnings growth.",
+      "read_line": "Amazon is trading near neutral technical conditions within a broader sector move, with elevated volume suggesting modest institutional interest amid AI infrastructure partnership headlines.",
       "rsi": 48.04264686297804,
       "rsi_label": "neutral",
       "signal": {
@@ -1290,8 +1290,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 5.4984084829700155,
       "price": 222.27000427246094,
-      "read_line": "NVDA is rallying modestly on sector-wide momentum with neutral technicals, while AI chip competition headlines highlight both competitive pressures and broader semiconductor tailwinds.",
-      "rsi": 54.35544497473911,
+      "read_line": "Nvidia is rising with the broader chip sector on sector momentum and AI infrastructure optimism, though technicals show neutral conditions with no catalysts imminent.",
+      "rsi": 54.35544497474216,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1494,7 +1494,7 @@
       },
       "pct_below_52wk_high": 25.640976283404065,
       "price": 364.2699890136719,
-      "read_line": "TSLA is flat with neutral momentum amid sector-wide weakness, while headlines highlight competitive concerns and broader market activity rather than company-specific catalysts.",
+      "read_line": "Tesla is down slightly today in a sector-wide move, trading near neutral technicals with above-average volume and modest outperformance versus its 50-day average.",
       "rsi": 53.77291673900768,
       "rsi_label": "neutral",
       "signal": {
@@ -1692,10 +1692,10 @@
       "ma50_pct": 9.610309830673453,
       "monthly_pct": 21.92552868516936,
       "move_maturity": null,
-      "pct_below_52wk_high": 14.189467085862706,
+      "pct_below_52wk_high": 14.189473836582,
       "price": 665.75,
-      "read_line": "Meta is rallying sharply on AI infrastructure enthusiasm while facing profit-taking pressure after a strong month-long surge.",
-      "rsi": 65.84841481799668,
+      "read_line": "Meta is up 9.6% versus its 50-day average with mixed near-term momentum, facing profit-taking pressure despite positive product developments and strategic banking initiatives.",
+      "rsi": 65.84841481800126,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1894,8 +1894,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 4.247214951290374,
       "price": 349.6700134277344,
-      "read_line": "JPM is consolidating near its 50-day average with neutral momentum while sector headwinds persist, though positive banking outlook provides underlying support.",
-      "rsi": 44.473275700483526,
+      "read_line": "JPM is flat today amid sector-wide weakness, trading slightly below its 50-day average on elevated volume with neutral momentum indicators.",
+      "rsi": 44.473275699005285,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2098,8 +2098,8 @@
       },
       "pct_below_52wk_high": 3.031283505162549,
       "price": 269.989990234375,
-      "read_line": "JNJ is trading near its 50-day highs on elevated volume amid broad pharma sector strength, though today's move is flat while fundamentals remain stable.",
-      "rsi": 55.14315422243169,
+      "read_line": "JNJ is trading near its 50-day high on sector-wide momentum with neutral technicals and elevated volume, while valuation questions persist.",
+      "rsi": 55.14315423511286,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2302,8 +2302,8 @@
       },
       "pct_below_52wk_high": 2.0812981873528513,
       "price": 761.6900024414062,
-      "read_line": "SPY is essentially flat with neutral momentum while sector-specific rotation plays out, with tech weakness offsetting strength elsewhere.",
-      "rsi": 49.19975840146516,
+      "read_line": "SPY is flat with neutral momentum while investors shift toward individual stocks over broad market exposure amid sector rotation.",
+      "rsi": 49.19975840223573,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
