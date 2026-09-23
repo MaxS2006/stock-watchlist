@@ -184,8 +184,8 @@
     },
     "pct_below_52wk_high": 1.8452364562455588,
     "price": 744.0999755859375,
-    "read_line": "META is surging on AI agent hype with overbought technicals, elevated volume, and optimism around Muse adoption despite regulatory scrutiny.",
-    "rsi": 77.01276732753394,
+    "read_line": "META has surged 10.6% weekly on stock-specific momentum with overbought technicals, while the broader market struggles with rising Treasury yields.",
+    "rsi": 77.01276737329495,
     "rsi_label": "overbought",
     "signal": {
       "class": "bullish",
@@ -196,7 +196,7 @@
       "up": 2
     },
     "symbol": "META",
-    "volume_ratio": 1.4175326997866484,
+    "volume_ratio": 1.4279233974017709,
     "weekly_pct": 10.600942844711495,
     "weighted_signal": {
       "class": "bullish",
@@ -206,7 +206,7 @@
     }
   },
   "flagged": [],
-  "generated_at": "2026-09-23T20:41:59.459004+00:00",
+  "generated_at": "2026-09-23T23:12:59.711261+00:00",
   "market_overview": [
     {
       "daily_pct": -0.7202161019229807,
@@ -251,7 +251,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-09-23T20:56:59.459004+00:00",
+  "next_sync_at": "2026-09-23T23:27:59.711261+00:00",
   "notable_movers": [
     {
       "daily_pct": -10.345237884014544,
@@ -296,7 +296,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 7.548676638747559
+    "pct_vs_ma": 7.548676960561229
   },
   "stocks": [
     {
@@ -482,8 +482,8 @@
       },
       "pct_below_52wk_high": 0.8143153964860145,
       "price": 337.0199890136719,
-      "read_line": "Apple is holding modest gains in line with tech sector strength while facing mixed iPhone demand signals and settling Siri litigation.",
-      "rsi": 62.943193141369846,
+      "read_line": "Apple is slightly down today amid sector-wide moves, trading above its 50-day average with neutral momentum while facing mixed iPhone demand signals and regulatory scrutiny over AI features.",
+      "rsi": 62.94319311467242,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -494,7 +494,7 @@
         "up": 2
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.7182182701903868,
+      "volume_ratio": 0.7289188548106407,
       "weekly_pct": 1.386837129080054,
       "weighted_signal": {
         "class": "bullish",
@@ -684,10 +684,10 @@
         "score": 0,
         "sentence": "Fresh signal \u2014 just turned positive yesterday. Nothing here suggests the move has already run far. This looks early-stage based on positioning so far, not a prediction of what happens next."
       },
-      "pct_below_52wk_high": 6.892330826521394,
+      "pct_below_52wk_high": 6.892341396369699,
       "price": 500.5899963378906,
-      "read_line": "Microsoft is modestly up on stock-specific factors amid neutral technicals, while management engages in governance and AI safety discussions.",
-      "rsi": 56.30229311497858,
+      "read_line": "Microsoft is consolidating near six-week highs with muted momentum while management navigates AI regulation discourse amid broader tech sector weakness.",
+      "rsi": 56.30229311511162,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -698,7 +698,7 @@
         "up": 2
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.8846484101801563,
+      "volume_ratio": 0.8955413666886183,
       "weekly_pct": 2.098716867451132,
       "weighted_signal": {
         "class": "bullish",
@@ -886,8 +886,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 15.988015822162549,
       "price": 337.8299865722656,
-      "read_line": "Google faces stock-specific pressure amid broader AI sector scrutiny over sustainability, while nuclear partnership signals addressing power constraints for AI expansion.",
-      "rsi": 45.11435963034722,
+      "read_line": "Google is down more than the market due to rising rate concerns and mixed AI messaging, while technicals show neutral momentum with above-average selling volume.",
+      "rsi": 45.11435963006293,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -898,7 +898,7 @@
         "up": 0
       },
       "symbol": "GOOGL",
-      "volume_ratio": 1.3460375276827368,
+      "volume_ratio": 1.3550958293581057,
       "weekly_pct": -1.4699473901760578,
       "weighted_signal": {
         "class": "bullish",
@@ -1052,7 +1052,7 @@
           "c": 249.27,
           "h": 253.81,
           "l": 247.76,
-          "o": 253.0,
+          "o": 253.33,
           "t": "2026-09-23"
         }
       ],
@@ -1086,7 +1086,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 12.235048970281516,
       "price": 249.27000427246094,
-      "read_line": "Amazon is down with the broader tech sector today while maintaining neutral momentum, though management's aggressive AI hiring suggests confidence in long-term positioning.",
+      "read_line": "Tech sector is selling off amid rising yield concerns, pulling AMZN down 2.2% today while it trades slightly below its 50-day average on elevated volume.",
       "rsi": 44.07415744734204,
       "rsi_label": "neutral",
       "signal": {
@@ -1098,7 +1098,7 @@
         "up": 1
       },
       "symbol": "AMZN",
-      "volume_ratio": 1.2789807865722675,
+      "volume_ratio": 1.2879724537867494,
       "weekly_pct": 1.345746246642598,
       "weighted_signal": {
         "class": "bullish",
@@ -1290,8 +1290,8 @@
       },
       "pct_below_52wk_high": 4.120875627602142,
       "price": 225.50999450683594,
-      "read_line": "NVDA is pulling back moderately amid broad sector weakness while AI infrastructure remains competitive, with neutral technicals showing no directional conviction.",
-      "rsi": 55.85055209420276,
+      "read_line": "NVDA is consolidating near its 50-day high with neutral momentum as part of a broader sector rally, amid quantum computing partnership headlines.",
+      "rsi": 55.850552101093335,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -1302,7 +1302,7 @@
         "up": 2
       },
       "symbol": "NVDA",
-      "volume_ratio": 0.6437912679928449,
+      "volume_ratio": 0.6516694553825468,
       "weekly_pct": 5.4277704261974655,
       "weighted_signal": {
         "class": "bullish",
@@ -1456,7 +1456,7 @@
           "c": 380.12,
           "h": 386.7,
           "l": 377.58,
-          "o": 380.1,
+          "o": 379.93,
           "t": "2026-09-23"
         }
       ],
@@ -1494,7 +1494,7 @@
       },
       "pct_below_52wk_high": 22.405488828204252,
       "price": 380.1199951171875,
-      "read_line": "Tesla is rising modestly on stock-specific factors including infrastructure expansion plans and apparent insider accumulation, while technical momentum remains measured.",
+      "read_line": "Tesla is consolidating gains after a strong week, supported by a major commercial truck order win, while technical indicators suggest neither overbought nor oversold conditions.",
       "rsi": 60.59414448689044,
       "rsi_label": "neutral",
       "signal": {
@@ -1506,7 +1506,7 @@
         "up": 2
       },
       "symbol": "TSLA",
-      "volume_ratio": 0.8430652787650773,
+      "volume_ratio": 0.8481993910890369,
       "weekly_pct": 6.155051768154009,
       "weighted_signal": {
         "class": "bullish",
@@ -1698,8 +1698,8 @@
       },
       "pct_below_52wk_high": 1.8452364562455588,
       "price": 744.0999755859375,
-      "read_line": "META is surging on AI agent hype with overbought technicals, elevated volume, and optimism around Muse adoption despite regulatory scrutiny.",
-      "rsi": 77.01276732753394,
+      "read_line": "META has surged 10.6% weekly on stock-specific momentum with overbought technicals, while the broader market struggles with rising Treasury yields.",
+      "rsi": 77.01276737329495,
       "rsi_label": "overbought",
       "signal": {
         "class": "bullish",
@@ -1710,7 +1710,7 @@
         "up": 2
       },
       "symbol": "META",
-      "volume_ratio": 1.4175326997866484,
+      "volume_ratio": 1.4279233974017709,
       "weekly_pct": 10.600942844711495,
       "weighted_signal": {
         "class": "bullish",
@@ -1898,8 +1898,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 7.571607002312677,
       "price": 337.5299987792969,
-      "read_line": "JPM is down with the broader sector amid mixed signals: weak near-term momentum offset by management commentary on AI investment opportunities and India expansion.",
-      "rsi": 33.44407666762012,
+      "read_line": "JPM is down on sector-wide weakness with oversold technicals, while management discusses long-term AI investment opportunities and expansion plans.",
+      "rsi": 33.44407666528912,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1910,7 +1910,7 @@
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 0.957822359279749,
+      "volume_ratio": 0.9792144900142975,
       "weekly_pct": -3.2643626648250463,
       "weighted_signal": {
         "class": "bullish",
@@ -2103,7 +2103,7 @@
       "pct_below_52wk_high": 3.3257836769150404,
       "price": 269.1700134277344,
       "read_line": "JNJ is flat with neutral technicals amid sector-wide pharma momentum, supported by positive clinical data and surgical devices market growth tailwinds.",
-      "rsi": 53.65672262764666,
+      "rsi": 53.656722627646296,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2114,7 +2114,7 @@
         "up": 2
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.9805341916522069,
+      "volume_ratio": 0.9890915417583834,
       "weekly_pct": 0.7372758722693222,
       "weighted_signal": {
         "class": "bullish",
@@ -2306,8 +2306,8 @@
       },
       "pct_below_52wk_high": 1.0494432683718056,
       "price": 767.8099975585938,
-      "read_line": "SPY is flat to slightly down on a sector-wide selloff in growth and consumer stocks, while technicals remain neutral with above-average volume.",
-      "rsi": 54.28623186140795,
+      "read_line": "Markets are pulling back on rising rate-hike expectations, with SPY down modestly today but still up weekly as sentiment remains cautiously balanced.",
+      "rsi": 54.286231901724925,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2318,7 +2318,7 @@
         "up": 2
       },
       "symbol": "SPY",
-      "volume_ratio": 1.0503539505322148,
+      "volume_ratio": 1.3186347932096236,
       "weekly_pct": 2.0776625432203972,
       "weighted_signal": {
         "class": "bullish",
