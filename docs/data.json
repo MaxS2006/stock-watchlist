@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 17.357479787143443,
     "price": 642.6199951171875,
-    "read_line": "META is declining alongside broad tech weakness amid geopolitical tensions, with weak volume and RSI suggesting potential stabilization despite recent earnings.",
-    "rsi": 35.75693661425309,
+    "read_line": "Meta faces sector-wide pressure following earnings, with investors concerned about heavy AI spending outpacing cash generation and rising regulatory scrutiny.",
+    "rsi": 35.75693661415916,
     "rsi_label": "neutral",
     "signal": {
       "class": "bearish",
@@ -192,7 +192,7 @@
       "up": 1
     },
     "symbol": "META",
-    "volume_ratio": 0.738046384823643,
+    "volume_ratio": 0.7436249834339915,
     "weekly_pct": -9.40465232901694,
     "weighted_signal": {
       "class": "bullish",
@@ -207,7 +207,7 @@
       "symbol": "META"
     }
   ],
-  "generated_at": "2026-10-23T20:40:16.557581+00:00",
+  "generated_at": "2026-10-23T23:33:18.613199+00:00",
   "market_overview": [
     {
       "daily_pct": -0.522285349333903,
@@ -252,7 +252,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-10-23T20:55:16.557581+00:00",
+  "next_sync_at": "2026-10-23T23:48:18.613199+00:00",
   "notable_movers": [
     {
       "daily_pct": -7.959540387688325,
@@ -297,7 +297,7 @@
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 4.967895626328629
+    "pct_vs_ma": 4.967895139630928
   },
   "stocks": [
     {
@@ -483,8 +483,8 @@
       },
       "pct_below_52wk_high": 0.14215011069216849,
       "price": 347.7250061035156,
-      "read_line": "Apple is up 28% year-to-date with neutral momentum, facing earnings in 10 days while analysts debate profit-taking versus continued gains.",
-      "rsi": 63.91956359502319,
+      "read_line": "Apple is consolidating near recent highs ahead of earnings with neutral momentum, while market attention focuses on upcoming product launches and smart home strategy.",
+      "rsi": 63.919563588311895,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -495,7 +495,7 @@
         "up": 2
       },
       "symbol": "AAPL",
-      "volume_ratio": 1.033894933894934,
+      "volume_ratio": 1.037248288708963,
       "weekly_pct": 1.2417791750266582,
       "weighted_signal": {
         "class": "bullish",
@@ -687,8 +687,8 @@
       },
       "pct_below_52wk_high": 3.485141598302314,
       "price": 524.510009765625,
-      "read_line": "Microsoft is consolidating near 50-day highs on modest volume ahead of expected in-line earnings in five days, with neutral technicals suggesting no directional conviction yet.",
-      "rsi": 52.63111109571376,
+      "read_line": "Microsoft is consolidating near recent highs ahead of earnings in five days, with neutral momentum amid mixed tech sector sentiment about AI spending concerns.",
+      "rsi": 52.63111109607404,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -699,7 +699,7 @@
         "up": 2
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.6211199878255089,
+      "volume_ratio": 0.6362232189205036,
       "weekly_pct": -0.8581378191280412,
       "weighted_signal": {
         "class": "bullish",
@@ -887,8 +887,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 20.36977827616566,
       "price": 320.2099914550781,
-      "read_line": "GOOGL is down sharply amid sector-wide weakness and rising oil concerns, with earnings arriving in five days while technical indicators show oversold conditions.",
-      "rsi": 31.30157296720982,
+      "read_line": "Google is down alongside Big Tech amid AI spending concerns, with earnings in five days potentially offering clarity on investor worries.",
+      "rsi": 31.301572967047974,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -899,7 +899,7 @@
         "up": 1
       },
       "symbol": "GOOGL",
-      "volume_ratio": 0.7266768888991157,
+      "volume_ratio": 0.7324221042876896,
       "weekly_pct": -5.983735606431029,
       "weighted_signal": {
         "class": "bullish",
@@ -1087,7 +1087,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 12.682202100901419,
       "price": 248.0,
-      "read_line": "Amazon is consolidating after a modest decline amid sector-wide weakness, with AI infrastructure costs in focus ahead of earnings in six days.",
+      "read_line": "Amazon is down modestly amid sector-wide weakness and investor concerns about Big Tech's AI spending ahead of earnings in six days.",
       "rsi": 43.16913158940575,
       "rsi_label": "neutral",
       "signal": {
@@ -1099,7 +1099,7 @@
         "up": 1
       },
       "symbol": "AMZN",
-      "volume_ratio": 0.698879287183728,
+      "volume_ratio": 0.7025690139415361,
       "weekly_pct": -0.8,
       "weighted_signal": {
         "class": "bullish",
@@ -1287,8 +1287,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 11.820764976577019,
       "price": 210.9600067138672,
-      "read_line": "NVDA is down modestly in a sector-wide decline with weak volume, while AI infrastructure concerns weigh on sentiment alongside broader tech uncertainty.",
-      "rsi": 38.10626188783889,
+      "read_line": "NVDA is down modestly in a broader sector pullback with weak volume, trading below its 50-day average despite neutral momentum indicators.",
+      "rsi": 38.106261889982235,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1299,7 +1299,7 @@
         "up": 1
       },
       "symbol": "NVDA",
-      "volume_ratio": 0.730392179150157,
+      "volume_ratio": 0.7537442767142634,
       "weekly_pct": -1.4804082084059942,
       "weighted_signal": {
         "class": "bullish",
@@ -1451,7 +1451,7 @@
         },
         {
           "c": 372.22,
-          "h": 377.3,
+          "h": 377.28,
           "l": 365.27,
           "o": 373.14,
           "t": "2026-10-23"
@@ -1491,7 +1491,7 @@
       },
       "pct_below_52wk_high": 24.018127396372428,
       "price": 372.2200012207031,
-      "read_line": "Tesla trades near its 50-day average with neutral momentum amid broad tech strength, following recent earnings and sector-wide moves.",
+      "read_line": "Tesla is consolidating near recent highs after earnings amid sector-wide rotation away from growth, with neutral momentum and below-average volume suggesting cautious positioning.",
       "rsi": 51.521292974396346,
       "rsi_label": "neutral",
       "signal": {
@@ -1503,7 +1503,7 @@
         "up": 2
       },
       "symbol": "TSLA",
-      "volume_ratio": 0.9345755908391464,
+      "volume_ratio": 0.9401701088741882,
       "weekly_pct": 4.933468634353009,
       "weighted_signal": {
         "class": "bullish",
@@ -1691,8 +1691,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 17.357479787143443,
       "price": 642.6199951171875,
-      "read_line": "META is declining alongside broad tech weakness amid geopolitical tensions, with weak volume and RSI suggesting potential stabilization despite recent earnings.",
-      "rsi": 35.75693661425309,
+      "read_line": "Meta faces sector-wide pressure following earnings, with investors concerned about heavy AI spending outpacing cash generation and rising regulatory scrutiny.",
+      "rsi": 35.75693661415916,
       "rsi_label": "neutral",
       "signal": {
         "class": "bearish",
@@ -1703,7 +1703,7 @@
         "up": 1
       },
       "symbol": "META",
-      "volume_ratio": 0.738046384823643,
+      "volume_ratio": 0.7436249834339915,
       "weekly_pct": -9.40465232901694,
       "weighted_signal": {
         "class": "bullish",
@@ -1891,8 +1891,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 8.747955792715702,
       "price": 331.5799865722656,
-      "read_line": "JPM is declining modestly amid sector-wide weakness and management departures, with neutral momentum and below-average trading activity.",
-      "rsi": 41.9723654097677,
+      "read_line": "JPM is down alongside broader financial sector weakness, with neutral momentum and below-average volume suggesting consolidation rather than decisive selling pressure.",
+      "rsi": 41.972365409686425,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1903,7 +1903,7 @@
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 0.6001602906672163,
+      "volume_ratio": 0.6098158890676277,
       "weekly_pct": -2.3960952016920674,
       "weighted_signal": {
         "class": "bullish",
@@ -2091,8 +2091,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 5.250869339429177,
       "price": 263.80999755859375,
-      "read_line": "JNJ is down on sector-wide healthcare weakness and a collapsed merger deal, though technicals remain neutral with stable positioning near its 50-day average.",
-      "rsi": 53.07168507800093,
+      "read_line": "JNJ is down on sector-wide healthcare weakness and a collapsed merger deal, though technicals remain neutral with no nearby catalysts.",
+      "rsi": 53.0716850788031,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2103,7 +2103,7 @@
         "up": 1
       },
       "symbol": "JNJ",
-      "volume_ratio": 0.6772837807304983,
+      "volume_ratio": 0.6775789109541566,
       "weekly_pct": 3.2282047577138804,
       "weighted_signal": {
         "class": "bullish",
@@ -2291,8 +2291,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 2.454152343537927,
       "price": 759.969970703125,
-      "read_line": "SPY is down modestly with neutral momentum as sector-wide retail and consumer weakness spreads across the market, pulling the broad index slightly lower.",
-      "rsi": 42.3478646365015,
+      "read_line": "SPY is experiencing modest sector-wide weakness with neutral momentum, reflecting broader market uncertainty amid mixed earnings outlooks and retail pressure.",
+      "rsi": 42.34786463650155,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2303,7 +2303,7 @@
         "up": 1
       },
       "symbol": "SPY",
-      "volume_ratio": 0.7967200230072227,
+      "volume_ratio": 0.8130438634073756,
       "weekly_pct": -0.4297450765640354,
       "weighted_signal": {
         "class": "bullish",
