@@ -3,9 +3,9 @@
   "checks_per_day": 36,
   "featured_mover": {
     "accuracy": {
-      "accuracy_pct": 48.717948717948715,
-      "correct": 19,
-      "resolved": 39
+      "accuracy_pct": 50.0,
+      "correct": 20,
+      "resolved": 40
     },
     "breadth": "specific",
     "candles": [
@@ -180,8 +180,8 @@
     "move_maturity": null,
     "pct_below_52wk_high": 36.900182558229936,
     "price": 150.9600067138672,
-    "read_line": "Nvidia is oversold after earnings disappointment and CEO departure uncertainty, triggering a sharp selloff despite elevated trading volume.",
-    "rsi": 21.10306067205049,
+    "read_line": "NVDA is severely oversold after earnings with technical weakness, while broader AI competition intensifies as Anthropic completes a record IPO.",
+    "rsi": 21.103060672050816,
     "rsi_label": "oversold",
     "signal": {
       "class": "bearish",
@@ -192,7 +192,7 @@
       "up": 1
     },
     "symbol": "NVDA",
-    "volume_ratio": 1.432860073454376,
+    "volume_ratio": 1.4565948105927653,
     "weekly_pct": -13.10653863676027,
     "weighted_signal": {
       "class": "bullish",
@@ -207,7 +207,7 @@
       "symbol": "NVDA"
     }
   ],
-  "generated_at": "2026-11-18T21:16:44.894298+00:00",
+  "generated_at": "2026-11-19T02:36:01.140922+00:00",
   "market_overview": [
     {
       "daily_pct": -0.3058257641456707,
@@ -222,15 +222,15 @@
       "symbol": "QQQ"
     },
     {
-      "daily_pct": -1.1176564501868256,
+      "daily_pct": -1.0999165400088815,
       "label": "Dow",
-      "price": 501.64,
+      "price": 501.73,
       "symbol": "DIA"
     },
     {
-      "daily_pct": 0.3246348138733296,
+      "daily_pct": 0.33688782939091855,
       "label": "Tech",
-      "price": 163.79,
+      "price": 163.81,
       "symbol": "XLK"
     },
     {
@@ -240,9 +240,9 @@
       "symbol": "XLF"
     },
     {
-      "daily_pct": -2.207952642730094,
+      "daily_pct": -2.1971535324581635,
       "label": "Healthcare",
-      "price": 181.15,
+      "price": 181.17,
       "symbol": "XLV"
     },
     {
@@ -252,7 +252,7 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-11-18T21:31:44.894298+00:00",
+  "next_sync_at": "2026-11-19T02:51:01.140922+00:00",
   "notable_movers": [
     {
       "daily_pct": -10.20580726780115,
@@ -285,26 +285,26 @@
       "symbol": "ACN"
     },
     {
-      "daily_pct": -4.742515971143217,
-      "price": 205.88,
-      "symbol": "CVX"
+      "daily_pct": 4.634853818872671,
+      "price": 122.36,
+      "symbol": "DIS"
     },
     {
-      "daily_pct": 4.626300598399223,
-      "price": 122.35,
-      "symbol": "DIS"
+      "daily_pct": -4.115918093067903,
+      "price": 159.81,
+      "symbol": "QCOM"
     }
   ],
   "regime": {
     "label": "uptrend",
-    "pct_vs_ma": 0.02410349405518356
+    "pct_vs_ma": 0.024103117732782234
   },
   "stocks": [
     {
       "accuracy": {
-        "accuracy_pct": 57.49999999999999,
-        "correct": 23,
-        "resolved": 40
+        "accuracy_pct": 58.536585365853654,
+        "correct": 24,
+        "resolved": 41
       },
       "breadth": "sector",
       "candles": [
@@ -479,8 +479,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 1.0722140299316745,
       "price": 352.45001220703125,
-      "read_line": "Apple is consolidating near recent highs amid sector-wide moves, with trade uncertainty and AI narrative shifts creating headwinds despite neutral technicals.",
-      "rsi": 56.776777213602124,
+      "read_line": "Apple is trading slightly higher amid sector-wide momentum with neutral technicals, while broader market discussion compares it to peers without immediate catalysts.",
+      "rsi": 56.77677721359018,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -491,7 +491,7 @@
         "up": 1
       },
       "symbol": "AAPL",
-      "volume_ratio": 0.6923418724582564,
+      "volume_ratio": 0.709162274993377,
       "weekly_pct": -0.8188803648369057,
       "weighted_signal": {
         "class": "mixed",
@@ -502,9 +502,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 52.27272727272727,
+        "accuracy_pct": 51.11111111111111,
         "correct": 23,
-        "resolved": 44
+        "resolved": 45
       },
       "breadth": "sector",
       "candles": [
@@ -679,8 +679,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 8.54803531693203,
       "price": 508.2900085449219,
-      "read_line": "MSFT is consolidating amid sector-wide software weakness while cybersecurity peers rally on geopolitical concerns, leaving the tech giant underperforming its recent average.",
-      "rsi": 42.906001137811685,
+      "read_line": "Microsoft is consolidating amid sector-wide weakness while leadership navigates AI infrastructure positioning and organizational restructuring, with neutral momentum indicators.",
+      "rsi": 42.90600113797952,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -691,7 +691,7 @@
         "up": 0
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.7736157251285435,
+      "volume_ratio": 0.7980870444204069,
       "weekly_pct": -2.4638758500919513,
       "weighted_signal": {
         "class": "mixed",
@@ -843,7 +843,7 @@
         },
         {
           "c": 282.44,
-          "h": 284.96,
+          "h": 284.97,
           "l": 279.69,
           "o": 282.75,
           "t": "2026-11-18"
@@ -879,8 +879,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 29.76246644931848,
       "price": 282.44000244140625,
-      "read_line": "Google is down on sector-wide AI spending concerns, with weak near-term momentum despite stable fundamentals and no imminent catalysts.",
-      "rsi": 34.91540200170019,
+      "read_line": "Google is down across a weak sector amid Q4 estimate cuts, though it's exploring growth through geothermal energy while facing AI competition from well-funded rivals.",
+      "rsi": 34.91540199897592,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -891,7 +891,7 @@
         "up": 0
       },
       "symbol": "GOOGL",
-      "volume_ratio": 0.6376714739410277,
+      "volume_ratio": 0.6437855986335712,
       "weekly_pct": -3.7519200230454763,
       "weighted_signal": {
         "class": "mixed",
@@ -902,9 +902,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 36.11111111111111,
+        "accuracy_pct": 35.13513513513514,
         "correct": 13,
-        "resolved": 36
+        "resolved": 37
       },
       "breadth": "specific",
       "candles": [
@@ -1044,7 +1044,7 @@
         {
           "c": 267.74,
           "h": 268.29,
-          "l": 259.63,
+          "l": 259.51,
           "o": 259.81,
           "t": "2026-11-18"
         }
@@ -1079,11 +1079,11 @@
       "move_maturity": {
         "label": "Fresh",
         "score": 1,
-        "sentence": "Hasn't moved much yet, this signal has held positive for 5 days. This looks early-stage based on positioning so far, not a prediction of what happens next."
+        "sentence": "Hasn't moved much yet, this signal has held positive for 6 days. This looks early-stage based on positioning so far, not a prediction of what happens next."
       },
       "pct_below_52wk_high": 5.731990496807323,
       "price": 267.739990234375,
-      "read_line": "Amazon is up nearly 4% today on stock-specific momentum while facing regulatory headwinds in key markets like Ohio.",
+      "read_line": "Amazon is up nearly 4% today on neutral technicals amid broad AI infrastructure optimism, though volume remains below average with no near-term catalysts.",
       "rsi": 57.18731033905825,
       "rsi_label": "neutral",
       "signal": {
@@ -1095,7 +1095,7 @@
         "up": 2
       },
       "symbol": "AMZN",
-      "volume_ratio": 0.8093185775489121,
+      "volume_ratio": 0.8229768547545091,
       "weekly_pct": 0.589839849509147,
       "weighted_signal": {
         "class": "bullish",
@@ -1106,9 +1106,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 48.717948717948715,
-        "correct": 19,
-        "resolved": 39
+        "accuracy_pct": 50.0,
+        "correct": 20,
+        "resolved": 40
       },
       "breadth": "specific",
       "candles": [
@@ -1283,8 +1283,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 36.900182558229936,
       "price": 150.9600067138672,
-      "read_line": "Nvidia is oversold after earnings disappointment and CEO departure uncertainty, triggering a sharp selloff despite elevated trading volume.",
-      "rsi": 21.10306067205049,
+      "read_line": "NVDA is severely oversold after earnings with technical weakness, while broader AI competition intensifies as Anthropic completes a record IPO.",
+      "rsi": 21.103060672050816,
       "rsi_label": "oversold",
       "signal": {
         "class": "bearish",
@@ -1295,7 +1295,7 @@
         "up": 1
       },
       "symbol": "NVDA",
-      "volume_ratio": 1.432860073454376,
+      "volume_ratio": 1.4565948105927653,
       "weekly_pct": -13.10653863676027,
       "weighted_signal": {
         "class": "bullish",
@@ -1306,9 +1306,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 43.18181818181818,
-        "correct": 19,
-        "resolved": 44
+        "accuracy_pct": 44.44444444444444,
+        "correct": 20,
+        "resolved": 45
       },
       "breadth": "sector",
       "candles": [
@@ -1483,7 +1483,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 21.67061374295214,
       "price": 383.7200012207031,
-      "read_line": "Tesla is trading near its 50-day average with neutral momentum amid sector-wide moves, while headlines focus on Musk's outside ventures and competitive EV production developments.",
+      "read_line": "Tesla trades near its 50-day average on sector-wide momentum with neutral technicals, while headlines mix business wins with chatter about Musk's side ventures.",
       "rsi": 51.08925042189213,
       "rsi_label": "neutral",
       "signal": {
@@ -1495,7 +1495,7 @@
         "up": 1
       },
       "symbol": "TSLA",
-      "volume_ratio": 0.6873379848250472,
+      "volume_ratio": 0.694399902777262,
       "weekly_pct": -1.8217160945401534,
       "weighted_signal": {
         "class": "mixed",
@@ -1683,8 +1683,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 20.732007408142913,
       "price": 616.3800048828125,
-      "read_line": "Meta is declining alongside the broader sector while facing regulatory scrutiny over teen engagement practices and uncertainty about AI monetization timelines.",
-      "rsi": 41.433007061778895,
+      "read_line": "Meta is down moderately on sector weakness and low volume while investors debate whether its massive AI capital spending will generate sufficient returns.",
+      "rsi": 41.43300706177848,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1695,7 +1695,7 @@
         "up": 1
       },
       "symbol": "META",
-      "volume_ratio": 0.44101077407541833,
+      "volume_ratio": 0.44414307437064043,
       "weekly_pct": -1.970516128881955,
       "weighted_signal": {
         "class": "bullish",
@@ -1706,9 +1706,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 31.818181818181817,
+        "accuracy_pct": 31.11111111111111,
         "correct": 14,
-        "resolved": 44
+        "resolved": 45
       },
       "breadth": "sector",
       "candles": [
@@ -1883,8 +1883,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 10.803727881576402,
       "price": 324.1099853515625,
-      "read_line": "JPM is declining alongside the broader financial sector while dealing with internal leadership transitions and operational issues.",
-      "rsi": 38.22211325480894,
+      "read_line": "JPM is declining alongside its financial sector peers amid broad market weakness, though a new CFO appointment and carmaker partnership suggest underlying business momentum.",
+      "rsi": 38.22211325480676,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1895,7 +1895,7 @@
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 0.9727301562794978,
+      "volume_ratio": 1.0342099772157685,
       "weekly_pct": -5.614615589976862,
       "weighted_signal": {
         "class": "bullish",
@@ -1906,9 +1906,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 54.54545454545454,
+        "accuracy_pct": 53.333333333333336,
         "correct": 24,
-        "resolved": 44
+        "resolved": 45
       },
       "breadth": "specific",
       "candles": [
@@ -2047,7 +2047,7 @@
         },
         {
           "c": 272.7,
-          "h": 278.7,
+          "h": 278.72,
           "l": 272.58,
           "o": 275.55,
           "t": "2026-11-18"
@@ -2083,8 +2083,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 4.566924861931321,
       "price": 272.70001220703125,
-      "read_line": "JNJ is down modestly on neutral momentum while maintaining slight gains versus its 50-day average, with headlines highlighting its positioning in growing surgical robotics and clinical trial markets.",
-      "rsi": 49.83699483785781,
+      "read_line": "JNJ is consolidating near its 50-day average with neutral momentum while positioned in growing surgical robotics and clinical trial markets.",
+      "rsi": 49.83699483783096,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2095,7 +2095,7 @@
         "up": 1
       },
       "symbol": "JNJ",
-      "volume_ratio": 1.040544835292994,
+      "volume_ratio": 1.0600669421747055,
       "weekly_pct": -2.7495422254509045,
       "weighted_signal": {
         "class": "mixed",
@@ -2248,7 +2248,7 @@
         {
           "c": 730.2,
           "h": 735.06,
-          "l": 726.79,
+          "l": 726.8,
           "o": 733.37,
           "t": "2026-11-18"
         }
@@ -2283,8 +2283,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 6.275271530013724,
       "price": 730.2000122070312,
-      "read_line": "SPY has weakened 4.2% below its 50-day average amid sector-wide pressure, though some index constituents like Take-Two are rallying strongly.",
-      "rsi": 36.643045560424035,
+      "read_line": "SPY is down moderately amid broad market weakness, while underlying index components like Take-Two and Cathie Wood stocks show divergent strength.",
+      "rsi": 36.64304556041822,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2295,7 +2295,7 @@
         "up": 1
       },
       "symbol": "SPY",
-      "volume_ratio": 0.9650835666061264,
+      "volume_ratio": 1.02591644492661,
       "weekly_pct": -3.897024972914901,
       "weighted_signal": {
         "class": "bullish",
