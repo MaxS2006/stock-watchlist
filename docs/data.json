@@ -3,9 +3,9 @@
   "checks_per_day": 36,
   "featured_mover": {
     "accuracy": {
-      "accuracy_pct": 33.33333333333333,
+      "accuracy_pct": 32.55813953488372,
       "correct": 14,
-      "resolved": 42
+      "resolved": 43
     },
     "breadth": "specific",
     "candles": [
@@ -144,9 +144,9 @@
       },
       {
         "c": 244.43,
-        "h": 246.55,
+        "h": 246.56,
         "l": 235.96,
-        "o": 243.16,
+        "o": 243.13,
         "t": "2026-11-25"
       }
     ],
@@ -180,7 +180,7 @@
     "move_maturity": null,
     "pct_below_52wk_high": 13.939158463943494,
     "price": 244.42999267578125,
-    "read_line": "Amazon is declining amid regulatory scrutiny on e-commerce safety while tech peers gain from AI momentum, leaving the stock 4% below its 50-day trend.",
+    "read_line": "Amazon is down sharply this week on stock-specific factors, though elevated volume and Goldman's pre-holiday signal suggest institutional positioning around competitive retail dynamics.",
     "rsi": 41.95498712080988,
     "rsi_label": "neutral",
     "signal": {
@@ -192,7 +192,7 @@
       "up": 0
     },
     "symbol": "AMZN",
-    "volume_ratio": 1.1433058720732425,
+    "volume_ratio": 1.157489380255626,
     "weekly_pct": -8.70620692044867,
     "weighted_signal": {
       "class": "bullish",
@@ -207,7 +207,7 @@
       "symbol": "AMZN"
     }
   ],
-  "generated_at": "2026-11-25T22:19:02.332730+00:00",
+  "generated_at": "2026-11-26T22:12:44.077293+00:00",
   "market_overview": [
     {
       "daily_pct": -0.2893815917337693,
@@ -252,10 +252,10 @@
       "symbol": "XLE"
     }
   ],
-  "next_sync_at": "2026-11-25T22:34:02.332730+00:00",
+  "next_sync_at": "2026-11-26T22:27:44.077293+00:00",
   "notable_movers": [
     {
-      "daily_pct": 6.4403252893830825,
+      "daily_pct": 6.441914797304585,
       "price": 333.11,
       "symbol": "ADI"
     },
@@ -297,14 +297,14 @@
   ],
   "regime": {
     "label": "downtrend",
-    "pct_vs_ma": -1.9256497005291675
+    "pct_vs_ma": -1.9256498643554263
   },
   "stocks": [
     {
       "accuracy": {
-        "accuracy_pct": 56.81818181818182,
-        "correct": 25,
-        "resolved": 44
+        "accuracy_pct": 57.77777777777777,
+        "correct": 26,
+        "resolved": 45
       },
       "breadth": "specific",
       "candles": [
@@ -445,7 +445,7 @@
           "c": 355.58,
           "h": 356.75,
           "l": 345.13,
-          "o": 353.59,
+          "o": 353.48,
           "t": "2026-11-25"
         }
       ],
@@ -479,12 +479,12 @@
       "move_maturity": {
         "label": "Extended",
         "score": 3,
-        "sentence": "This move looks extended \u2014 near its 52-week high, this signal has held positive for 4 days. This reflects how far the move has already run and how long the signal has held \u2014 not a prediction of what happens next."
+        "sentence": "This move looks extended \u2014 near its 52-week high, this signal has held positive for 5 days. This reflects how far the move has already run and how long the signal has held \u2014 not a prediction of what happens next."
       },
       "pct_below_52wk_high": 0.19367402887807403,
       "price": 355.5799865722656,
-      "read_line": "Apple is trading modestly above its 50-day average with neutral momentum, seemingly insulated from broader tech weakness while tariff concerns spare the chip and iPhone sectors.",
-      "rsi": 58.043063749168496,
+      "read_line": "Apple is showing modest strength as it sidesteps broader AI sector weakness while benefiting from special shareholder returns and stable fundamentals.",
+      "rsi": 58.04306374917372,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -495,7 +495,7 @@
         "up": 2
       },
       "symbol": "AAPL",
-      "volume_ratio": 1.0483010826531889,
+      "volume_ratio": 1.0725041178122026,
       "weekly_pct": 0.8880619256145207,
       "weighted_signal": {
         "class": "bullish",
@@ -649,7 +649,7 @@
           "c": 489.93,
           "h": 493.44,
           "l": 477.39,
-          "o": 485.42,
+          "o": 485.23,
           "t": "2026-11-25"
         }
       ],
@@ -683,8 +683,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 11.681104055928976,
       "price": 489.92999267578125,
-      "read_line": "Microsoft is down modestly on sector-wide weakness with neutral momentum, while prominent investors maintain positions despite recent AI-related selling pressure.",
-      "rsi": 38.99414729472,
+      "read_line": "Microsoft is experiencing sector-wide weakness amid a strategic shift toward cheaper AI models, with technicals showing oversold conditions but below its 50-day average.",
+      "rsi": 38.994147268161754,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -695,7 +695,7 @@
         "up": 1
       },
       "symbol": "MSFT",
-      "volume_ratio": 0.848468975603396,
+      "volume_ratio": 0.8700659373388003,
       "weekly_pct": -3.425914128728584,
       "weighted_signal": {
         "class": "bullish",
@@ -849,7 +849,7 @@
           "c": 273.1,
           "h": 273.62,
           "l": 262.73,
-          "o": 265.25,
+          "o": 265.1,
           "t": "2026-11-25"
         }
       ],
@@ -883,8 +883,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 32.08514843655551,
       "price": 273.1000061035156,
-      "read_line": "Google is caught in a sector-wide tech pullback amid AI uncertainty, trading 14% below its 50-day average on below-average volume.",
-      "rsi": 36.93047227026726,
+      "read_line": "Google is declining alongside tech peers amid cash-burn concerns, while trading below its 50-day average on sector-wide weakness.",
+      "rsi": 36.930472270294054,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -895,7 +895,7 @@
         "up": 1
       },
       "symbol": "GOOGL",
-      "volume_ratio": 0.8762436685025213,
+      "volume_ratio": 0.8865293649954287,
       "weekly_pct": -3.306895714897276,
       "weighted_signal": {
         "class": "bullish",
@@ -906,9 +906,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 33.33333333333333,
+        "accuracy_pct": 32.55813953488372,
         "correct": 14,
-        "resolved": 42
+        "resolved": 43
       },
       "breadth": "specific",
       "candles": [
@@ -1047,9 +1047,9 @@
         },
         {
           "c": 244.43,
-          "h": 246.55,
+          "h": 246.56,
           "l": 235.96,
-          "o": 243.16,
+          "o": 243.13,
           "t": "2026-11-25"
         }
       ],
@@ -1083,7 +1083,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 13.939158463943494,
       "price": 244.42999267578125,
-      "read_line": "Amazon is declining amid regulatory scrutiny on e-commerce safety while tech peers gain from AI momentum, leaving the stock 4% below its 50-day trend.",
+      "read_line": "Amazon is down sharply this week on stock-specific factors, though elevated volume and Goldman's pre-holiday signal suggest institutional positioning around competitive retail dynamics.",
       "rsi": 41.95498712080988,
       "rsi_label": "neutral",
       "signal": {
@@ -1095,7 +1095,7 @@
         "up": 0
       },
       "symbol": "AMZN",
-      "volume_ratio": 1.1433058720732425,
+      "volume_ratio": 1.157489380255626,
       "weekly_pct": -8.70620692044867,
       "weighted_signal": {
         "class": "bullish",
@@ -1249,7 +1249,7 @@
           "c": 149.3,
           "h": 150.37,
           "l": 141.17,
-          "o": 144.02,
+          "o": 144.06,
           "t": "2026-11-25"
         }
       ],
@@ -1283,7 +1283,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 37.59404797538184,
       "price": 149.3000030517578,
-      "read_line": "Investors are rotating out of chipmakers amid trade tariff concerns, leaving NVDA oversold with weak momentum despite no near-term catalysts.",
+      "read_line": "NVDA has declined sharply and trades significantly below its 50-day average on stock-specific weakness, while broader AI sector attention shifts toward other opportunities like Anthropic.",
       "rsi": 37.452659397702334,
       "rsi_label": "neutral",
       "signal": {
@@ -1295,7 +1295,7 @@
         "up": 0
       },
       "symbol": "NVDA",
-      "volume_ratio": 1.0658875540256154,
+      "volume_ratio": 1.0867734454509381,
       "weekly_pct": -1.0996314177805924,
       "weighted_signal": {
         "class": "bullish",
@@ -1306,9 +1306,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 48.93617021276596,
+        "accuracy_pct": 50.0,
         "correct": 23,
-        "resolved": 47
+        "resolved": 46
       },
       "breadth": "sector",
       "candles": [
@@ -1449,7 +1449,7 @@
           "c": 380.14,
           "h": 383.73,
           "l": 357.64,
-          "o": 370.23,
+          "o": 370.52,
           "t": "2026-11-25"
         }
       ],
@@ -1483,11 +1483,11 @@
       "move_maturity": {
         "label": "Fresh",
         "score": 0,
-        "sentence": "Fresh signal \u2014 just turned positive yesterday. Nothing here suggests the move has already run far. This looks early-stage based on positioning so far, not a prediction of what happens next."
+        "sentence": "Hasn't moved much yet. Nothing here suggests the move has already run far. This looks early-stage based on positioning so far, not a prediction of what happens next."
       },
       "pct_below_52wk_high": 22.401402208817778,
       "price": 380.1400146484375,
-      "read_line": "Tesla is flat on neutral technicals amid sector-wide weakness, while a major investor's recent $680M stake entry and space-sector volatility create mixed directional signals.",
+      "read_line": "Tesla is flat near its 50-day average on sector-wide weakness, with neutral momentum while regulatory delays and competitive pressures temper growth expectations.",
       "rsi": 50.30743448757804,
       "rsi_label": "neutral",
       "signal": {
@@ -1499,7 +1499,7 @@
         "up": 2
       },
       "symbol": "TSLA",
-      "volume_ratio": 0.9516552495063798,
+      "volume_ratio": 0.9806624480750921,
       "weekly_pct": -0.9329684563944673,
       "weighted_signal": {
         "class": "bullish",
@@ -1651,9 +1651,9 @@
         },
         {
           "c": 609.89,
-          "h": 611.03,
+          "h": 611.06,
           "l": 567.75,
-          "o": 574.78,
+          "o": 575.34,
           "t": "2026-11-25"
         }
       ],
@@ -1687,8 +1687,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 21.56663619840919,
       "price": 609.8900146484375,
-      "read_line": "Meta is consolidating after a strong day while trading below its 50-day average, with AI advertising tools generating positive analyst commentary but no immediate catalysts.",
-      "rsi": 45.70041712621667,
+      "read_line": "Meta rallied 3.4% today on Amazon AI partnership rumors while trading below its 50-day average with neutral momentum and mixed institutional positioning.",
+      "rsi": 45.70041712667444,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -1699,7 +1699,7 @@
         "up": 1
       },
       "symbol": "META",
-      "volume_ratio": 0.9705797688874013,
+      "volume_ratio": 0.9763422077293802,
       "weekly_pct": -1.052920306136292,
       "weighted_signal": {
         "class": "bullish",
@@ -1851,8 +1851,8 @@
         },
         {
           "c": 316.74,
-          "h": 318.34,
-          "l": 309.54,
+          "h": 318.41,
+          "l": 309.49,
           "o": 310.56,
           "t": "2026-11-25"
         }
@@ -1887,7 +1887,7 @@
       "move_maturity": null,
       "pct_below_52wk_high": 12.83197791920191,
       "price": 316.739990234375,
-      "read_line": "JPM is caught in a sector-wide selloff despite maintaining a bullish long-term stance, with technical weakness (RSI 37, -5.4% vs 50-day) offsetting institutional confidence.",
+      "read_line": "JPM is down modestly amid sector-wide weakness, trading below its 50-day average on concerns about AI credit risks and regulatory headwinds facing major banks.",
       "rsi": 37.080509745415256,
       "rsi_label": "neutral",
       "signal": {
@@ -1899,7 +1899,7 @@
         "up": 1
       },
       "symbol": "JPM",
-      "volume_ratio": 1.0496152612796363,
+      "volume_ratio": 1.0508713908810523,
       "weekly_pct": -2.27391794461169,
       "weighted_signal": {
         "class": "bullish",
@@ -1910,9 +1910,9 @@
     },
     {
       "accuracy": {
-        "accuracy_pct": 47.82608695652174,
-        "correct": 22,
-        "resolved": 46
+        "accuracy_pct": 46.666666666666664,
+        "correct": 21,
+        "resolved": 45
       },
       "breadth": "sector",
       "candles": [
@@ -2087,12 +2087,12 @@
       "move_maturity": {
         "label": "Fresh",
         "score": 1,
-        "sentence": "Fresh signal \u2014 just turned positive yesterday, only 3.7% below its 52-week high. This looks early-stage based on positioning so far, not a prediction of what happens next."
+        "sentence": "Hasn't moved much yet, only 3.7% below its 52-week high. This looks early-stage based on positioning so far, not a prediction of what happens next."
       },
       "pct_below_52wk_high": 3.6549127325830626,
       "price": 273.94000244140625,
-      "read_line": "JNJ is trading near its 50-day highs in neutral technical territory amid sector-wide dividend stock interest, with no near-term catalysts.",
-      "rsi": 52.63402707956514,
+      "read_line": "JNJ is trading near its 50-day high on sector-wide weakness with neutral momentum, while media highlights its dividend stability amid broader market concerns.",
+      "rsi": 52.63402705027396,
       "rsi_label": "neutral",
       "signal": {
         "class": "bullish",
@@ -2103,7 +2103,7 @@
         "up": 2
       },
       "symbol": "JNJ",
-      "volume_ratio": 1.0266311269392483,
+      "volume_ratio": 1.1104141334800053,
       "weekly_pct": 0.9556549214339007,
       "weighted_signal": {
         "class": "bullish",
@@ -2291,8 +2291,8 @@
       "move_maturity": null,
       "pct_below_52wk_high": 8.0080622903432,
       "price": 716.7000122070312,
-      "read_line": "Market-wide weakness is pulling SPY down while investors debate whether expensive mega-cap tech is fairly valued versus dividend and value alternatives.",
-      "rsi": 39.85346928960052,
+      "read_line": "SPY is declining amid broad market weakness driven by tariff concerns and political uncertainty, despite strong economic data and elevated trading volume.",
+      "rsi": 39.853469289598564,
       "rsi_label": "neutral",
       "signal": {
         "class": "mixed",
@@ -2303,7 +2303,7 @@
         "up": 1
       },
       "symbol": "SPY",
-      "volume_ratio": 1.1502415721877925,
+      "volume_ratio": 1.161879388316416,
       "weekly_pct": -1.8488085146967086,
       "weighted_signal": {
         "class": "bullish",
